@@ -8,12 +8,12 @@ See: .planning/PROJECT.md (updated 2026-03-04)
 ## Current Phase
 Phase 1: Foundation + Catalogue + Traceability Core
 Status: In progress
-Current Plan: 3 of 4
+Current Plan: 4 of 4
 
 ## Progress
 Plan 01-01 (Project Scaffold): COMPLETE
 Plan 01-02 (Product Catalogue Scraper): COMPLETE
-Plan 01-03: Not started
+Plan 01-03 (Product Catalogue UI): COMPLETE (awaiting visual checkpoint)
 Plan 01-04: Not started
 
 ## Completed Phases
@@ -30,6 +30,9 @@ Plan 01-04: Not started
 - Scraped product families (not individual SKUs) since Proventure site uses family pages
 - Generated Torke SKUs as TRK-{TYPE}-{SHORTCODE} for families; variant expansion deferred
 - Downloaded 51MB of binary assets locally; excluded from git via .gitignore
+- Product listing uses dual data source: Meilisearch for facets/search, DB fallback when unavailable
+- Product detail pages use force-dynamic to avoid build-time DB queries
+- Filter state stored in URL search params for shareable/bookmarkable filtered views
 
 ## Performance Metrics
 
@@ -37,7 +40,8 @@ Plan 01-04: Not started
 |-------|------|----------|-------|-------|
 | 01 | 01 | 12min | 3 | 50+ |
 | 01 | 02 | 13min | 3 | 11 |
+| 01 | 03 | 15min | 4 | 23 |
 
 ## Last Session
-- **Stopped at:** Completed 01-02-PLAN.md
-- **Timestamp:** 2026-03-04T20:54:34Z
+- **Stopped at:** Completed 01-03-PLAN.md (awaiting visual checkpoint)
+- **Timestamp:** 2026-03-04T21:13:04Z
