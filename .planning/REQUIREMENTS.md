@@ -46,17 +46,17 @@ All v1 requirements are specific and testable. Each has a unique REQ-ID grouped 
 
 ### Goods-In Capture
 
-- [ ] **TRACE-01**: Warehouse operator can record supplier batch number against a purchase order line at goods-in
-- [ ] **TRACE-02**: Warehouse operator can upload a 3.1 cert PDF and link it to the supplier batch at goods-in
-- [ ] **TRACE-03**: System generates a unique internal Torke batch ID on goods-in and links it to the supplier batch, supplier name, date received, PO reference, and 3.1 cert
-- [ ] **TRACE-04**: System auto-prints a label at goods-in with Torke batch ID and QR code
-- [ ] **TRACE-05**: Stock does not become available for picking until goods-in is fully completed (batch ID assigned and cert uploaded)
+- [x] **TRACE-01**: Warehouse operator can record supplier batch number against a purchase order line at goods-in
+- [x] **TRACE-02**: Warehouse operator can upload a 3.1 cert PDF and link it to the supplier batch at goods-in
+- [x] **TRACE-03**: System generates a unique internal Torke batch ID on goods-in and links it to the supplier batch, supplier name, date received, PO reference, and 3.1 cert
+- [x] **TRACE-04**: System auto-prints a label at goods-in with Torke batch ID and QR code
+- [x] **TRACE-05**: Stock does not become available for picking until goods-in is fully completed (batch ID assigned and cert uploaded)
 
 ### FIFO Batch Allocation
 
-- [ ] **TRACE-06**: System allocates stock using FIFO — oldest qualifying batch is always picked first
+- [x] **TRACE-06**: System allocates stock using FIFO — oldest qualifying batch is always picked first
 - [ ] **TRACE-07**: Order confirmation shows the batch allocation per line item (customer knows which batch before dispatch)
-- [ ] **TRACE-08**: System supports many-to-many between batches and order lines (one order line can span batches; one batch can fulfil multiple orders)
+- [x] **TRACE-08**: System supports many-to-many between batches and order lines (one order line can span batches; one batch can fulfil multiple orders)
 
 ### Digital Cert Pack
 
@@ -78,8 +78,8 @@ All v1 requirements are specific and testable. Each has a unique REQ-ID grouped 
 
 ### Permanent URL Scheme
 
-- [ ] **TRACE-18**: QR verification URLs use a permanent, versioned scheme (e.g. `/t/{token}`) that will resolve for the lifetime of the building (50+ years)
-- [ ] **TRACE-19**: QR tokens are opaque UUIDs (not batch numbers) to prevent enumeration
+- [x] **TRACE-18**: QR verification URLs use a permanent, versioned scheme (e.g. `/t/{token}`) that will resolve for the lifetime of the building (50+ years)
+- [x] **TRACE-19**: QR tokens are opaque UUIDs (not batch numbers) to prevent enumeration
 
 ---
 
@@ -132,16 +132,16 @@ All v1 requirements are specific and testable. Each has a unique REQ-ID grouped 
 
 ### Batch-Tracked Stock Management
 
-- [ ] **WMS-01**: System maintains batch-tracked inventory with quantity per batch per product
+- [x] **WMS-01**: System maintains batch-tracked inventory with quantity per batch per product
 - [ ] **WMS-02**: System enforces FIFO at allocation — pick lists always suggest the oldest qualifying batch
 - [ ] **WMS-03**: System provides stock level dashboard showing quantities by product and batch
 - [ ] **WMS-04**: System supports stock adjustments with reason codes (damage, returns, cycle count variance)
-- [ ] **WMS-05**: System tracks expiry dates for chemical products (resins) and alerts when batches approach expiry
+- [x] **WMS-05**: System tracks expiry dates for chemical products (resins) and alerts when batches approach expiry
 
 ### Label Printing
 
-- [ ] **WMS-06**: System auto-prints a goods-in label with Torke batch ID, product code, quantity, and QR code when goods-in is completed
-- [ ] **WMS-07**: Label QR code links to the batch verification page (same URL scheme as TRACE-18)
+- [x] **WMS-06**: System auto-prints a goods-in label with Torke batch ID, product code, quantity, and QR code when goods-in is completed
+- [x] **WMS-07**: Label QR code links to the batch verification page (same URL scheme as TRACE-18)
 
 ### Pick Lists & Dispatch
 

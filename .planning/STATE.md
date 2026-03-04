@@ -3,21 +3,21 @@
 ## Project Reference
 See: .planning/PROJECT.md (updated 2026-03-04)
 **Core value:** Full mill-to-site batch traceability with verifiable 3.1 certification
-**Current focus:** Phase 1
+**Current focus:** Phase 1 COMPLETE
 
 ## Current Phase
 Phase 1: Foundation + Catalogue + Traceability Core
-Status: In progress
-Current Plan: 4 of 4
+Status: Complete
+Current Plan: 4 of 4 (all complete)
 
 ## Progress
 Plan 01-01 (Project Scaffold): COMPLETE
 Plan 01-02 (Product Catalogue Scraper): COMPLETE
-Plan 01-03 (Product Catalogue UI): COMPLETE (visual checkpoint approved)
-Plan 01-04: Not started
+Plan 01-03 (Product Catalogue UI): COMPLETE
+Plan 01-04 (Goods-In, Batch Tracking, QR Verification): COMPLETE
 
 ## Completed Phases
-(None yet)
+Phase 1: Foundation + Catalogue + Traceability Core (4/4 plans)
 
 ## Decisions
 - Used Next.js 16.1.6 (latest stable); middleware deprecated but functional for auth checks
@@ -33,6 +33,12 @@ Plan 01-04: Not started
 - Product listing uses dual data source: Meilisearch for facets/search, DB fallback when unavailable
 - Product detail pages use force-dynamic to avoid build-time DB queries
 - Filter state stored in URL search params for shareable/bookmarkable filtered views
+- Batch creation and verification token generation in single DB transaction for atomicity
+- QR verification URLs use /t/{uuid} permanent scheme — opaque tokens, not batch IDs
+- FIFO allocation queries batches ordered by goodsInDate ASC, splits across batches if needed
+- Label print CSS uses @page 100mm x 60mm for thermal label stock
+- Verification page uses light theme (exception to site dark theme) for certificate-like trustworthiness
+- Mill cert fields optional on goods-in form for Phase 2 readiness
 
 ## Performance Metrics
 
@@ -41,7 +47,8 @@ Plan 01-04: Not started
 | 01 | 01 | 12min | 3 | 50+ |
 | 01 | 02 | 13min | 3 | 11 |
 | 01 | 03 | 15min | 4 | 23 |
+| 01 | 04 | 20min | 5 | 37 |
 
 ## Last Session
-- **Stopped at:** Completed 01-03-PLAN.md (visual checkpoint approved)
-- **Timestamp:** 2026-03-04T21:45:00Z
+- **Stopped at:** Completed 01-04-PLAN.md — Phase 1 fully complete
+- **Timestamp:** 2026-03-04T21:35:00Z
