@@ -133,7 +133,7 @@ All v1 requirements are specific and testable. Each has a unique REQ-ID grouped 
 ### Batch-Tracked Stock Management
 
 - [x] **WMS-01**: System maintains batch-tracked inventory with quantity per batch per product
-- [ ] **WMS-02**: System enforces FIFO at allocation — pick lists always suggest the oldest qualifying batch
+- [x] **WMS-02**: System enforces FIFO at allocation — pick lists always suggest the oldest qualifying batch
 - [x] **WMS-03**: System provides stock level dashboard showing quantities by product and batch
 - [x] **WMS-04**: System supports stock adjustments with reason codes (damage, returns, cycle count variance)
 - [x] **WMS-05**: System tracks expiry dates for chemical products (resins) and alerts when batches approach expiry
@@ -145,9 +145,9 @@ All v1 requirements are specific and testable. Each has a unique REQ-ID grouped 
 
 ### Pick Lists & Dispatch
 
-- [ ] **WMS-08**: System generates pick lists from confirmed orders with batch allocation pre-assigned (FIFO)
-- [ ] **WMS-09**: System supports both small parcel (courier) and pallet (bulk project) dispatch workflows
-- [ ] **WMS-10**: Dispatch event triggers cert pack generation (links to TRACE-09)
+- [x] **WMS-08**: System generates pick lists from confirmed orders with batch allocation pre-assigned (FIFO)
+- [x] **WMS-09**: System supports both small parcel (courier) and pallet (bulk project) dispatch workflows
+- [x] **WMS-10**: Dispatch event triggers cert pack generation (links to TRACE-09)
 
 ### v2 Deferred (not in scope for v1)
 

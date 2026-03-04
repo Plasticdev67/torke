@@ -8,14 +8,14 @@ See: .planning/PROJECT.md (updated 2026-03-04)
 ## Current Phase
 Phase 2: E-Commerce Order Flow + WMS
 Status: In Progress
-Current Plan: 7 of 8
+Current Plan: 8 of 8
 
 ## Progress
 Plan 02-00 (Test Infrastructure): COMPLETE
 Plan 02-01 (Schema + Cart + Allocation): COMPLETE
 Plan 02-02 (Stock Dashboard + Adjustments): COMPLETE
 Plan 02-03 (Order Management): COMPLETE
-Plan 02-04 (Fulfillment - Pick/Pack/Dispatch): PENDING
+Plan 02-04 (Fulfillment - Pick/Pack/Dispatch): COMPLETE
 Plan 02-05 (Cert Pack + Invoice Generation): COMPLETE
 Plan 02-06 (Email Notifications + Order History): PENDING
 Plan 02-07 (Checkout + Payments): COMPLETE
@@ -69,6 +69,9 @@ Phase 1: Foundation + Catalogue + Traceability Core (4/4 plans)
 - BACS success page doubles as inline proforma with bank details; formal PDF deferred to Plan 05
 - Stripe webhook returns 200 even on business logic errors to prevent retry loops
 - Separate API route for Stripe session creation after order creation
+- Dispatch Zod validation uses .refine() for conditional required fields (tracking/consignment)
+- Pick list uses A4 print stylesheet with picklist-container class visibility pattern
+- Cert pack generation logged as placeholder console.log for Plan 05 to implement
 
 ## Performance Metrics
 
@@ -84,7 +87,8 @@ Phase 1: Foundation + Catalogue + Traceability Core (4/4 plans)
 | 02 | 03 | 4min | 2 | 7 |
 | 02 | 05 | 7min | 2 | 7 |
 | 02 | 07 | 9min | 2 | 17 |
+| 02 | 04 | 7min | 2 | 11 |
 
 ## Last Session
-- **Stopped at:** Completed 02-07-PLAN.md — Checkout + Payments
-- **Timestamp:** 2026-03-04T23:40:58Z
+- **Stopped at:** Completed 02-04-PLAN.md — Fulfillment - Pick/Pack/Dispatch
+- **Timestamp:** 2026-03-04T23:51:39Z
