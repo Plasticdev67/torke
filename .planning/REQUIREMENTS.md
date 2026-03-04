@@ -19,11 +19,11 @@ All v1 requirements are specific and testable. Each has a unique REQ-ID grouped 
 ### Ordering & Checkout
 
 - [x] **SHOP-06**: User can add products to a basket and proceed to checkout
-- [ ] **SHOP-07**: User can enter a PO (purchase order) number at checkout
-- [ ] **SHOP-08**: User can check out on credit terms (net 30 or net 60) against an approved credit account
-- [ ] **SHOP-09**: User can pay by BACS bank transfer with order held until payment confirmed
+- [x] **SHOP-07**: User can enter a PO (purchase order) number at checkout
+- [x] **SHOP-08**: User can check out on credit terms (net 30 or net 60) against an approved credit account
+- [x] **SHOP-09**: User can pay by BACS bank transfer with order held until payment confirmed
 - [ ] **SHOP-10**: User can pay by card via Stripe (with SCA compliance)
-- [ ] **SHOP-11**: User can select from multiple saved delivery addresses per account
+- [x] **SHOP-11**: User can select from multiple saved delivery addresses per account
 - [ ] **SHOP-12**: User receives an order confirmation email with order reference and line item summary
 
 ### Account & Order History
