@@ -34,8 +34,8 @@
 - Stock only becomes "available" after goods-in is complete
 
 ### QR URL Scheme
-- Permanent URLs: proventure.co.uk/cert/{uuid} (or torke domain TBD)
-- UUID-based, not batch numbers (opaque tokens for security)
+- Permanent URLs: torke.co.uk/t/{token} — locked, never changes
+- UUID-based (opaque UUIDv4 tokens), not batch numbers or sequential IDs
 - Must be locked before any label is printed — these URLs last 50-100 years
 
 ### Batch Data Model
