@@ -48,9 +48,14 @@
 
   /* Torke brand tokens */
   --color-torke-red: #C41E3A;
+  --color-torke-red-hover: #D6354F;
+  --color-torke-red-dark: #9E1830;
   --color-torke-black: #0A0A0A;
   --color-torke-dark-grey: #1A1A1A;
   --color-torke-mid-grey: #2D2D2D;
+  --color-torke-border: #333333;
+  --color-torke-text-muted: #B3B3B3;
+  --color-torke-text-secondary: #999999;
   --color-torke-light-grey: #F5F5F5;
   --color-torke-white: #FFFFFF;
 }
@@ -99,4 +104,96 @@
   body {
     @apply bg-background text-foreground;
   }
+}
+
+/* Premium card hover effects */
+.product-card {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(196, 30, 58, 0.15);
+}
+
+/* Search results fade in */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.search-result-item {
+  animation: fadeInUp 0.15s ease forwards;
+}
+
+.search-result-item:nth-child(2) { animation-delay: 0.03s; }
+.search-result-item:nth-child(3) { animation-delay: 0.06s; }
+.search-result-item:nth-child(4) { animation-delay: 0.09s; }
+.search-result-item:nth-child(5) { animation-delay: 0.12s; }
+
+/* Dark shimmer loading skeleton */
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.skeleton-dark {
+  background: linear-gradient(
+    90deg,
+    #1A1A1A 25%,
+    #2D2D2D 50%,
+    #1A1A1A 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s ease-in-out infinite;
+}
+
+/* Sticky header with backdrop blur */
+.header-sticky {
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  background-color: rgba(10, 10, 10, 0.85);
+}
+
+/* Smooth transitions for interactive elements */
+.transition-premium {
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Filter count badge animation */
+@keyframes countPulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+}
+
+.count-badge-animate {
+  animation: countPulse 0.3s ease;
+}
+
+/* Custom scrollbar for dark theme */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0A0A0A;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #333;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
 }
