@@ -32,6 +32,16 @@ Coarse-grained roadmap: 4 phases, dependency-ordered. Each phase delivers observ
 
 **Goal:** Enable customers to buy products and Torke to fulfil orders with full batch traceability through the order lifecycle.
 
+**Plans:** 6 plans
+
+Plans:
+- [ ] 02-01-PLAN.md — Schema, cart store, and order service foundation
+- [ ] 02-02-PLAN.md — Stock dashboard and stock adjustments
+- [ ] 02-03-PLAN.md — Checkout flow, addresses, and payment integration
+- [ ] 02-04-PLAN.md — WMS pick lists and dispatch workflows
+- [ ] 02-05-PLAN.md — PDF generation (cert packs and invoices)
+- [ ] 02-06-PLAN.md — Customer portal and transactional emails
+
 **Requirements:**
 - SHOP-06, SHOP-07, SHOP-08, SHOP-09, SHOP-10, SHOP-11, SHOP-12 (basket, checkout, payment)
 - SHOP-14, SHOP-15, SHOP-16 (order history, reorder, invoices)
@@ -115,4 +125,4 @@ Features explicitly deferred from v1. Prioritisation to be determined after laun
 
 ---
 
-*Last updated: 2026-03-04 — Phase 1 complete*
+*Last updated: 2026-03-04 — Phase 2 planned (6 plans, 4 waves)*
