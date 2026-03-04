@@ -3,23 +3,30 @@
 ## Project Reference
 See: .planning/PROJECT.md (updated 2026-03-04)
 **Core value:** Full mill-to-site batch traceability with verifiable 3.1 certification
-**Current focus:** Phase 1 COMPLETE
+**Current focus:** Phase 2 — E-Commerce Order Flow + WMS
 
 ## Current Phase
-Phase 1: Foundation + Catalogue + Traceability Core
-Status: Complete
-Current Plan: 4 of 4 (all complete)
+Phase 2: E-Commerce Order Flow + WMS
+Status: In Progress
+Current Plan: 1 of 8
 
 ## Progress
-Plan 01-01 (Project Scaffold): COMPLETE
-Plan 01-02 (Product Catalogue Scraper): COMPLETE
-Plan 01-03 (Product Catalogue UI): COMPLETE
-Plan 01-04 (Goods-In, Batch Tracking, QR Verification): COMPLETE
+Plan 02-00 (Test Infrastructure): COMPLETE
+Plan 02-01 (Schema + Cart + Allocation): IN PROGRESS
+Plan 02-02 (Stock Dashboard + Adjustments): PENDING
+Plan 02-03 (Order Management): PENDING
+Plan 02-04 (Fulfillment - Pick/Pack/Dispatch): PENDING
+Plan 02-05 (Cert Pack + Invoice Generation): PENDING
+Plan 02-06 (Email Notifications + Order History): PENDING
+Plan 02-07 (Checkout + Payments): PENDING
 
 ## Completed Phases
 Phase 1: Foundation + Catalogue + Traceability Core (4/4 plans)
 
 ## Decisions
+- Vitest globals enabled; explicit imports in stubs for IDE support
+- Node test environment (not jsdom) for server-side Phase 2 logic
+- R2 storage mocked globally in test setup for all test files
 - Used Next.js 16.1.6 (latest stable); middleware deprecated but functional for auth checks
 - Drizzle schema split by domain: products, batches, stock, verification, allocations, users
 - Better Auth 1.5.3 requires separate @better-auth/drizzle-adapter package
@@ -48,7 +55,8 @@ Phase 1: Foundation + Catalogue + Traceability Core (4/4 plans)
 | 01 | 02 | 13min | 3 | 11 |
 | 01 | 03 | 15min | 4 | 23 |
 | 01 | 04 | 20min | 5 | 37 |
+| 02 | 00 | 3min | 2 | 14 |
 
 ## Last Session
-- **Stopped at:** Completed 01-04-PLAN.md — Phase 1 fully complete
-- **Timestamp:** 2026-03-04T21:35:00Z
+- **Stopped at:** Completed 02-00-PLAN.md — Test infrastructure for Phase 2
+- **Timestamp:** 2026-03-04T23:15:30Z
