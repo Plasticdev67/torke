@@ -8,7 +8,7 @@ See: .planning/PROJECT.md (updated 2026-03-04)
 ## Current Phase
 Phase 2: E-Commerce Order Flow + WMS
 Status: In Progress
-Current Plan: 6 of 8
+Current Plan: 7 of 8
 
 ## Progress
 Plan 02-00 (Test Infrastructure): COMPLETE
@@ -18,7 +18,7 @@ Plan 02-03 (Order Management): COMPLETE
 Plan 02-04 (Fulfillment - Pick/Pack/Dispatch): PENDING
 Plan 02-05 (Cert Pack + Invoice Generation): COMPLETE
 Plan 02-06 (Email Notifications + Order History): PENDING
-Plan 02-07 (Checkout + Payments): PENDING
+Plan 02-07 (Checkout + Payments): COMPLETE
 
 ## Completed Phases
 Phase 1: Foundation + Catalogue + Traceability Core (4/4 plans)
@@ -64,6 +64,11 @@ Phase 1: Foundation + Catalogue + Traceability Core (4/4 plans)
 - Proforma invoices have no invoice number (not a tax document per HMRC)
 - Bank details sourced from env vars with placeholder defaults for development
 - Invoice and proforma share layout helpers to avoid duplication
+- Stripe Checkout Sessions (hosted page) for SCA-compliant card payments
+- Payment service strategy pattern: card -> Stripe redirect, credit -> auto-confirm, BACS -> awaiting_payment
+- BACS success page doubles as inline proforma with bank details; formal PDF deferred to Plan 05
+- Stripe webhook returns 200 even on business logic errors to prevent retry loops
+- Separate API route for Stripe session creation after order creation
 
 ## Performance Metrics
 
@@ -78,7 +83,8 @@ Phase 1: Foundation + Catalogue + Traceability Core (4/4 plans)
 | 02 | 02 | 5min | 2 | 7 |
 | 02 | 03 | 4min | 2 | 7 |
 | 02 | 05 | 7min | 2 | 7 |
+| 02 | 07 | 9min | 2 | 17 |
 
 ## Last Session
-- **Stopped at:** Completed 02-05-PLAN.md — Cert Pack + Invoice Generation
-- **Timestamp:** 2026-03-04T23:39:02Z
+- **Stopped at:** Completed 02-07-PLAN.md — Checkout + Payments
+- **Timestamp:** 2026-03-04T23:40:58Z
