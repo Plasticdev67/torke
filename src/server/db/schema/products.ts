@@ -56,6 +56,7 @@ export const products = pgTable("products", {
   datasheetUrl: text("datasheet_url"),
   images: jsonb("images").$type<string[]>(),
   isActive: boolean("is_active").default(true).notNull(),
+  pricePence: integer("price_pence"),
   createdAt: timestamp("created_at").defaultNow().notNull(),
   updatedAt: timestamp("updated_at").defaultNow().notNull(),
 });
