@@ -28,7 +28,7 @@ All v1 requirements are specific and testable. Each has a unique REQ-ID grouped 
 
 ### Account & Order History
 
-- [ ] **SHOP-13**: User can create an account and log in (email/password via Better Auth)
+- [x] **SHOP-13**: User can create an account and log in (email/password via Better Auth)
 - [ ] **SHOP-14**: User can view order history with status, tracking, and batch/cert references per line item
 - [ ] **SHOP-15**: User can re-order a previous order with one click
 - [ ] **SHOP-16**: User can download invoices as PDF from their account portal
