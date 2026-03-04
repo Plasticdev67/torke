@@ -10,9 +10,9 @@ All v1 requirements are specific and testable. Each has a unique REQ-ID grouped 
 
 ### Product Catalogue & Search
 
-- [ ] **SHOP-01**: User can browse products organised by category hierarchy (chemical anchors, mechanical anchors, general fixings)
-- [ ] **SHOP-02**: User can filter products by faceted search: type, diameter, material, and load class
-- [ ] **SHOP-03**: User can view a product detail page showing technical specifications, dimensioned drawings, and downloadable datasheet PDF
+- [x] **SHOP-01**: User can browse products organised by category hierarchy (chemical anchors, mechanical anchors, general fixings)
+- [x] **SHOP-02**: User can filter products by faceted search: type, diameter, material, and load class
+- [x] **SHOP-03**: User can view a product detail page showing technical specifications, dimensioned drawings, and downloadable datasheet PDF
 - [ ] **SHOP-04**: User can perform a text search across product names, codes, and descriptions with typo tolerance (Meilisearch)
 - [ ] **SHOP-05**: Search results return in under 200ms with correct facet counts
 
