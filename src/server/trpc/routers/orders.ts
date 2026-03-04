@@ -4,12 +4,14 @@ import { orders, orderLines } from "@/server/db/schema/orders";
 import { products } from "@/server/db/schema/products";
 import { creditAccounts } from "@/server/db/schema/credit-accounts";
 import { deliveryAddresses } from "@/server/db/schema/addresses";
+import { orderLineAllocations } from "@/server/db/schema/allocations";
+import { batches } from "@/server/db/schema/batches";
 import {
   createOrder,
   transitionOrder,
   allocateOrderStock,
 } from "@/server/services/order-service";
-import { eq, and, sql, desc } from "drizzle-orm";
+import { eq, and, sql, desc, asc, inArray } from "drizzle-orm";
 import { TRPCError } from "@trpc/server";
 
 export const ordersRouter = router({
@@ -369,6 +371,300 @@ export const ordersRouter = router({
         .returning();
 
       return updated!;
+    }),
+
+  // -----------------------------------------------------------------------
+  // WMS: Order Queue, Pick Lists, Packing, Dispatch
+  // -----------------------------------------------------------------------
+
+  /** Order queue for warehouse operators */
+  queue: warehouseProcedure
+    .input(
+      z
+        .object({
+          status: z
+            .enum(["confirmed", "allocated", "picking", "packed"])
+            .optional(),
+        })
+        .optional()
+    )
+    .query(async ({ ctx, input }) => {
+      const statusFilter = input?.status;
+
+      const queueStatuses = ["confirmed", "allocated", "picking", "packed"] as const;
+
+      const queueOrders = await ctx.db
+        .select({
+          id: orders.id,
+          orderNumber: orders.orderNumber,
+          userId: orders.userId,
+          status: orders.status,
+          totalPence: orders.totalPence,
+          confirmedAt: orders.confirmedAt,
+          createdAt: orders.createdAt,
+        })
+        .from(orders)
+        .where(
+          statusFilter
+            ? eq(orders.status, statusFilter)
+            : sql`${orders.status} IN ('confirmed', 'allocated', 'picking', 'packed')`
+        )
+        .orderBy(asc(orders.confirmedAt));
+
+      // Fetch line counts for each order
+      const orderIds = queueOrders.map((o) => o.id);
+      let lineCounts: Record<string, number> = {};
+
+      if (orderIds.length > 0) {
+        const counts = await ctx.db
+          .select({
+            orderId: orderLines.orderId,
+            count: sql<number>`COUNT(*)::int`,
+          })
+          .from(orderLines)
+          .where(
+            sql`${orderLines.orderId} IN (${sql.join(
+              orderIds.map((id) => sql`${id}`),
+              sql`, `
+            )})`
+          )
+          .groupBy(orderLines.orderId);
+
+        lineCounts = Object.fromEntries(
+          counts.map((c) => [c.orderId, c.count])
+        );
+      }
+
+      return queueOrders.map((o) => ({
+        ...o,
+        lineCount: lineCounts[o.id] ?? 0,
+      }));
+    }),
+
+  /** Get pick list for an order with FIFO batch allocations */
+  getPickList: warehouseProcedure
+    .input(z.object({ orderId: z.string().uuid() }))
+    .query(async ({ ctx, input }) => {
+      const order = await ctx.db.query.orders.findFirst({
+        where: eq(orders.id, input.orderId),
+        with: {
+          orderLines: {
+            with: {
+              product: true,
+            },
+          },
+        },
+      });
+
+      if (!order) {
+        throw new TRPCError({
+          code: "NOT_FOUND",
+          message: "Order not found",
+        });
+      }
+
+      // Fetch delivery address
+      let deliveryAddress = null;
+      if (order.deliveryAddressId) {
+        const [addr] = await ctx.db
+          .select()
+          .from(deliveryAddresses)
+          .where(eq(deliveryAddresses.id, order.deliveryAddressId));
+        deliveryAddress = addr ?? null;
+      }
+
+      // Fetch allocations with batch info for each line
+      const lineIds = order.orderLines.map((l) => l.id);
+      let allocations: Array<{
+        id: string;
+        orderLineId: string;
+        batchId: string;
+        quantity: number;
+        torkeBatchId: string;
+      }> = [];
+
+      if (lineIds.length > 0) {
+        const allocs = await ctx.db
+          .select({
+            id: orderLineAllocations.id,
+            orderLineId: orderLineAllocations.orderLineId,
+            batchId: orderLineAllocations.batchId,
+            quantity: orderLineAllocations.quantity,
+            torkeBatchId: batches.torkeBatchId,
+          })
+          .from(orderLineAllocations)
+          .innerJoin(batches, eq(orderLineAllocations.batchId, batches.id))
+          .where(
+            sql`${orderLineAllocations.orderLineId} IN (${sql.join(
+              lineIds.map((id) => sql`${id}`),
+              sql`, `
+            )})`
+          )
+          .orderBy(asc(batches.goodsInDate));
+
+        allocations = allocs;
+      }
+
+      // Group allocations by order line
+      const allocationsByLine: Record<
+        string,
+        typeof allocations
+      > = {};
+      for (const alloc of allocations) {
+        if (!allocationsByLine[alloc.orderLineId]) {
+          allocationsByLine[alloc.orderLineId] = [];
+        }
+        allocationsByLine[alloc.orderLineId]!.push(alloc);
+      }
+
+      return {
+        ...order,
+        deliveryAddress,
+        orderLines: order.orderLines.map((line) => ({
+          ...line,
+          allocations: allocationsByLine[line.id] ?? [],
+        })),
+      };
+    }),
+
+  /** Start picking an order (allocated -> picking) */
+  startPicking: warehouseProcedure
+    .input(z.object({ orderId: z.string().uuid() }))
+    .mutation(async ({ ctx, input }) => {
+      return await ctx.db.transaction(async (tx) => {
+        const result = await transitionOrder(tx, input.orderId, "picking");
+
+        // Set pickedAt on all allocations for this order's lines
+        const lines = await tx
+          .select({ id: orderLines.id })
+          .from(orderLines)
+          .where(eq(orderLines.orderId, input.orderId));
+
+        const lineIds = lines.map((l) => l.id);
+        if (lineIds.length > 0) {
+          await tx
+            .update(orderLineAllocations)
+            .set({ pickedAt: new Date() })
+            .where(
+              sql`${orderLineAllocations.orderLineId} IN (${sql.join(
+                lineIds.map((id) => sql`${id}`),
+                sql`, `
+              )})`
+            );
+        }
+
+        return {
+          orderId: input.orderId,
+          status: "picking" as const,
+        };
+      });
+    }),
+
+  /** Complete packing (picking -> packed) */
+  completePacking: warehouseProcedure
+    .input(z.object({ orderId: z.string().uuid() }))
+    .mutation(async ({ ctx, input }) => {
+      return await ctx.db.transaction(async (tx) => {
+        await transitionOrder(tx, input.orderId, "packed");
+        return {
+          orderId: input.orderId,
+          status: "packed" as const,
+        };
+      });
+    }),
+
+  /** Dispatch an order (packed -> dispatched) */
+  dispatch: warehouseProcedure
+    .input(
+      z
+        .object({
+          orderId: z.string().uuid(),
+          dispatchType: z.enum(["parcel", "pallet"]),
+          trackingNumber: z.string().optional(),
+          consignmentNumber: z.string().optional(),
+          carrierName: z.string().optional(),
+          notes: z.string().optional(),
+        })
+        .refine(
+          (data) => {
+            if (data.dispatchType === "parcel" && !data.trackingNumber?.trim()) {
+              return false;
+            }
+            if (data.dispatchType === "pallet" && !data.consignmentNumber?.trim()) {
+              return false;
+            }
+            return true;
+          },
+          {
+            message:
+              "Tracking number required for parcel, consignment number required for pallet",
+          }
+        )
+    )
+    .mutation(async ({ ctx, input }) => {
+      return await ctx.db.transaction(async (tx) => {
+        await transitionOrder(tx, input.orderId, "dispatched", {
+          trackingNumber: input.trackingNumber,
+          consignmentNumber: input.consignmentNumber,
+          dispatchType: input.dispatchType,
+        });
+
+        // Update dispatchedAt on all allocations for this order's lines
+        const lines = await tx
+          .select({ id: orderLines.id })
+          .from(orderLines)
+          .where(eq(orderLines.orderId, input.orderId));
+
+        const lineIds = lines.map((l) => l.id);
+        if (lineIds.length > 0) {
+          await tx
+            .update(orderLineAllocations)
+            .set({ dispatchedAt: new Date() })
+            .where(
+              sql`${orderLineAllocations.orderLineId} IN (${sql.join(
+                lineIds.map((id) => sql`${id}`),
+                sql`, `
+              )})`
+            );
+        }
+
+        // Trigger cert pack generation (placeholder for Plan 05)
+        console.log(
+          "[CERTPACK] Dispatch triggered cert pack generation for order",
+          input.orderId
+        );
+
+        return {
+          orderId: input.orderId,
+          status: "dispatched" as const,
+        };
+      });
+    }),
+
+  /** Mark order as delivered (dispatched -> delivered) */
+  markDelivered: warehouseProcedure
+    .input(z.object({ orderId: z.string().uuid() }))
+    .mutation(async ({ ctx, input }) => {
+      return await ctx.db.transaction(async (tx) => {
+        await transitionOrder(tx, input.orderId, "delivered");
+        return {
+          orderId: input.orderId,
+          status: "delivered" as const,
+        };
+      });
+    }),
+
+  /** Complete order (delivered -> completed) */
+  complete: warehouseProcedure
+    .input(z.object({ orderId: z.string().uuid() }))
+    .mutation(async ({ ctx, input }) => {
+      return await ctx.db.transaction(async (tx) => {
+        await transitionOrder(tx, input.orderId, "completed");
+        return {
+          orderId: input.orderId,
+          status: "completed" as const,
+        };
+      });
     }),
 
   /** List orders for current user */

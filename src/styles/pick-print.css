@@ -1,0 +1,68 @@
+/**
+ * Print styles for A4 pick lists.
+ * Optimised for standard A4 paper (210mm x 297mm).
+ */
+
+@media print {
+  @page {
+    size: A4;
+    margin: 15mm;
+  }
+
+  /* Hide everything except the pick list */
+  body * {
+    visibility: hidden;
+  }
+
+  .picklist-container,
+  .picklist-container * {
+    visibility: visible;
+  }
+
+  .picklist-container {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100% !important;
+    padding: 0 !important;
+    border: none !important;
+    background: white !important;
+    color: black !important;
+  }
+
+  /* Ensure high contrast for printing */
+  .picklist-container * {
+    color: black !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  /* Table borders visible in print */
+  .picklist-container table {
+    border-collapse: collapse;
+  }
+
+  .picklist-container th,
+  .picklist-container td {
+    border: 1px solid #ccc;
+  }
+
+  /* Page breaks for long lists */
+  .picklist-container tr {
+    page-break-inside: avoid;
+  }
+
+  .picklist-container thead {
+    display: table-header-group;
+  }
+
+  /* Hide nav/sidebar/buttons */
+  .print-hidden,
+  [data-print-hide],
+  nav,
+  aside,
+  header,
+  footer {
+    display: none !important;
+  }
+}
