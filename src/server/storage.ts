@@ -52,6 +52,28 @@ export async function uploadFile(
   return key;
 }
 
+export async function downloadFile(key: string): Promise<Buffer> {
+  const command = new GetObjectCommand({
+    Bucket: BUCKET,
+    Key: key,
+  });
+
+  const response = await r2Client.send(command);
+
+  if (!response.Body) {
+    throw new Error(`No body returned for key: ${key}`);
+  }
+
+  // Convert readable stream to Buffer
+  const chunks: Uint8Array[] = [];
+  const stream = response.Body as AsyncIterable<Uint8Array>;
+  for await (const chunk of stream) {
+    chunks.push(chunk);
+  }
+
+  return Buffer.concat(chunks);
+}
+
 export async function getCertUrl(key: string): Promise<string> {
   const publicUrl = process.env.R2_PUBLIC_URL;
   if (publicUrl) {
