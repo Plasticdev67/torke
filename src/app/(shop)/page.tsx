@@ -53,6 +53,12 @@ export default function HomePage() {
       {/* Hero Section */}
       <section className="relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-[#0A0A0A] via-[#111] to-[#0A0A0A]" />
+        {/* Diagonal red accent slashes — packaging DNA */}
+        <div className="absolute right-0 top-0 h-full w-[40%] bg-[#C41E3A]/[0.04] transform skew-x-[-12deg] translate-x-[20%]" />
+        <div className="absolute right-0 bottom-0 h-32 w-full bg-gradient-to-t from-[#C41E3A]/[0.06] to-transparent" />
+        <div className="absolute right-[15%] top-[10%] h-[120%] w-1 bg-[#C41E3A]/10 transform skew-x-[-12deg]" />
+        <div className="absolute right-[18%] top-[10%] h-[120%] w-8 bg-[#C41E3A]/[0.03] transform skew-x-[-12deg]" />
+        {/* Technical line drawing overlay — like the packaging illustrations */}
         <div className="absolute inset-0 opacity-[0.03]">
           <div
             className="w-full h-full"
@@ -65,7 +71,7 @@ export default function HomePage() {
         </div>
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-24 sm:py-32 lg:py-40">
           <div className="max-w-3xl">
-            {/* Red accent line */}
+            {/* Red accent line — matching packaging stripe */}
             <div className="w-16 h-1 bg-[#C41E3A] mb-8" />
 
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white tracking-tight leading-[1.1] mb-6">
@@ -122,9 +128,11 @@ export default function HomePage() {
               href={`/products?category=${cat.slug}`}
               className="group block"
             >
-              <div className="relative bg-[#1A1A1A] border border-[#333] rounded-lg p-8 h-full transition-all duration-300 hover:border-[#C41E3A]/30 hover:shadow-lg hover:shadow-[#C41E3A]/5">
+              <div className="relative bg-[#1A1A1A] border border-[#333] rounded-lg p-8 h-full transition-all duration-300 hover:border-[#C41E3A]/30 hover:shadow-lg hover:shadow-[#C41E3A]/5 overflow-hidden">
+                {/* Diagonal accent — packaging DNA */}
+                <div className="absolute top-0 right-0 w-24 h-full bg-[#C41E3A]/[0.06] transform skew-x-[-12deg] translate-x-10 group-hover:bg-[#C41E3A]/[0.12] transition-all duration-300" />
                 {/* Category accent */}
-                <div className="w-10 h-1 bg-[#C41E3A] mb-6 group-hover:w-16 transition-all duration-300" />
+                <div className="relative w-10 h-1 bg-[#C41E3A] mb-6 group-hover:w-16 transition-all duration-300" />
 
                 <h3 className="text-xl font-bold text-white mb-2">
                   {cat.name}

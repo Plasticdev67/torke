@@ -74,7 +74,7 @@ export function SearchBar() {
   return (
     <div className="relative w-full">
       <div className="relative">
-        <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-[#666]" />
+        <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-white/50" />
         <input
           ref={inputRef}
           type="text"
@@ -87,7 +87,7 @@ export function SearchBar() {
           onFocus={() => query.length >= 2 && setIsOpen(true)}
           onKeyDown={handleKeyDown}
           placeholder="Search products, SKUs, specifications..."
-          className="w-full h-9 pl-9 pr-8 bg-[#1A1A1A] border border-[#333] rounded-md text-sm text-white placeholder:text-[#666] focus:outline-none focus:border-[#C41E3A] focus:ring-1 focus:ring-[#C41E3A]/30 transition-premium"
+          className="w-full h-9 pl-9 pr-8 bg-white/15 border border-white/20 rounded-md text-sm text-white placeholder:text-white/50 focus:outline-none focus:bg-white/20 focus:border-white/40 focus:ring-1 focus:ring-white/20 transition-premium"
         />
         {query && (
           <button
