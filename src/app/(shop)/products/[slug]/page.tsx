@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { ArrowLeft, FileText, Mail } from "lucide-react";
+import { AddToCartButton } from "@/components/shop/AddToCartButton";
+import { CartProvider } from "@/components/shop/CartProvider";
 import { db } from "@/server/db";
 import { products, categories } from "@/server/db/schema/products";
 import { eq, and, sql } from "drizzle-orm";
@@ -166,7 +168,17 @@ export default async function ProductDetailPage({ params }: PageProps) {
           </h1>
 
           {/* SKU */}
-          <p className="text-sm text-[#999] font-mono mb-5">{product.sku}</p>
+          <p className="text-sm text-[#999] font-mono mb-3">{product.sku}</p>
+
+          {/* Price */}
+          {product.pricePence != null ? (
+            <p className="text-xl font-bold text-white mb-5 tabular-nums">
+              {"\u00A3"}{(product.pricePence / 100).toFixed(2)}
+              <span className="text-sm font-normal text-[#999] ml-1">ex. VAT</span>
+            </p>
+          ) : (
+            <p className="text-sm text-[#999] mb-5">Contact for pricing</p>
+          )}
 
           {/* Key spec badges */}
           <div className="flex flex-wrap gap-2 mb-6">
@@ -208,16 +220,27 @@ export default async function ProductDetailPage({ params }: PageProps) {
 
           {/* CTAs */}
           <div className="space-y-3">
-            <Button
-              asChild
-              size="lg"
-              className="w-full bg-[#C41E3A] hover:bg-[#D6354F] text-white font-semibold h-12"
-            >
-              <Link href="/contact">
-                <Mail className="h-4 w-4 mr-2" />
-                Request Quote
-              </Link>
-            </Button>
+            {product.pricePence != null ? (
+              <CartProvider>
+                <AddToCartButton
+                  productId={product.id}
+                  productName={product.name}
+                  sku={product.sku}
+                  unitPricePence={product.pricePence}
+                />
+              </CartProvider>
+            ) : (
+              <Button
+                asChild
+                size="lg"
+                className="w-full bg-[#C41E3A] hover:bg-[#D6354F] text-white font-semibold h-12"
+              >
+                <Link href="/contact">
+                  <Mail className="h-4 w-4 mr-2" />
+                  Request Quote
+                </Link>
+              </Button>
+            )}
 
             {product.datasheetUrl && (
               <Button

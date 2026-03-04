@@ -1,7 +1,7 @@
 import { z } from "zod";
-import { router, publicProcedure } from "../trpc";
+import { router, publicProcedure, warehouseProcedure } from "../trpc";
 import { products, categories } from "@/server/db/schema/products";
-import { eq, and, sql, count, desc, asc } from "drizzle-orm";
+import { eq, and, sql, count, desc, asc, inArray } from "drizzle-orm";
 
 const listInputSchema = z.object({
   categorySlug: z.string().optional(),
@@ -216,4 +216,62 @@ export const productsRouter = router({
       productCount: countMap.get(cat.id) ?? 0,
     }));
   }),
+
+  setPrice: warehouseProcedure
+    .input(
+      z.object({
+        productId: z.string().uuid(),
+        pricePence: z.number().int().positive(),
+      })
+    )
+    .mutation(async ({ ctx, input }) => {
+      const [updated] = await ctx.db
+        .update(products)
+        .set({
+          pricePence: input.pricePence,
+          updatedAt: new Date(),
+        })
+        .where(eq(products.id, input.productId))
+        .returning();
+
+      if (!updated) {
+        throw new Error(`Product ${input.productId} not found`);
+      }
+
+      return updated;
+    }),
+
+  bulkSetPrices: warehouseProcedure
+    .input(
+      z.object({
+        prices: z.array(
+          z.object({
+            productId: z.string().uuid(),
+            pricePence: z.number().int().positive(),
+          })
+        ),
+      })
+    )
+    .mutation(async ({ ctx, input }) => {
+      let updatedCount = 0;
+
+      await ctx.db.transaction(async (tx) => {
+        for (const { productId, pricePence } of input.prices) {
+          const [updated] = await tx
+            .update(products)
+            .set({
+              pricePence,
+              updatedAt: new Date(),
+            })
+            .where(eq(products.id, productId))
+            .returning();
+
+          if (updated) {
+            updatedCount++;
+          }
+        }
+      });
+
+      return { updatedCount };
+    }),
 });
