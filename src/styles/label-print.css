@@ -51,7 +51,8 @@
   }
 
   /* Hide print button itself */
-  .print\\:hidden {
+  .print-hidden,
+  [data-print-hide] {
     display: none !important;
   }
 }

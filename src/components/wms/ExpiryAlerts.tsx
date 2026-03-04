@@ -9,7 +9,7 @@ interface ExpiryBatch {
   torkeBatchId: string;
   productName: string;
   productSku: string;
-  expiryDate: string;
+  expiryDate: string | null;
   daysRemaining: number;
   severity: "critical" | "warning";
 }
@@ -67,7 +67,7 @@ export function ExpiryAlerts({ batches }: ExpiryAlertsProps) {
                   </span>
                 </p>
                 <p className="text-xs text-muted-foreground">
-                  Expires: {new Date(batch.expiryDate).toLocaleDateString("en-GB")}
+                  Expires: {batch.expiryDate ? new Date(batch.expiryDate).toLocaleDateString("en-GB") : "N/A"}
                 </p>
               </div>
             </div>

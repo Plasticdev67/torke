@@ -3,6 +3,8 @@ import { products } from "@/server/db/schema/products";
 import { eq } from "drizzle-orm";
 import { GoodsInForm } from "@/components/wms/GoodsInForm";
 
+export const dynamic = "force-dynamic";
+
 export default async function GoodsInPage() {
   // Fetch all active products for the selector
   const allProducts = await db

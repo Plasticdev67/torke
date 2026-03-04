@@ -6,6 +6,8 @@ import { eq, and, lte, gt, isNotNull, sql } from "drizzle-orm";
 import { StockTable } from "@/components/wms/StockTable";
 import { ExpiryAlerts } from "@/components/wms/ExpiryAlerts";
 import { Card, CardContent } from "@/components/ui/card";
+
+export const dynamic = "force-dynamic";
 import { Package, Boxes, BarChart3, AlertTriangle } from "lucide-react";
 
 export default async function StockOverviewPage() {
