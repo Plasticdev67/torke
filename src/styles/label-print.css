@@ -1,0 +1,57 @@
+/**
+ * Print styles for batch labels.
+ * Optimised for thermal label printers (100mm x 60mm).
+ */
+
+@media print {
+  @page {
+    size: 100mm 60mm;
+    margin: 2mm;
+  }
+
+  /* Hide everything except the label */
+  body * {
+    visibility: hidden;
+  }
+
+  .label-container,
+  .label-container * {
+    visibility: visible;
+  }
+
+  .label-container {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100mm !important;
+    height: 60mm !important;
+    padding: 3mm !important;
+    border: none !important;
+    background: white !important;
+    color: black !important;
+  }
+
+  /* Ensure high contrast for thermal printing */
+  .label-container * {
+    color: black !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  /* No thin fonts -- thermal printers need bold strokes */
+  .label-container {
+    font-family: Arial, Helvetica, sans-serif !important;
+    -webkit-font-smoothing: none;
+  }
+
+  /* Ensure QR code prints clearly */
+  .label-container img {
+    image-rendering: pixelated;
+    image-rendering: -moz-crisp-edges;
+  }
+
+  /* Hide print button itself */
+  .print\\:hidden {
+    display: none !important;
+  }
+}
