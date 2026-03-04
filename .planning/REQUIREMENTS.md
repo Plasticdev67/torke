@@ -197,4 +197,21 @@ All v1 requirements are specific and testable. Each has a unique REQ-ID grouped 
 
 ---
 
+---
+
+## Requirement-to-Phase Traceability
+
+Every v1 requirement is mapped to exactly one roadmap phase.
+
+| Phase | REQ-IDs |
+|-------|---------|
+| **Phase 1:** Foundation + Catalogue + Traceability Core | SHOP-01, SHOP-02, SHOP-03, SHOP-04, SHOP-05, SHOP-13, TRACE-01, TRACE-02, TRACE-03, TRACE-04, TRACE-05, TRACE-06, TRACE-08, TRACE-18, TRACE-19, WMS-01, WMS-05, WMS-06, WMS-07 |
+| **Phase 2:** E-Commerce + Order Flow + WMS | SHOP-06, SHOP-07, SHOP-08, SHOP-09, SHOP-10, SHOP-11, SHOP-12, SHOP-14, SHOP-15, SHOP-16, TRACE-07, TRACE-09, TRACE-10, TRACE-11, WMS-02, WMS-03, WMS-04, WMS-08, WMS-09, WMS-10 |
+| **Phase 3:** Torke Design | DESIGN-01, DESIGN-02, DESIGN-03, DESIGN-04, DESIGN-05, DESIGN-06, DESIGN-07, DESIGN-08, DESIGN-09, DESIGN-10, DESIGN-11, DESIGN-12, DESIGN-13, DESIGN-14, DESIGN-15, DESIGN-16, DESIGN-17, DESIGN-18, DESIGN-19 |
+| **Phase 4:** Portals + Marketing + Polish | TRACE-12, TRACE-13, TRACE-14, TRACE-15, TRACE-16, TRACE-17, MKTG-01, MKTG-02, MKTG-03, MKTG-04, MKTG-05, MKTG-06, MKTG-07 |
+
+**Totals:** Phase 1 = 19 reqs | Phase 2 = 20 reqs | Phase 3 = 19 reqs | Phase 4 = 13 reqs | **v1 total = 71 requirements**
+
+---
+
 *Last updated: 2026-03-04*
