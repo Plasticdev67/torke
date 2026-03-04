@@ -174,6 +174,12 @@ All v1 requirements are specific and testable. Each has a unique REQ-ID grouped 
 - [ ] **MKTG-06**: Saving or exporting a calculation requires free account creation, capturing the lead (email, name, company)
 - [ ] **MKTG-07**: Account creation from Torke Design feeds into the e-commerce account system (single account across design and shop)
 
+### Document Rebranding
+
+- [ ] **MKTG-08**: All existing Proventure product datasheets, technical docs, installation guides, and ETA reference documents are rebranded with Torke identity (logo, colours, typography, contact details)
+- [ ] **MKTG-09**: Rebranded documents are available as downloadable PDFs on the product detail pages
+- [ ] **MKTG-10**: Document templates exist for future products to be added with consistent Torke branding
+
 ### v2 Deferred (not in scope for v1)
 
 - Email/CRM automation (welcome sequences, reorder reminders, abandoned quote follow-up)
