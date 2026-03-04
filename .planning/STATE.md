@@ -8,11 +8,11 @@ See: .planning/PROJECT.md (updated 2026-03-04)
 ## Current Phase
 Phase 2: E-Commerce Order Flow + WMS
 Status: In Progress
-Current Plan: 1 of 8
+Current Plan: 2 of 8
 
 ## Progress
 Plan 02-00 (Test Infrastructure): COMPLETE
-Plan 02-01 (Schema + Cart + Allocation): IN PROGRESS
+Plan 02-01 (Schema + Cart + Allocation): COMPLETE
 Plan 02-02 (Stock Dashboard + Adjustments): PENDING
 Plan 02-03 (Order Management): PENDING
 Plan 02-04 (Fulfillment - Pick/Pack/Dispatch): PENDING
@@ -24,6 +24,11 @@ Plan 02-07 (Checkout + Payments): PENDING
 Phase 1: Foundation + Catalogue + Traceability Core (4/4 plans)
 
 ## Decisions
+- pricePence nullable on products: products without prices show "Contact for pricing" and cannot be ordered
+- Cart stores client-side prices for display only; server re-validates from products.pricePence at order creation
+- Order number format ORD-YYYYMM-NNNNNN with MAX-query-in-transaction for sequence generation
+- Cancelled transitions blocked from dispatched/delivered (goods already shipped)
+- AddToCartButton replaces Request Quote on product pages when price is available
 - Vitest globals enabled; explicit imports in stubs for IDE support
 - Node test environment (not jsdom) for server-side Phase 2 logic
 - R2 storage mocked globally in test setup for all test files
@@ -56,7 +61,8 @@ Phase 1: Foundation + Catalogue + Traceability Core (4/4 plans)
 | 01 | 03 | 15min | 4 | 23 |
 | 01 | 04 | 20min | 5 | 37 |
 | 02 | 00 | 3min | 2 | 14 |
+| 02 | 01 | 7min | 4 | 16 |
 
 ## Last Session
-- **Stopped at:** Completed 02-00-PLAN.md — Test infrastructure for Phase 2
-- **Timestamp:** 2026-03-04T23:15:30Z
+- **Stopped at:** Completed 02-01-PLAN.md — Schema + Cart + Order Service
+- **Timestamp:** 2026-03-04T23:19:59Z

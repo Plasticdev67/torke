@@ -35,8 +35,8 @@ Coarse-grained roadmap: 4 phases, dependency-ordered. Each phase delivers observ
 **Plans:** 8 plans
 
 Plans:
-- [ ] 02-00-PLAN.md — Wave 0: vitest test infrastructure and test stubs
-- [ ] 02-01-PLAN.md — Schema, cart store, order service foundation, and product pricing
+- [x] 02-00-PLAN.md — Wave 0: vitest test infrastructure and test stubs
+- [x] 02-01-PLAN.md — Schema, cart store, order service foundation, and product pricing
 - [ ] 02-02-PLAN.md — Stock dashboard and stock adjustments
 - [ ] 02-03-PLAN.md — Address book and tRPC routers (addresses + orders)
 - [ ] 02-04-PLAN.md — WMS pick lists and dispatch workflows

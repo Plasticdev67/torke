@@ -18,7 +18,7 @@ All v1 requirements are specific and testable. Each has a unique REQ-ID grouped 
 
 ### Ordering & Checkout
 
-- [ ] **SHOP-06**: User can add products to a basket and proceed to checkout
+- [x] **SHOP-06**: User can add products to a basket and proceed to checkout
 - [ ] **SHOP-07**: User can enter a PO (purchase order) number at checkout
 - [ ] **SHOP-08**: User can check out on credit terms (net 30 or net 60) against an approved credit account
 - [ ] **SHOP-09**: User can pay by BACS bank transfer with order held until payment confirmed
@@ -135,7 +135,7 @@ All v1 requirements are specific and testable. Each has a unique REQ-ID grouped 
 - [x] **WMS-01**: System maintains batch-tracked inventory with quantity per batch per product
 - [ ] **WMS-02**: System enforces FIFO at allocation — pick lists always suggest the oldest qualifying batch
 - [ ] **WMS-03**: System provides stock level dashboard showing quantities by product and batch
-- [ ] **WMS-04**: System supports stock adjustments with reason codes (damage, returns, cycle count variance)
+- [x] **WMS-04**: System supports stock adjustments with reason codes (damage, returns, cycle count variance)
 - [x] **WMS-05**: System tracks expiry dates for chemical products (resins) and alerts when batches approach expiry
 
 ### Label Printing
