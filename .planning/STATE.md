@@ -8,12 +8,12 @@ See: .planning/PROJECT.md (updated 2026-03-04)
 ## Current Phase
 Phase 2: E-Commerce Order Flow + WMS
 Status: In Progress
-Current Plan: 4 of 8
+Current Plan: 5 of 8
 
 ## Progress
 Plan 02-00 (Test Infrastructure): COMPLETE
 Plan 02-01 (Schema + Cart + Allocation): COMPLETE
-Plan 02-02 (Stock Dashboard + Adjustments): PENDING
+Plan 02-02 (Stock Dashboard + Adjustments): COMPLETE
 Plan 02-03 (Order Management): COMPLETE
 Plan 02-04 (Fulfillment - Pick/Pack/Dispatch): PENDING
 Plan 02-05 (Cert Pack + Invoice Generation): PENDING
@@ -56,6 +56,9 @@ Phase 1: Foundation + Catalogue + Traceability Core (4/4 plans)
 - Card orders stay as draft until Stripe payment completes (handled by checkout wizard)
 - PO number required for credit payments only
 - AddressBook supports both management mode and select mode (for checkout)
+- Stock adjustments are immediate with no approval workflow -- all logged for audit trail
+- Low stock threshold < 10 units per product for dashboard summary card
+- Batch status auto-transitions to depleted when quantityAvailable reaches zero via adjustment
 
 ## Performance Metrics
 
@@ -67,8 +70,9 @@ Phase 1: Foundation + Catalogue + Traceability Core (4/4 plans)
 | 01 | 04 | 20min | 5 | 37 |
 | 02 | 00 | 3min | 2 | 14 |
 | 02 | 01 | 7min | 4 | 16 |
+| 02 | 02 | 5min | 2 | 7 |
 | 02 | 03 | 4min | 2 | 7 |
 
 ## Last Session
-- **Stopped at:** Completed 02-03-PLAN.md — Address Book & Orders Router
-- **Timestamp:** 2026-03-04T23:27:40Z
+- **Stopped at:** Completed 02-02-PLAN.md — Stock Dashboard + Adjustments
+- **Timestamp:** 2026-03-04T23:29:30Z

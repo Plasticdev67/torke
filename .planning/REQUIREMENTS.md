@@ -134,7 +134,7 @@ All v1 requirements are specific and testable. Each has a unique REQ-ID grouped 
 
 - [x] **WMS-01**: System maintains batch-tracked inventory with quantity per batch per product
 - [ ] **WMS-02**: System enforces FIFO at allocation — pick lists always suggest the oldest qualifying batch
-- [ ] **WMS-03**: System provides stock level dashboard showing quantities by product and batch
+- [x] **WMS-03**: System provides stock level dashboard showing quantities by product and batch
 - [x] **WMS-04**: System supports stock adjustments with reason codes (damage, returns, cycle count variance)
 - [x] **WMS-05**: System tracks expiry dates for chemical products (resins) and alerts when batches approach expiry
 

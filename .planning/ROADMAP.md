@@ -32,13 +32,13 @@ Coarse-grained roadmap: 4 phases, dependency-ordered. Each phase delivers observ
 
 **Goal:** Enable customers to buy products and Torke to fulfil orders with full batch traceability through the order lifecycle.
 
-**Plans:** 3/8 plans executed
+**Plans:** 4/8 plans executed
 
 Plans:
 - [x] 02-00-PLAN.md — Wave 0: vitest test infrastructure and test stubs
 - [x] 02-01-PLAN.md — Schema, cart store, order service foundation, and product pricing
-- [ ] 02-02-PLAN.md — Stock dashboard and stock adjustments
-- [ ] 02-03-PLAN.md — Address book and tRPC routers (addresses + orders)
+- [x] 02-02-PLAN.md — Stock dashboard and stock adjustments
+- [x] 02-03-PLAN.md — Address book and tRPC routers (addresses + orders)
 - [ ] 02-04-PLAN.md — WMS pick lists and dispatch workflows
 - [ ] 02-05-PLAN.md — PDF generation (cert packs, invoices, and BACS proforma)
 - [ ] 02-06-PLAN.md — Customer portal and transactional emails
