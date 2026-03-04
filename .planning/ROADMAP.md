@@ -4,9 +4,11 @@ Coarse-grained roadmap: 4 phases, dependency-ordered. Each phase delivers observ
 
 ---
 
-## Phase 1: Foundation + Catalogue + Traceability Core
+## Phase 1: Foundation + Catalogue + Traceability Core ✅ COMPLETE (2026-03-04)
 
 **Goal:** Establish the data model, product catalogue, and goods-in workflow. The batch data model is the foundation everything else depends on — get it right before building on top.
+
+**Status:** All 19 requirements delivered across 4 plans (scaffold, scraping, catalogue UI, goods-in/traceability). Verified 2026-03-04.
 
 **Requirements:**
 - SHOP-01, SHOP-02, SHOP-03, SHOP-04, SHOP-05 (catalogue and search)
@@ -113,4 +115,4 @@ Features explicitly deferred from v1. Prioritisation to be determined after laun
 
 ---
 
-*Last updated: 2026-03-04*
+*Last updated: 2026-03-04 — Phase 1 complete*
