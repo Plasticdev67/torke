@@ -99,6 +99,7 @@ export const batches = pgTable("batches", {
   quantityReserved: integer("quantity_reserved").default(0).notNull(),
   status: batchStatusEnum("status").default("pending").notNull(),
   expiryDate: date("expiry_date"),
+  poReference: text("po_reference"),
   createdAt: timestamp("created_at").defaultNow().notNull(),
   updatedAt: timestamp("updated_at").defaultNow().notNull(),
 });
