@@ -10,6 +10,8 @@ import {
   LogOut,
   Menu,
   X,
+  CreditCard,
+  ShoppingCart,
 } from "lucide-react";
 import { useState } from "react";
 import { cn } from "@/lib/utils";
@@ -18,6 +20,8 @@ import { authClient } from "@/lib/auth-client";
 const navItems = [
   { href: "/goods-in", label: "Goods In", icon: PackageOpen },
   { href: "/stock", label: "Stock Overview", icon: Warehouse },
+  { href: "/orders", label: "Orders", icon: ShoppingCart },
+  { href: "/credit-accounts", label: "Credit Accounts", icon: CreditCard },
 ];
 
 export default function WMSLayout({

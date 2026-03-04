@@ -281,6 +281,96 @@ export const ordersRouter = router({
     return creditAccount ?? null;
   }),
 
+  /** List all credit accounts (warehouse admin) */
+  listCreditAccounts: warehouseProcedure.query(async ({ ctx }) => {
+    const accounts = await ctx.db
+      .select()
+      .from(creditAccounts)
+      .orderBy(desc(creditAccounts.createdAt));
+
+    return accounts;
+  }),
+
+  /** Approve a credit account application (warehouse admin) */
+  approveCreditAccount: warehouseProcedure
+    .input(
+      z.object({
+        accountId: z.string().uuid(),
+        creditLimitPence: z.number().int().positive(),
+        terms: z.enum(["net_30", "net_60"]),
+      })
+    )
+    .mutation(async ({ ctx, input }) => {
+      const [account] = await ctx.db
+        .select()
+        .from(creditAccounts)
+        .where(eq(creditAccounts.id, input.accountId));
+
+      if (!account) {
+        throw new TRPCError({
+          code: "NOT_FOUND",
+          message: "Credit account not found",
+        });
+      }
+
+      if (account.status !== "pending") {
+        throw new TRPCError({
+          code: "BAD_REQUEST",
+          message: `Cannot approve account in ${account.status} status`,
+        });
+      }
+
+      const [updated] = await ctx.db
+        .update(creditAccounts)
+        .set({
+          status: "approved",
+          creditLimitPence: input.creditLimitPence,
+          terms: input.terms,
+          approvedBy: ctx.session.user.id,
+          approvedAt: new Date(),
+          updatedAt: new Date(),
+        })
+        .where(eq(creditAccounts.id, input.accountId))
+        .returning();
+
+      return updated!;
+    }),
+
+  /** Reject a credit account application (warehouse admin) */
+  rejectCreditAccount: warehouseProcedure
+    .input(z.object({ accountId: z.string().uuid() }))
+    .mutation(async ({ ctx, input }) => {
+      const [account] = await ctx.db
+        .select()
+        .from(creditAccounts)
+        .where(eq(creditAccounts.id, input.accountId));
+
+      if (!account) {
+        throw new TRPCError({
+          code: "NOT_FOUND",
+          message: "Credit account not found",
+        });
+      }
+
+      if (account.status !== "pending") {
+        throw new TRPCError({
+          code: "BAD_REQUEST",
+          message: `Cannot reject account in ${account.status} status`,
+        });
+      }
+
+      const [updated] = await ctx.db
+        .update(creditAccounts)
+        .set({
+          status: "rejected",
+          updatedAt: new Date(),
+        })
+        .where(eq(creditAccounts.id, input.accountId))
+        .returning();
+
+      return updated!;
+    }),
+
   /** List orders for current user */
   list: protectedProcedure
     .input(
