@@ -12,6 +12,7 @@
     "download-assets": "tsx scripts/download-assets.ts",
     "seed:db": "tsx scripts/seed-products.ts",
     "seed:search": "tsx scripts/seed-search-index.ts",
+    "seed:users": "tsx scripts/seed-users.ts",
     "seed": "npm run seed:db && npm run seed:search"
   },
   "dependencies": {
