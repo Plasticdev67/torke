@@ -176,8 +176,12 @@ Each task was committed atomically:
 ## User Setup Required
 None for this plan specifically. Database and Meilisearch must be running for the product listing and search to return data. See Plan 01-01 for setup instructions.
 
+## Visual Checkpoint
+- **Status:** APPROVED by user
+- Checkpoint 5 (human-verify) passed -- premium dark catalogue UI approved
+
 ## Next Phase Readiness
-- Product catalogue UI complete and ready for visual verification
+- Product catalogue UI complete and visually approved
 - All SHOP requirements (01-05) addressed in the UI layer
 - Search and filtering will work once Meilisearch is seeded (via `npm run seed:search`)
 - Product detail pages will display data once PostgreSQL is seeded (via `npm run seed:db`)
