@@ -8,7 +8,7 @@ See: .planning/PROJECT.md (updated 2026-03-04)
 ## Current Phase
 Phase 2: E-Commerce Order Flow + WMS
 Status: In Progress
-Current Plan: 5 of 8
+Current Plan: 6 of 8
 
 ## Progress
 Plan 02-00 (Test Infrastructure): COMPLETE
@@ -16,7 +16,7 @@ Plan 02-01 (Schema + Cart + Allocation): COMPLETE
 Plan 02-02 (Stock Dashboard + Adjustments): COMPLETE
 Plan 02-03 (Order Management): COMPLETE
 Plan 02-04 (Fulfillment - Pick/Pack/Dispatch): PENDING
-Plan 02-05 (Cert Pack + Invoice Generation): PENDING
+Plan 02-05 (Cert Pack + Invoice Generation): COMPLETE
 Plan 02-06 (Email Notifications + Order History): PENDING
 Plan 02-07 (Checkout + Payments): PENDING
 
@@ -59,6 +59,11 @@ Phase 1: Foundation + Catalogue + Traceability Core (4/4 plans)
 - Stock adjustments are immediate with no approval workflow -- all logged for audit trail
 - Low stock threshold < 10 units per product for dashboard summary card
 - Batch status auto-transitions to depleted when quantityAvailable reaches zero via adjustment
+- pdf-lib used for all PDF generation (zero native deps, works in Edge/Node)
+- Cert page references pre-calculated using dual-pass approach
+- Proforma invoices have no invoice number (not a tax document per HMRC)
+- Bank details sourced from env vars with placeholder defaults for development
+- Invoice and proforma share layout helpers to avoid duplication
 
 ## Performance Metrics
 
@@ -72,7 +77,8 @@ Phase 1: Foundation + Catalogue + Traceability Core (4/4 plans)
 | 02 | 01 | 7min | 4 | 16 |
 | 02 | 02 | 5min | 2 | 7 |
 | 02 | 03 | 4min | 2 | 7 |
+| 02 | 05 | 7min | 2 | 7 |
 
 ## Last Session
-- **Stopped at:** Completed 02-02-PLAN.md — Stock Dashboard + Adjustments
-- **Timestamp:** 2026-03-04T23:29:30Z
+- **Stopped at:** Completed 02-05-PLAN.md — Cert Pack + Invoice Generation
+- **Timestamp:** 2026-03-04T23:39:02Z
