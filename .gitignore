@@ -40,3 +40,9 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# scraped assets (binary files, not for git)
+/data/assets/
+
+# script output
+/dist/scripts/

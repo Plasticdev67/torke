@@ -1,0 +1,65 @@
+[
+  {
+    "name": "Chemical Anchors",
+    "slug": "chemical-anchors",
+    "parentSlug": null,
+    "sortOrder": 1,
+    "description": "High-performance chemical anchoring systems including injection resins, anchor rods, and accessories."
+  },
+  {
+    "name": "Mechanical Anchors",
+    "slug": "mechanical-anchors",
+    "parentSlug": null,
+    "sortOrder": 2,
+    "description": "Expansion anchors, through bolts, screw anchors and frame fixings for concrete and masonry."
+  },
+  {
+    "name": "General Fixings",
+    "slug": "general-fixings",
+    "parentSlug": null,
+    "sortOrder": 3,
+    "description": "Shot fired fixings, drill bits, diamond blades, and installation accessories."
+  },
+  {
+    "name": "Injection Resins & Accessories",
+    "slug": "injection-resins",
+    "parentSlug": "chemical-anchors",
+    "sortOrder": 1,
+    "description": ""
+  },
+  {
+    "name": "Shot Fired Fixings",
+    "slug": "shot-fired-fixings",
+    "parentSlug": "general-fixings",
+    "sortOrder": 2,
+    "description": ""
+  },
+  {
+    "name": "Expansion Anchors",
+    "slug": "expansion-anchors",
+    "parentSlug": "mechanical-anchors",
+    "sortOrder": 3,
+    "description": ""
+  },
+  {
+    "name": "Screw Anchors",
+    "slug": "screw-anchors",
+    "parentSlug": "mechanical-anchors",
+    "sortOrder": 4,
+    "description": ""
+  },
+  {
+    "name": "Drill Bits",
+    "slug": "drill-bits",
+    "parentSlug": "general-fixings",
+    "sortOrder": 5,
+    "description": ""
+  },
+  {
+    "name": "Diamond Blades & Corebits",
+    "slug": "diamond-blades-corebits",
+    "parentSlug": "general-fixings",
+    "sortOrder": 6,
+    "description": ""
+  }
+]
