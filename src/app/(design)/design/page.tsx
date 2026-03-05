@@ -7,7 +7,9 @@ import { ResultsPanel } from "@/components/design/ResultsPanel";
 import { OverallStatus } from "@/components/design/OverallStatus";
 import { ActionBar } from "@/components/design/ActionBar";
 import { ProductRecommendations } from "@/components/design/ProductRecommendations";
+import { SoftPrompt, incrementCalcCount } from "@/components/design/SoftPrompt";
 import { useDesignStore } from "@/stores/design";
+import { useSession } from "@/lib/auth-client";
 import { calculateAnchorDesign } from "@/lib/calc-engine";
 
 // Lazy-load 3D scene (R3F requires browser APIs, no SSR)
@@ -34,6 +36,8 @@ export default function DesignPage() {
   const results = useDesignStore((s) => s.results);
   const setResults = useDesignStore((s) => s.setResults);
   const setCalculating = useDesignStore((s) => s.setCalculating);
+  const { data: session } = useSession();
+  const isAuthenticated = !!session?.user;
 
   // 3D scene overlay toggles
   const [showDimensions, setShowDimensions] = useState(true);
@@ -54,6 +58,10 @@ export default function DesignPage() {
         setCalculating(true);
         const r = calculateAnchorDesign(inputs);
         setResults(r);
+        // Track anonymous calculation count for soft prompt
+        if (!isAuthenticated) {
+          incrementCalcCount();
+        }
       } catch {
         setResults(null);
       } finally {
@@ -64,7 +72,7 @@ export default function DesignPage() {
     return () => {
       if (timerRef.current) clearTimeout(timerRef.current);
     };
-  }, [inputs, setResults, setCalculating]);
+  }, [inputs, setResults, setCalculating, isAuthenticated]);
 
   return (
     <div className="flex h-full flex-col lg:flex-row">
@@ -158,6 +166,9 @@ export default function DesignPage() {
         {/* Sticky action bar */}
         <ActionBar />
       </div>
+
+      {/* Non-blocking soft prompt for anonymous users */}
+      {!isAuthenticated && <SoftPrompt />}
     </div>
   );
 }

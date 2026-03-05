@@ -24,6 +24,7 @@ export function AuthGateModal({
   const [mode, setMode] = useState<"signup" | "signin">("signup");
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
+  const [companyName, setCompanyName] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
@@ -31,6 +32,7 @@ export function AuthGateModal({
   const resetForm = () => {
     setName("");
     setEmail("");
+    setCompanyName("");
     setPassword("");
     setError(null);
     setLoading(false);
@@ -53,6 +55,19 @@ export function AuthGateModal({
           setError(result.error.message || "Sign up failed. Please try again.");
           setLoading(false);
           return;
+        }
+
+        // Create user profile with company name
+        if (companyName.trim()) {
+          try {
+            await fetch("/api/auth/create-profile", {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({ companyName: companyName.trim() }),
+            });
+          } catch {
+            // Profile creation is not critical for auth gate flow
+          }
         }
       } else {
         const result = await signIn.email({
@@ -103,22 +118,40 @@ export function AuthGateModal({
 
         <form onSubmit={handleSubmit} className="mt-4 space-y-4">
           {mode === "signup" && (
-            <div>
-              <label
-                htmlFor="auth-name"
-                className="mb-1 block text-xs font-medium text-[#AAA]"
-              >
-                Name (optional)
-              </label>
-              <input
-                id="auth-name"
-                type="text"
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-                placeholder="Your name"
-                className="w-full rounded-lg border border-[#333] bg-[#111] px-3 py-2 text-sm text-white placeholder-[#555] outline-none focus:border-[#C41E3A]"
-              />
-            </div>
+            <>
+              <div>
+                <label
+                  htmlFor="auth-name"
+                  className="mb-1 block text-xs font-medium text-[#AAA]"
+                >
+                  Name (optional)
+                </label>
+                <input
+                  id="auth-name"
+                  type="text"
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                  placeholder="Your name"
+                  className="w-full rounded-lg border border-[#333] bg-[#111] px-3 py-2 text-sm text-white placeholder-[#555] outline-none focus:border-[#C41E3A]"
+                />
+              </div>
+              <div>
+                <label
+                  htmlFor="auth-company"
+                  className="mb-1 block text-xs font-medium text-[#AAA]"
+                >
+                  Company (optional)
+                </label>
+                <input
+                  id="auth-company"
+                  type="text"
+                  value={companyName}
+                  onChange={(e) => setCompanyName(e.target.value)}
+                  placeholder="Your construction company"
+                  className="w-full rounded-lg border border-[#333] bg-[#111] px-3 py-2 text-sm text-white placeholder-[#555] outline-none focus:border-[#C41E3A]"
+                />
+              </div>
+            </>
           )}
 
           <div>
