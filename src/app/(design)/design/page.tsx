@@ -6,6 +6,7 @@ import { InputPanel } from "@/components/design/InputPanel";
 import { ResultsPanel } from "@/components/design/ResultsPanel";
 import { OverallStatus } from "@/components/design/OverallStatus";
 import { ActionBar } from "@/components/design/ActionBar";
+import { ProductRecommendations } from "@/components/design/ProductRecommendations";
 import { useDesignStore } from "@/stores/design";
 import { calculateAnchorDesign } from "@/lib/calc-engine";
 
@@ -150,6 +151,9 @@ export default function DesignPage() {
 
         {/* Results panel (scrollable, flex-1) */}
         <ResultsPanel />
+
+        {/* Product recommendations (below results) */}
+        <ProductRecommendations />
 
         {/* Sticky action bar */}
         <ActionBar />
