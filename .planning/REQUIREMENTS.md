@@ -170,9 +170,9 @@ All v1 requirements are specific and testable. Each has a unique REQ-ID grouped 
 
 ### Torke Design as Lead Gen
 
-- [ ] **MKTG-05**: Torke Design is accessible without login to maximise organic traffic from engineers searching for anchor design tools
+- [x] **MKTG-05**: Torke Design is accessible without login to maximise organic traffic from engineers searching for anchor design tools
 - [x] **MKTG-06**: Saving or exporting a calculation requires free account creation, capturing the lead (email, name, company)
-- [ ] **MKTG-07**: Account creation from Torke Design feeds into the e-commerce account system (single account across design and shop)
+- [x] **MKTG-07**: Account creation from Torke Design feeds into the e-commerce account system (single account across design and shop)
 
 ### Document Rebranding
 

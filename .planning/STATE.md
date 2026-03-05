@@ -2,15 +2,15 @@
 gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
-current_plan: 5 of 6
+current_plan: 6 of 6
 status: executing
-stopped_at: Completed 04-04-PLAN.md
-last_updated: "2026-03-05T10:22:12Z"
+stopped_at: Completed 04-05-PLAN.md
+last_updated: "2026-03-05T10:23:26Z"
 progress:
   total_phases: 4
   completed_phases: 3
   total_plans: 25
-  completed_plans: 24
+  completed_plans: 25
 ---
 
 # Project State
@@ -27,6 +27,7 @@ Current Plan: 5 of 6
 
 ## Progress
 Plan 04-04 (Resource Library + Technical Glossary): COMPLETE
+Plan 04-05 (Lead Generation Funnel): COMPLETE
 Plan 04-03 (Blog + SEO Schema Markup): COMPLETE
 Plan 04-02 (...): COMPLETE
 Plan 04-01 (...): COMPLETE
@@ -141,6 +142,10 @@ Phase 3: Torke Design (6/6 plans)
 - Client-side category filter sufficient for small post count
 - mdx-components.tsx required at root for @next/mdx App Router integration
 - JSON-LD structured data via schema-dts typed helpers + generic JsonLd component
+- SoftPrompt uses localStorage counter + custom event dispatch for decoupled component communication
+- Company field added to AuthGateModal alongside existing /register page for complete lead capture
+- Admin leads query uses raw SQL joins across user, calculations, orders, and user_profiles tables
+- Leads page at /leads in WMS layout matching existing flat nav pattern
 - ResourceFilter as client component for category/search filtering with server-fetched product data
 - Glossary terms imported via relative path from content/glossary.json (outside src/)
 - FAQ schema maps each glossary term to "What is [term]?" question format for featured snippets
@@ -175,9 +180,10 @@ Phase 3: Torke Design (6/6 plans)
 | 04 | 00 | 1min | 1 | 9 |
 | 04 | 01 | 6min | 2 | 14 |
 | 04 | 03 | 6min | 2 | 17 |
+| 04 | 05 | 6min | 2 | 8 |
 | Phase 04 P02 | 5min | 2 tasks | 5 files |
 | 04 | 04 | 5min | 2 | 8 |
 
 ## Last Session
-- **Stopped at:** Completed 04-04-PLAN.md
-- **Timestamp:** 2026-03-05T10:22:12Z
+- **Stopped at:** Completed 04-05-PLAN.md
+- **Timestamp:** 2026-03-05T10:23:26Z
