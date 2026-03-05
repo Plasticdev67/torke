@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useCallback } from "react";
+import { ShareLinkDialog } from "@/components/shop/ShareLinkDialog";
 
 interface CertAllocation {
   torkeBatchId: string;
@@ -76,6 +77,10 @@ export function CertResults({
   const [expandedOrders, setExpandedOrders] = useState<Set<string>>(new Set());
   const [selectedOrders, setSelectedOrders] = useState<Set<string>>(new Set());
   const [downloadingBulk, setDownloadingBulk] = useState(false);
+  const [shareOrder, setShareOrder] = useState<{
+    orderId: string;
+    orderNumber: string;
+  } | null>(null);
 
   const toggleExpand = useCallback((orderId: string) => {
     setExpandedOrders((prev) => {
@@ -340,6 +345,32 @@ export function CertResults({
                 </svg>
               </button>
 
+              {/* Share button */}
+              <button
+                onClick={() =>
+                  setShareOrder({
+                    orderId: order.orderId,
+                    orderNumber: order.orderNumber,
+                  })
+                }
+                className="inline-flex items-center gap-1.5 rounded-md border border-zinc-700 bg-zinc-800 px-3 py-1.5 text-xs font-medium text-zinc-300 transition-colors hover:border-zinc-600 hover:text-zinc-100"
+              >
+                <svg
+                  className="h-3.5 w-3.5"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z"
+                  />
+                </svg>
+                Share
+              </button>
+
               {/* Download Cert Pack button */}
               <a
                 href={`/api/certpack/${order.orderId}`}
@@ -461,6 +492,18 @@ export function CertResults({
           </div>
         );
       })}
+
+      {/* Share Link Dialog */}
+      {shareOrder && (
+        <ShareLinkDialog
+          orderId={shareOrder.orderId}
+          orderNumber={shareOrder.orderNumber}
+          open={!!shareOrder}
+          onOpenChange={(open) => {
+            if (!open) setShareOrder(null);
+          }}
+        />
+      )}
 
       {/* Pagination */}
       {totalPages > 1 && (
