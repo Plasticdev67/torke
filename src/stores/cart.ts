@@ -8,6 +8,8 @@ export interface CartItem {
   quantity: number;
   /** Display-only price in pence. Server re-validates at checkout. */
   unitPricePence: number;
+  /** Optional link to a saved calculation (design tool). */
+  calcReference?: string;
 }
 
 interface CartState {
@@ -27,13 +29,17 @@ export const useCartStore = create<CartState>()(
       addItem: (item) => {
         const qty = item.quantity ?? 1;
         set((state) => {
+          // Items with different calcReference are separate line items
           const existing = state.items.find(
-            (i) => i.productId === item.productId
+            (i) =>
+              i.productId === item.productId &&
+              i.calcReference === item.calcReference
           );
           if (existing) {
             return {
               items: state.items.map((i) =>
-                i.productId === item.productId
+                i.productId === item.productId &&
+                i.calcReference === item.calcReference
                   ? { ...i, quantity: i.quantity + qty }
                   : i
               ),
@@ -48,6 +54,7 @@ export const useCartStore = create<CartState>()(
                 sku: item.sku,
                 quantity: qty,
                 unitPricePence: item.unitPricePence,
+                calcReference: item.calcReference,
               },
             ],
           };

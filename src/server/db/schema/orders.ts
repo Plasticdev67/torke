@@ -68,6 +68,7 @@ export const orderLines = pgTable("order_lines", {
   quantity: integer("quantity").notNull(),
   unitPricePence: integer("unit_price_pence").notNull(),
   lineTotalPence: integer("line_total_pence").notNull(),
+  calcReference: varchar("calc_reference", { length: 50 }),
   createdAt: timestamp("created_at").defaultNow().notNull(),
 });
 
