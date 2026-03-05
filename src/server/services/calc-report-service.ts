@@ -152,7 +152,7 @@ function flattenInputs(inputs: DesignInputs): { key: string; value: unknown }[] 
     "tensionLoad", "shearLoad", "groupPattern",
   ];
   for (const k of order) {
-    rows.push({ key: k, value: (inputs as Record<string, unknown>)[k] });
+    rows.push({ key: k, value: (inputs as unknown as Record<string, unknown>)[k] });
   }
   // Spacing
   rows.push({ key: "spacing.s1", value: inputs.spacing.s1 });
@@ -225,7 +225,7 @@ function buildCoverPage(
   const valueX = MARGIN + 140;
   const lh = 20;
 
-  const details = [
+  const details: [string, string][] = [
     ["Calculation Reference:", calcReference],
     ["Project Name:", inputs.projectName || "-"],
     ["Project Reference:", inputs.projectRef || "-"],
