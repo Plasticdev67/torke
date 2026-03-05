@@ -74,7 +74,7 @@ All v1 requirements are specific and testable. Each has a unique REQ-ID grouped 
 
 - [x] **TRACE-15**: Contractor can generate a unique read-only verification link for their end-client (building owner, structural engineer, building control)
 - [x] **TRACE-16**: End-client can view project name, list of fixings supplied, batch numbers, and linked 3.1 certs via the verification link without logging in
-- [ ] **TRACE-17**: QR code on physical product label resolves to a public verification page showing product details, batch ID, 3.1 cert, and goods-in date
+- [x] **TRACE-17**: QR code on physical product label resolves to a public verification page showing product details, batch ID, 3.1 cert, and goods-in date
 
 ### Permanent URL Scheme
 
