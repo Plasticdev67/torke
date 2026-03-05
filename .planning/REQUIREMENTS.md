@@ -109,15 +109,15 @@ All v1 requirements are specific and testable. Each has a unique REQ-ID grouped 
 
 ### Design-to-Order Pipeline
 
-- [ ] **DESIGN-14**: Calculation output recommends matching Torke products based on the specified anchor type and size
-- [ ] **DESIGN-15**: User can add the recommended Torke product to their basket or quote directly from the calculation result
-- [ ] **DESIGN-16**: Calculation reference number is linked to the resulting order so the cert pack references the original engineering justification
+- [x] **DESIGN-14**: Calculation output recommends matching Torke products based on the specified anchor type and size
+- [x] **DESIGN-15**: User can add the recommended Torke product to their basket or quote directly from the calculation result
+- [x] **DESIGN-16**: Calculation reference number is linked to the resulting order so the cert pack references the original engineering justification
 
 ### Access & Accounts
 
 - [x] **DESIGN-17**: User can perform calculations without logging in (free, no login required)
 - [x] **DESIGN-18**: User must create a free account to save calculations or export PDF reports
-- [ ] **DESIGN-19**: Torke Design uses the same product database as the e-commerce catalogue (single source of truth)
+- [x] **DESIGN-19**: Torke Design uses the same product database as the e-commerce catalogue (single source of truth)
 
 ### v2 Deferred (not in scope for v1)
 

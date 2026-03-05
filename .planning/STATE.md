@@ -2,15 +2,15 @@
 gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
-current_plan: 5 of 6
-status: in-progress
-stopped_at: Completed 03-05-PLAN.md
-last_updated: "2026-03-05T08:28:00.000Z"
+current_plan: 6 of 6
+status: phase-complete
+stopped_at: Completed 03-06-PLAN.md
+last_updated: "2026-03-05T08:35:00.000Z"
 progress:
   total_phases: 4
-  completed_phases: 2
+  completed_phases: 3
   total_plans: 19
-  completed_plans: 18
+  completed_plans: 19
 ---
 
 # Project State
@@ -23,9 +23,10 @@ See: .planning/PROJECT.md (updated 2026-03-04)
 ## Current Phase
 Phase 3: Torke Design
 Status: In Progress (6 plans, 4 waves)
-Current Plan: 5 of 6
+Current Plan: 6 of 6 (COMPLETE)
 
 ## Progress
+Plan 03-06 (Design-to-Order Pipeline + Auth Gate): COMPLETE
 Plan 03-05 (PDF Report + Calculations Router): COMPLETE
 Plan 03-04 (Results Display + Action Bar): COMPLETE
 Plan 03-03 (3D Anchor Visualisation): COMPLETE
@@ -44,6 +45,7 @@ Plan 02-08 (Gap Closure - Traceability Wiring): COMPLETE
 ## Completed Phases
 Phase 1: Foundation + Catalogue + Traceability Core (4/4 plans)
 Phase 2: E-Commerce Order Flow + WMS (8/8 plans)
+Phase 3: Torke Design (6/6 plans)
 
 ## Decisions
 - pricePence nullable on products: products without prices show "Contact for pricing" and cannot be ordered
@@ -122,6 +124,10 @@ Phase 2: E-Commerce Order Flow + WMS (8/8 plans)
 - Presigned R2 download URLs with 24h expiry for PDF exports
 - CALC-YYYY-NNNNNN reference generation reuses MAX-query-in-transaction pattern
 
+- Auth gate uses overlay modal (not redirect) to preserve localStorage-persisted design state
+- Draft calcReference uses DESIGN-DRAFT-{timestamp} when calculation not yet saved
+- Product diameter filter uses M-prefix format (M12, M16) matching product database
+
 ## Performance Metrics
 
 | Phase | Plan | Duration | Tasks | Files |
@@ -144,7 +150,8 @@ Phase 2: E-Commerce Order Flow + WMS (8/8 plans)
 | 03 | 03 | 4min | 2 | 9 |
 | 03 | 04 | 3min | 2 | 6 |
 | 03 | 05 | 6min | 2 | 4 |
+| 03 | 06 | 5min | 2 | 7 |
 
 ## Last Session
-- **Stopped at:** Completed 03-05-PLAN.md
-- **Timestamp:** 2026-03-05T08:28:00Z
+- **Stopped at:** Completed 03-06-PLAN.md (Phase 3 complete)
+- **Timestamp:** 2026-03-05T08:35:00Z
