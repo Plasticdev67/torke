@@ -87,13 +87,13 @@ All v1 requirements are specific and testable. Each has a unique REQ-ID grouped 
 
 ### Calculation Engine
 
-- [ ] **DESIGN-01**: User can design a post-installed anchor connection to EN 1992-4
-- [ ] **DESIGN-02**: User can input: anchor type, concrete class (C20/25 to C50/60), cracked or uncracked concrete, tension load, shear load, edge distances, spacing, embedment depth, and corrosion environment
-- [ ] **DESIGN-03**: System checks all required failure modes: steel failure (tension and shear), concrete cone breakout, pull-out, concrete pryout, concrete edge breakout, splitting, and combined tension-shear interaction
-- [ ] **DESIGN-04**: System displays utilisation ratio (0-100%) for each failure mode with pass/fail indication
-- [ ] **DESIGN-05**: System supports both single anchors and anchor groups (2, 4, 6+ patterns)
-- [ ] **DESIGN-06**: Calculation engine runs client-side for instant feedback (sub-second parameter updates) and re-runs server-side for report generation to validate integrity
-- [ ] **DESIGN-07**: Any scope limitation (e.g. no seismic, no fire) is clearly stated on every calculation output and report
+- [x] **DESIGN-01**: User can design a post-installed anchor connection to EN 1992-4
+- [x] **DESIGN-02**: User can input: anchor type, concrete class (C20/25 to C50/60), cracked or uncracked concrete, tension load, shear load, edge distances, spacing, embedment depth, and corrosion environment
+- [x] **DESIGN-03**: System checks all required failure modes: steel failure (tension and shear), concrete cone breakout, pull-out, concrete pryout, concrete edge breakout, splitting, and combined tension-shear interaction
+- [x] **DESIGN-04**: System displays utilisation ratio (0-100%) for each failure mode with pass/fail indication
+- [x] **DESIGN-05**: System supports both single anchors and anchor groups (2, 4, 6+ patterns)
+- [x] **DESIGN-06**: Calculation engine runs client-side for instant feedback (sub-second parameter updates) and re-runs server-side for report generation to validate integrity
+- [x] **DESIGN-07**: Any scope limitation (e.g. no seismic, no fire) is clearly stated on every calculation output and report
 
 ### 3D Visualisation
 

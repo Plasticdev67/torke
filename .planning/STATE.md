@@ -2,15 +2,15 @@
 gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
-current_plan: 0 of 6
-status: planned
-stopped_at: Phase 3 planned — ready for execution
-last_updated: "2026-03-05T01:15:00.000Z"
+current_plan: 1 of 6
+status: in-progress
+stopped_at: Completed 03-01-PLAN.md
+last_updated: "2026-03-05T08:09:38.455Z"
 progress:
   total_phases: 4
   completed_phases: 2
   total_plans: 19
-  completed_plans: 13
+  completed_plans: 14
 ---
 
 # Project State
@@ -22,10 +22,11 @@ See: .planning/PROJECT.md (updated 2026-03-04)
 
 ## Current Phase
 Phase 3: Torke Design
-Status: Planned (6 plans, 4 waves)
-Current Plan: 0 of 6
+Status: In Progress (6 plans, 4 waves)
+Current Plan: 1 of 6
 
 ## Progress
+Plan 03-01 (EN 1992-4 Calc Engine): COMPLETE
 Plan 02-00 (Test Infrastructure): COMPLETE
 Plan 02-01 (Schema + Cart + Allocation): COMPLETE
 Plan 02-02 (Stock Dashboard + Adjustments): COMPLETE
@@ -95,6 +96,12 @@ Phase 2: E-Commerce Order Flow + WMS (8/8 plans)
 - Account summary excludes draft and cancelled orders from spending totals
 - generateCertPack chained before sendDispatchNotification via .then() so email can attach cert pack PDF
 - Checkout success page uses myOrderDetail query for batch allocation data with 'in' operator type guard
+- All Torke products treated as post-installed anchors (k1 = 7.7 cracked / 11.0 uncracked)
+- Pull-out for mechanical anchors uses Infinity resistance (governed by cone breakout)
+- Splitting uses generic hmin = max(2*hef, 100mm) with scope limitation disclaimer
+- Combined interaction checks both steel (exponent 2) and concrete (exponent 1.5) separately
+- Governing mode determined across all 7 modes + combined (can be Combined Interaction)
+- Project info fields (projectName, engineerName, etc.) added to DesignInputs for PDF reports
 
 ## Performance Metrics
 
@@ -113,7 +120,8 @@ Phase 2: E-Commerce Order Flow + WMS (8/8 plans)
 | 02 | 04 | 7min | 2 | 11 |
 | 02 | 06 | 9min | 2 | 15 |
 | 02 | 08 | 4min | 2 | 2 |
+| 03 | 01 | 8min | 2 | 19 |
 
 ## Last Session
-- **Stopped at:** Phase 3 planned — ready for execution
-- **Timestamp:** 2026-03-05T01:15:00Z
+- **Stopped at:** Completed 03-01-PLAN.md
+- **Timestamp:** 2026-03-05T08:09:00Z
