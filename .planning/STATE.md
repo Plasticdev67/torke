@@ -2,14 +2,14 @@
 gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
-current_plan: 8 of 8
-status: completed
-stopped_at: Phase 3 context gathered
-last_updated: "2026-03-05T00:48:19.270Z"
+current_plan: 0 of 6
+status: planned
+stopped_at: Phase 3 planned — ready for execution
+last_updated: "2026-03-05T01:15:00.000Z"
 progress:
   total_phases: 4
   completed_phases: 2
-  total_plans: 13
+  total_plans: 19
   completed_plans: 13
 ---
 
@@ -18,12 +18,12 @@ progress:
 ## Project Reference
 See: .planning/PROJECT.md (updated 2026-03-04)
 **Core value:** Full mill-to-site batch traceability with verifiable 3.1 certification
-**Current focus:** Phase 2 — E-Commerce Order Flow + WMS
+**Current focus:** Phase 3 — Torke Design
 
 ## Current Phase
-Phase 2: E-Commerce Order Flow + WMS
-Status: Complete
-Current Plan: 8 of 8
+Phase 3: Torke Design
+Status: Planned (6 plans, 4 waves)
+Current Plan: 0 of 6
 
 ## Progress
 Plan 02-00 (Test Infrastructure): COMPLETE
@@ -38,6 +38,7 @@ Plan 02-08 (Gap Closure - Traceability Wiring): COMPLETE
 
 ## Completed Phases
 Phase 1: Foundation + Catalogue + Traceability Core (4/4 plans)
+Phase 2: E-Commerce Order Flow + WMS (8/8 plans)
 
 ## Decisions
 - pricePence nullable on products: products without prices show "Contact for pricing" and cannot be ordered
@@ -114,5 +115,5 @@ Phase 1: Foundation + Catalogue + Traceability Core (4/4 plans)
 | 02 | 08 | 4min | 2 | 2 |
 
 ## Last Session
-- **Stopped at:** Phase 3 context gathered
-- **Timestamp:** 2026-03-05T00:39:00Z
+- **Stopped at:** Phase 3 planned — ready for execution
+- **Timestamp:** 2026-03-05T01:15:00Z
