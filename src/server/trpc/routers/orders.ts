@@ -6,6 +6,7 @@ import { creditAccounts } from "@/server/db/schema/credit-accounts";
 import { deliveryAddresses } from "@/server/db/schema/addresses";
 import { orderLineAllocations } from "@/server/db/schema/allocations";
 import { batches } from "@/server/db/schema/batches";
+import { invoices } from "@/server/db/schema/invoices";
 import {
   createOrder,
   transitionOrder,
@@ -710,4 +711,320 @@ export const ordersRouter = router({
 
       return userOrders;
     }),
+
+  // -----------------------------------------------------------------------
+  // Customer Account Portal
+  // -----------------------------------------------------------------------
+
+  /** Current user's orders (card-style listing) */
+  myOrders: protectedProcedure
+    .input(
+      z
+        .object({
+          limit: z.number().min(1).max(50).default(20),
+          offset: z.number().min(0).default(0),
+        })
+        .optional()
+    )
+    .query(async ({ ctx, input }) => {
+      const userId = ctx.session.user.id;
+      const limit = input?.limit ?? 20;
+      const offset = input?.offset ?? 0;
+
+      const userOrders = await ctx.db
+        .select({
+          id: orders.id,
+          orderNumber: orders.orderNumber,
+          status: orders.status,
+          totalPence: orders.totalPence,
+          paymentMethod: orders.paymentMethod,
+          createdAt: orders.createdAt,
+        })
+        .from(orders)
+        .where(eq(orders.userId, userId))
+        .orderBy(desc(orders.createdAt))
+        .limit(limit)
+        .offset(offset);
+
+      // Fetch line counts + preview items
+      const orderIds = userOrders.map((o) => o.id);
+      let lineData: Array<{
+        orderId: string;
+        productName: string;
+        quantity: number;
+      }> = [];
+
+      if (orderIds.length > 0) {
+        lineData = await ctx.db
+          .select({
+            orderId: orderLines.orderId,
+            productName: products.name,
+            quantity: orderLines.quantity,
+          })
+          .from(orderLines)
+          .innerJoin(products, eq(orderLines.productId, products.id))
+          .where(
+            sql`${orderLines.orderId} IN (${sql.join(
+              orderIds.map((id) => sql`${id}`),
+              sql`, `
+            )})`
+          );
+      }
+
+      // Group line data by order
+      const linesByOrder: Record<
+        string,
+        Array<{ productName: string; quantity: number }>
+      > = {};
+      for (const line of lineData) {
+        if (!linesByOrder[line.orderId]) {
+          linesByOrder[line.orderId] = [];
+        }
+        linesByOrder[line.orderId]!.push({
+          productName: line.productName,
+          quantity: line.quantity,
+        });
+      }
+
+      return userOrders.map((o) => ({
+        ...o,
+        lineCount: linesByOrder[o.id]?.length ?? 0,
+        linePreview: (linesByOrder[o.id] ?? []).slice(0, 3),
+      }));
+    }),
+
+  /** Full order detail for current user */
+  myOrderDetail: protectedProcedure
+    .input(z.object({ orderId: z.string().uuid() }))
+    .query(async ({ ctx, input }) => {
+      const userId = ctx.session.user.id;
+
+      const order = await ctx.db.query.orders.findFirst({
+        where: eq(orders.id, input.orderId),
+        with: {
+          orderLines: {
+            with: {
+              product: true,
+            },
+          },
+        },
+      });
+
+      if (!order) {
+        throw new TRPCError({
+          code: "NOT_FOUND",
+          message: "Order not found",
+        });
+      }
+
+      if (order.userId !== userId) {
+        throw new TRPCError({
+          code: "FORBIDDEN",
+          message: "You can only view your own orders",
+        });
+      }
+
+      // Fetch delivery address
+      let deliveryAddress = null;
+      if (order.deliveryAddressId) {
+        const [addr] = await ctx.db
+          .select()
+          .from(deliveryAddresses)
+          .where(eq(deliveryAddresses.id, order.deliveryAddressId));
+        deliveryAddress = addr ?? null;
+      }
+
+      // Fetch allocations (batch refs) for each order line
+      const lineIds = order.orderLines.map((l) => l.id);
+      let allocations: Array<{
+        orderLineId: string;
+        torkeBatchId: string;
+        quantity: number;
+      }> = [];
+
+      if (lineIds.length > 0) {
+        allocations = await ctx.db
+          .select({
+            orderLineId: orderLineAllocations.orderLineId,
+            torkeBatchId: batches.torkeBatchId,
+            quantity: orderLineAllocations.quantity,
+          })
+          .from(orderLineAllocations)
+          .innerJoin(batches, eq(orderLineAllocations.batchId, batches.id))
+          .where(
+            sql`${orderLineAllocations.orderLineId} IN (${sql.join(
+              lineIds.map((id) => sql`${id}`),
+              sql`, `
+            )})`
+          );
+      }
+
+      // Group allocations by line
+      const allocationsByLine: Record<
+        string,
+        Array<{ torkeBatchId: string; quantity: number }>
+      > = {};
+      for (const alloc of allocations) {
+        if (!allocationsByLine[alloc.orderLineId]) {
+          allocationsByLine[alloc.orderLineId] = [];
+        }
+        allocationsByLine[alloc.orderLineId]!.push({
+          torkeBatchId: alloc.torkeBatchId,
+          quantity: alloc.quantity,
+        });
+      }
+
+      // Check if invoice exists
+      const invoiceRows = await ctx.db
+        .select({ id: invoices.id })
+        .from(invoices)
+        .where(eq(invoices.orderId, input.orderId));
+
+      const hasInvoice = invoiceRows.length > 0;
+
+      return {
+        ...order,
+        deliveryAddress,
+        hasInvoice,
+        orderLines: order.orderLines.map((line) => ({
+          ...line,
+          allocations: allocationsByLine[line.id] ?? [],
+        })),
+      };
+    }),
+
+  /** Get items from a past order for reordering */
+  reorder: protectedProcedure
+    .input(z.object({ orderId: z.string().uuid() }))
+    .query(async ({ ctx, input }) => {
+      const userId = ctx.session.user.id;
+
+      // Verify ownership
+      const [order] = await ctx.db
+        .select({ id: orders.id, userId: orders.userId })
+        .from(orders)
+        .where(eq(orders.id, input.orderId));
+
+      if (!order) {
+        throw new TRPCError({
+          code: "NOT_FOUND",
+          message: "Order not found",
+        });
+      }
+
+      if (order.userId !== userId) {
+        throw new TRPCError({
+          code: "FORBIDDEN",
+          message: "You can only reorder your own orders",
+        });
+      }
+
+      // Get order line items with current product prices
+      const items = await ctx.db
+        .select({
+          productId: orderLines.productId,
+          productName: products.name,
+          sku: products.sku,
+          quantity: orderLines.quantity,
+          currentPricePence: products.pricePence,
+        })
+        .from(orderLines)
+        .innerJoin(products, eq(orderLines.productId, products.id))
+        .where(eq(orderLines.orderId, input.orderId));
+
+      return items.map((item) => ({
+        productId: item.productId,
+        productName: item.productName,
+        sku: item.sku,
+        quantity: item.quantity,
+        unitPricePence: item.currentPricePence ?? 0,
+      }));
+    }),
+
+  /** Account spending summary for current user */
+  accountSummary: protectedProcedure.query(async ({ ctx }) => {
+    const userId = ctx.session.user.id;
+
+    // Total orders and total spent (all time)
+    const [totals] = await ctx.db
+      .select({
+        totalOrders: sql<number>`COUNT(*)::int`,
+        totalSpentPence: sql<number>`COALESCE(SUM(${orders.totalPence}), 0)::int`,
+      })
+      .from(orders)
+      .where(
+        and(
+          eq(orders.userId, userId),
+          sql`${orders.status} NOT IN ('draft', 'cancelled')`
+        )
+      );
+
+    // Monthly spending (current month)
+    const now = new Date();
+    const monthStart = new Date(now.getFullYear(), now.getMonth(), 1);
+
+    const [monthly] = await ctx.db
+      .select({
+        monthlySpentPence: sql<number>`COALESCE(SUM(${orders.totalPence}), 0)::int`,
+      })
+      .from(orders)
+      .where(
+        and(
+          eq(orders.userId, userId),
+          sql`${orders.status} NOT IN ('draft', 'cancelled')`,
+          sql`${orders.createdAt} >= ${monthStart.toISOString()}`
+        )
+      );
+
+    // Top products by order frequency
+    const topProducts = await ctx.db
+      .select({
+        productName: products.name,
+        orderCount: sql<number>`COUNT(DISTINCT ${orderLines.orderId})::int`,
+      })
+      .from(orderLines)
+      .innerJoin(products, eq(orderLines.productId, products.id))
+      .innerJoin(orders, eq(orderLines.orderId, orders.id))
+      .where(
+        and(
+          eq(orders.userId, userId),
+          sql`${orders.status} NOT IN ('draft', 'cancelled')`
+        )
+      )
+      .groupBy(products.name)
+      .orderBy(sql`COUNT(DISTINCT ${orderLines.orderId}) DESC`)
+      .limit(5);
+
+    // Credit account status
+    const [creditAccount] = await ctx.db
+      .select({
+        status: creditAccounts.status,
+        creditLimitPence: creditAccounts.creditLimitPence,
+        creditUsedPence: creditAccounts.creditUsedPence,
+      })
+      .from(creditAccounts)
+      .where(eq(creditAccounts.userId, userId));
+
+    // Count of cert packs available
+    const [certPacks] = await ctx.db
+      .select({
+        count: sql<number>`COUNT(*)::int`,
+      })
+      .from(orders)
+      .where(
+        and(
+          eq(orders.userId, userId),
+          sql`${orders.certPackKey} IS NOT NULL`
+        )
+      );
+
+    return {
+      totalOrders: totals?.totalOrders ?? 0,
+      totalSpentPence: totals?.totalSpentPence ?? 0,
+      monthlySpentPence: monthly?.monthlySpentPence ?? 0,
+      topProducts: topProducts ?? [],
+      creditAccount: creditAccount ?? null,
+      certPackCount: certPacks?.count ?? 0,
+    };
+  }),
 });
