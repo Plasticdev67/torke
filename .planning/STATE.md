@@ -2,15 +2,15 @@
 gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
-current_plan: 4 of 6
+current_plan: 5 of 6
 status: in-progress
-stopped_at: Completed 03-04-PLAN.md
-last_updated: "2026-03-05T08:18:00.000Z"
+stopped_at: Completed 03-05-PLAN.md
+last_updated: "2026-03-05T08:28:00.000Z"
 progress:
   total_phases: 4
   completed_phases: 2
   total_plans: 19
-  completed_plans: 17
+  completed_plans: 18
 ---
 
 # Project State
@@ -23,9 +23,10 @@ See: .planning/PROJECT.md (updated 2026-03-04)
 ## Current Phase
 Phase 3: Torke Design
 Status: In Progress (6 plans, 4 waves)
-Current Plan: 4 of 6
+Current Plan: 5 of 6
 
 ## Progress
+Plan 03-05 (PDF Report + Calculations Router): COMPLETE
 Plan 03-04 (Results Display + Action Bar): COMPLETE
 Plan 03-03 (3D Anchor Visualisation): COMPLETE
 Plan 03-02 (Design Input Surface): COMPLETE
@@ -116,6 +117,10 @@ Phase 2: E-Commerce Order Flow + WMS (8/8 plans)
 - Debounced recalculation (300ms) wired directly in design page useEffect
 - Multiple failure mode bars can be expanded simultaneously via Set<number> state
 - Action bar buttons are stubs pending auth gate integration in Plan 06
+- PDF report uses PageState mutable object pattern for multi-page flow control
+- Scope limitations footer on every page (5.5pt font to fit single line)
+- Presigned R2 download URLs with 24h expiry for PDF exports
+- CALC-YYYY-NNNNNN reference generation reuses MAX-query-in-transaction pattern
 
 ## Performance Metrics
 
@@ -138,7 +143,8 @@ Phase 2: E-Commerce Order Flow + WMS (8/8 plans)
 | 03 | 02 | 10min | 2 | 18 |
 | 03 | 03 | 4min | 2 | 9 |
 | 03 | 04 | 3min | 2 | 6 |
+| 03 | 05 | 6min | 2 | 4 |
 
 ## Last Session
-- **Stopped at:** Completed 03-04-PLAN.md
-- **Timestamp:** 2026-03-05T08:18:00Z
+- **Stopped at:** Completed 03-05-PLAN.md
+- **Timestamp:** 2026-03-05T08:28:00Z

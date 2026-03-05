@@ -103,9 +103,9 @@ All v1 requirements are specific and testable. Each has a unique REQ-ID grouped 
 
 ### PDF Reports
 
-- [ ] **DESIGN-11**: User can export a PDF calculation report with Torke branding and project info
-- [ ] **DESIGN-12**: PDF report includes all inputs, all failure mode results with utilisation ratios, and inline Eurocode clause references (e.g. "EN 1992-4 Clause 7.2.1.4")
-- [ ] **DESIGN-13**: PDF report includes a summary pass/fail status and governing failure mode
+- [x] **DESIGN-11**: User can export a PDF calculation report with Torke branding and project info
+- [x] **DESIGN-12**: PDF report includes all inputs, all failure mode results with utilisation ratios, and inline Eurocode clause references (e.g. "EN 1992-4 Clause 7.2.1.4")
+- [x] **DESIGN-13**: PDF report includes a summary pass/fail status and governing failure mode
 
 ### Design-to-Order Pipeline
 
@@ -116,7 +116,7 @@ All v1 requirements are specific and testable. Each has a unique REQ-ID grouped 
 ### Access & Accounts
 
 - [x] **DESIGN-17**: User can perform calculations without logging in (free, no login required)
-- [ ] **DESIGN-18**: User must create a free account to save calculations or export PDF reports
+- [x] **DESIGN-18**: User must create a free account to save calculations or export PDF reports
 - [ ] **DESIGN-19**: Torke Design uses the same product database as the e-commerce catalogue (single source of truth)
 
 ### v2 Deferred (not in scope for v1)
