@@ -67,13 +67,13 @@ Plans:
 
 **Goal:** Deliver the browser-based EN 1992-4 anchor calculation tool with 3D visualisation, PDF reports, and the design-to-order pipeline that connects calculations to the shop.
 
-**Plans:** 2/6 plans executed
+**Plans:** 4/6 plans executed
 
 Plans:
-- [ ] 03-01-PLAN.md — EN 1992-4 calculation engine (TDD): types, failure modes, groups, regression tests
-- [ ] 03-02-PLAN.md — Schema extensions, design store, and input panel UI
-- [ ] 03-03-PLAN.md — 3D WebGL visualisation with React Three Fiber
-- [ ] 03-04-PLAN.md — Results panel with utilisation bars and action bar
+- [x] 03-01-PLAN.md — EN 1992-4 calculation engine (TDD): types, failure modes, groups, regression tests
+- [x] 03-02-PLAN.md — Schema extensions, design store, and input panel UI
+- [x] 03-03-PLAN.md — 3D WebGL visualisation with React Three Fiber
+- [x] 03-04-PLAN.md — Results panel with utilisation bars and action bar
 - [ ] 03-05-PLAN.md — PDF report generation and calculations tRPC router
 - [ ] 03-06-PLAN.md — Design-to-order pipeline and auth gating
 
