@@ -150,6 +150,7 @@ export interface CreateOrderInput {
   lines: Array<{
     productId: string;
     quantity: number;
+    calcReference?: string;
   }>;
 }
 
@@ -203,6 +204,7 @@ export async function createOrder(tx: Tx, data: CreateOrderInput) {
       quantity: line.quantity,
       unitPricePence,
       lineTotalPence,
+      calcReference: line.calcReference ?? null,
     };
   });
 

@@ -32,6 +32,7 @@ export const ordersRouter = router({
             z.object({
               productId: z.string().uuid(),
               quantity: z.number().int().positive(),
+              calcReference: z.string().max(50).optional(),
             })
           )
           .min(1, "At least one item is required"),
