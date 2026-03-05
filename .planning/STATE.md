@@ -2,15 +2,15 @@
 gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
-current_plan: 1 of 6
+current_plan: 4 of 6
 status: executing
-stopped_at: Completed 04-00-PLAN.md
-last_updated: "2026-03-05T10:09:22.782Z"
+stopped_at: Completed 04-03-PLAN.md
+last_updated: "2026-03-05T10:13:54Z"
 progress:
   total_phases: 4
   completed_phases: 3
   total_plans: 25
-  completed_plans: 20
+  completed_plans: 23
 ---
 
 # Project State
@@ -23,9 +23,12 @@ See: .planning/PROJECT.md (updated 2026-03-04)
 ## Current Phase
 Phase 4: Portals, Marketing & Polish
 Status: In Progress (6 plans, 3 waves)
-Current Plan: 1 of 6
+Current Plan: 4 of 6
 
 ## Progress
+Plan 04-03 (Blog + SEO Schema Markup): COMPLETE
+Plan 04-02 (...): COMPLETE
+Plan 04-01 (...): COMPLETE
 Plan 04-00 (Test Infrastructure): COMPLETE
 Plan 03-06 (Design-to-Order Pipeline + Auth Gate): COMPLETE
 Plan 03-05 (PDF Report + Calculations Router): COMPLETE
@@ -129,6 +132,9 @@ Phase 3: Torke Design (6/6 plans)
 - Draft calcReference uses DESIGN-DRAFT-{timestamp} when calculation not yet saved
 - Product diameter filter uses M-prefix format (M12, M16) matching product database
 - Phase 4 test stubs follow Phase 2 precedent: explicit vitest imports for IDE support
+- Tab navigation added consistently to all account pages (dashboard, orders, addresses, certifications)
+- Cert search queries through orders -> orderLines -> allocations -> batches -> products with conditional ILIKE filters
+- Bulk ZIP uses Promise.allSettled for resilient parallel R2 fetches with partial success
 
 ## Performance Metrics
 
@@ -154,7 +160,8 @@ Phase 3: Torke Design (6/6 plans)
 | 03 | 05 | 6min | 2 | 4 |
 | 03 | 06 | 5min | 2 | 7 |
 | 04 | 00 | 1min | 1 | 9 |
+| 04 | 01 | 6min | 2 | 14 |
 
 ## Last Session
-- **Stopped at:** Completed 04-00-PLAN.md
-- **Timestamp:** 2026-03-05T10:08:41Z
+- **Stopped at:** Completed 04-01-PLAN.md
+- **Timestamp:** 2026-03-05T10:14:12Z
