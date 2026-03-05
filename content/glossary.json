@@ -1,0 +1,194 @@
+[
+  {
+    "term": "Embedment Depth (hef)",
+    "definition": "The effective depth to which an anchor is embedded in the base material (concrete). For bonded anchors this is measured to the bottom of the capsule or injection resin, for mechanical anchors it is typically measured to the expansion zone. Embedment depth is a critical parameter in all anchor design calculations per EN 1992-4.",
+    "relatedTerms": ["Effective Embedment Depth", "Concrete Cone Breakout"],
+    "category": "design"
+  },
+  {
+    "term": "Effective Embedment Depth",
+    "definition": "The depth of the anchor that contributes to its load-bearing capacity. This may differ from the physical embedment depth depending on the anchor type and installation method. For post-installed anchors, it is typically defined in the relevant ETA.",
+    "relatedTerms": ["Embedment Depth (hef)"],
+    "category": "design"
+  },
+  {
+    "term": "Edge Distance",
+    "definition": "The distance from the centre of an anchor to the nearest edge of the concrete member. Minimum edge distances (cmin) are specified in ETAs and must be respected to ensure full design resistance. Reduced edge distances require design resistance reductions per EN 1992-4.",
+    "relatedTerms": ["Spacing", "Edge Breakout"],
+    "category": "design"
+  },
+  {
+    "term": "Spacing",
+    "definition": "The centre-to-centre distance between anchors in a group. Minimum spacings (smin) are defined in ETAs. When anchors are closely spaced, their concrete breakout cones overlap, reducing the group resistance. The critical spacing (scr) defines the distance beyond which anchors behave independently.",
+    "relatedTerms": ["Edge Distance", "Concrete Cone Breakout"],
+    "category": "design"
+  },
+  {
+    "term": "Characteristic Resistance",
+    "definition": "The 5% fractile value of anchor resistance determined from testing. It represents the value below which 5% of test results are expected to fall. Characteristic resistances (NRk, VRk) are published in ETAs and form the basis for design resistance calculations.",
+    "relatedTerms": ["Design Resistance", "Partial Safety Factor"],
+    "category": "design"
+  },
+  {
+    "term": "Design Resistance",
+    "definition": "The characteristic resistance divided by the appropriate partial safety factor (gamma). Design resistances (NRd, VRd) are compared against design actions to verify anchor adequacy. The governing failure mode is the one with the lowest design resistance.",
+    "relatedTerms": ["Characteristic Resistance", "Partial Safety Factor", "Utilisation Ratio"],
+    "category": "design"
+  },
+  {
+    "term": "Partial Safety Factor",
+    "definition": "A factor (gamma) applied to characteristic resistances to account for material variability, installation quality, and the consequences of failure. EN 1992-4 specifies different partial safety factors for steel failure (gammaMs), concrete failure (gammaMc), and installation safety (gammainst).",
+    "relatedTerms": ["Design Resistance", "Characteristic Resistance"],
+    "category": "design"
+  },
+  {
+    "term": "Concrete Cone Breakout",
+    "definition": "A failure mode where a cone-shaped body of concrete breaks away from the base material. The breakout cone is idealised at an angle of approximately 35 degrees from the anchor axis, forming a cone with a radius of 1.5 times the embedment depth (1.5 x hef). This is often the governing failure mode for anchors in tension.",
+    "relatedTerms": ["Pull-out Failure", "Embedment Depth (hef)"],
+    "category": "anchors"
+  },
+  {
+    "term": "Pull-out Failure",
+    "definition": "A failure mode where the anchor is pulled out of the concrete without forming a concrete cone. For mechanical expansion anchors, this involves loss of the expansion force. For bonded anchors, it involves bond failure between the adhesive and either the concrete or the threaded rod.",
+    "relatedTerms": ["Concrete Cone Breakout", "Bonded Anchor"],
+    "category": "anchors"
+  },
+  {
+    "term": "Pryout Failure",
+    "definition": "A concrete failure mode under shear loading where the anchor pries out a concrete cone on the opposite side to the applied shear force. Pryout is typically the governing shear failure mode for short, stiff anchors with low embedment depth-to-diameter ratios.",
+    "relatedTerms": ["Edge Breakout", "Concrete Cone Breakout"],
+    "category": "anchors"
+  },
+  {
+    "term": "Edge Breakout",
+    "definition": "A concrete failure mode under shear loading towards a free edge. A half-cone of concrete breaks away from the edge. The resistance depends on the edge distance, anchor diameter, embedment depth, and concrete strength. EN 1992-4 provides specific calculation methods for this failure mode.",
+    "relatedTerms": ["Edge Distance", "Pryout Failure"],
+    "category": "anchors"
+  },
+  {
+    "term": "Splitting",
+    "definition": "A failure mode where the concrete member splits due to the expanding forces from anchor installation or loading. It is critical in thin members or when anchors are installed close to edges. Minimum member thickness (hmin) is specified in ETAs to prevent splitting.",
+    "relatedTerms": ["Edge Distance", "Mechanical Anchor"],
+    "category": "anchors"
+  },
+  {
+    "term": "Cracked Concrete",
+    "definition": "Concrete in a tension zone where cracks of width up to 0.3mm are assumed to exist. Anchor resistances in cracked concrete are lower than in uncracked concrete. EN 1992-4 requires designers to verify whether the anchor location is in cracked or uncracked concrete under service conditions.",
+    "relatedTerms": ["Uncracked Concrete", "Concrete Class"],
+    "category": "concrete"
+  },
+  {
+    "term": "Uncracked Concrete",
+    "definition": "Concrete in a compression zone where no cracks are expected under service loading. Anchor resistances are higher in uncracked concrete. The designer must demonstrate that the concrete remains uncracked for the full service life to use uncracked concrete resistances.",
+    "relatedTerms": ["Cracked Concrete"],
+    "category": "concrete"
+  },
+  {
+    "term": "Concrete Class",
+    "definition": "A designation for concrete strength, expressed as the characteristic cylinder/cube compressive strength (e.g., C20/25 means 20 MPa cylinder strength, 25 MPa cube strength). Anchor design resistances are directly influenced by concrete class, with higher classes providing greater resistance.",
+    "relatedTerms": ["Cracked Concrete", "Uncracked Concrete"],
+    "category": "concrete"
+  },
+  {
+    "term": "EN 1992-4",
+    "definition": "The European standard for the design of fastenings (anchors) for use in concrete. It covers cast-in and post-installed anchors under static, quasi-static, and seismic loading. EN 1992-4 replaced CEN/TS 1992-4 (formerly ETAG 001 Annex C design methods) and is the current reference standard for anchor design in Europe.",
+    "relatedTerms": ["ETA", "Characteristic Resistance"],
+    "category": "standards"
+  },
+  {
+    "term": "EN 10204 3.1",
+    "definition": "A standard defining types of inspection documents for metallic products. A 3.1 certificate (Inspection Certificate) is issued by the manufacturer's authorised inspection representative, confirming that products meet the order specification. It includes chemical composition, mechanical properties, and test results specific to the delivered batch.",
+    "relatedTerms": ["Batch Traceability", "Heat Number"],
+    "category": "standards"
+  },
+  {
+    "term": "ETA (European Technical Assessment)",
+    "definition": "A document issued by a Technical Assessment Body (TAB) confirming the performance of a construction product based on its Essential Characteristics. For anchors, the ETA contains characteristic resistances, installation parameters, and usage conditions. An ETA is the basis for CE marking of post-installed anchors.",
+    "relatedTerms": ["DoP", "EN 1992-4"],
+    "category": "standards"
+  },
+  {
+    "term": "DoP (Declaration of Performance)",
+    "definition": "A legally required document under the Construction Products Regulation (CPR) that declares the performance of a construction product against its essential characteristics. Manufacturers must issue a DoP before affixing the CE mark. For anchors, the DoP references the relevant ETA.",
+    "relatedTerms": ["ETA", "EN 1992-4"],
+    "category": "standards"
+  },
+  {
+    "term": "FIFO (First In First Out)",
+    "definition": "An inventory management principle where the oldest stock (first goods received) is dispatched first. FIFO ensures proper stock rotation, prevents ageing, and supports batch traceability by maintaining chronological order in the supply chain.",
+    "relatedTerms": ["Batch Traceability"],
+    "category": "testing"
+  },
+  {
+    "term": "Batch Traceability",
+    "definition": "The ability to trace a product from its raw material source through manufacturing, warehousing, and delivery to the end user. For construction fixings, batch traceability links each product unit to its mill certificate, heat number, supplier batch, and Torke batch reference.",
+    "relatedTerms": ["EN 10204 3.1", "Heat Number", "FIFO"],
+    "category": "testing"
+  },
+  {
+    "term": "Heat Number",
+    "definition": "A unique identifier assigned to a batch of steel during the melting process. The heat number enables traceability of the raw material from the steel mill through to the finished product. It appears on EN 10204 3.1 mill certificates alongside chemical composition and mechanical test results.",
+    "relatedTerms": ["EN 10204 3.1", "Batch Traceability"],
+    "category": "testing"
+  },
+  {
+    "term": "Chemical Anchor",
+    "definition": "An anchor system that uses a chemical adhesive (resin) to bond a threaded rod or rebar into a drilled hole in concrete or masonry. The resin fills the annular gap and cures to form a structural bond. Chemical anchors offer high load capacity and are suitable for small edge distances and reduced spacings.",
+    "relatedTerms": ["Bonded Anchor", "Mechanical Anchor"],
+    "category": "anchors"
+  },
+  {
+    "term": "Mechanical Anchor",
+    "definition": "An anchor that develops its resistance through mechanical interlock with the concrete, typically via expansion (torque-controlled or displacement-controlled) or undercut mechanisms. Mechanical anchors provide immediate load-bearing capability after installation.",
+    "relatedTerms": ["Torque-Controlled Expansion Anchor", "Undercut Anchor", "Chemical Anchor"],
+    "category": "anchors"
+  },
+  {
+    "term": "Post-Installed Anchor",
+    "definition": "An anchor installed into hardened concrete by drilling a hole and inserting the anchor (mechanical or chemical). Post-installed anchors are the most common type in retrofit and renovation work. Their design is governed by EN 1992-4 using parameters from the relevant ETA.",
+    "relatedTerms": ["Cast-in Anchor", "ETA"],
+    "category": "anchors"
+  },
+  {
+    "term": "Cast-in Anchor",
+    "definition": "An anchor (headed bolt, channel, or similar) placed in the formwork before concrete is poured. Cast-in anchors are embedded during construction and offer high load capacity. Their design is also covered by EN 1992-4.",
+    "relatedTerms": ["Post-Installed Anchor"],
+    "category": "anchors"
+  },
+  {
+    "term": "Utilisation Ratio",
+    "definition": "The ratio of the design action (load) to the design resistance, expressed as a percentage. A utilisation ratio below 100% means the anchor is adequate. The governing utilisation ratio is the highest across all failure modes including combined tension and shear interaction.",
+    "relatedTerms": ["Design Resistance", "Combined Interaction"],
+    "category": "design"
+  },
+  {
+    "term": "Combined Interaction",
+    "definition": "The check for anchors loaded in both tension and shear simultaneously. EN 1992-4 requires a combined interaction check using (N/NRd)^alpha + (V/VRd)^alpha <= 1.0, where alpha = 2.0 for steel failure and 1.5 for concrete failure modes. The interaction is checked separately for steel and concrete modes.",
+    "relatedTerms": ["Utilisation Ratio", "Steel Failure"],
+    "category": "design"
+  },
+  {
+    "term": "Steel Failure",
+    "definition": "A failure mode where the steel element of the anchor (bolt, threaded rod) fractures under tension or shear. Steel failure resistance depends on the tensile strength (fuk) and cross-sectional area (As) of the anchor. It is typically the upper bound on anchor resistance.",
+    "relatedTerms": ["Combined Interaction", "Utilisation Ratio"],
+    "category": "design"
+  },
+  {
+    "term": "Torque-Controlled Expansion Anchor",
+    "definition": "A mechanical anchor where tightening a nut or bolt head draws a cone into an expansion sleeve, expanding it against the borehole wall. The expansion force creates friction that resists pull-out. Correct installation torque is critical for achieving the specified resistance.",
+    "relatedTerms": ["Mechanical Anchor", "Undercut Anchor"],
+    "category": "anchors"
+  },
+  {
+    "term": "Undercut Anchor",
+    "definition": "A mechanical anchor that achieves its resistance by mechanical interlock with an undercut formed at the base of the drilled hole. Undercut anchors provide high resistance in both cracked and uncracked concrete and are less sensitive to installation torque than expansion anchors.",
+    "relatedTerms": ["Torque-Controlled Expansion Anchor", "Mechanical Anchor"],
+    "category": "anchors"
+  },
+  {
+    "term": "Bonded Anchor",
+    "definition": "A type of chemical anchor where the load transfer is achieved through the bond between the adhesive mortar and both the concrete and the steel element. Bond strength depends on the resin system, concrete condition, installation quality, and temperature.",
+    "relatedTerms": ["Chemical Anchor", "Pull-out Failure"],
+    "category": "anchors"
+  }
+]
