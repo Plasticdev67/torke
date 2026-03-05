@@ -12,6 +12,7 @@ import {
   X,
   CreditCard,
   ShoppingCart,
+  Users,
 } from "lucide-react";
 import { useState } from "react";
 import { cn } from "@/lib/utils";
@@ -22,6 +23,7 @@ const navItems = [
   { href: "/stock", label: "Stock Overview", icon: Warehouse },
   { href: "/orders", label: "Orders", icon: ShoppingCart },
   { href: "/credit-accounts", label: "Credit Accounts", icon: CreditCard },
+  { href: "/leads", label: "Leads", icon: Users },
 ];
 
 export default function WMSLayout({
