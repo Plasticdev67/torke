@@ -24,13 +24,13 @@ All v1 requirements are specific and testable. Each has a unique REQ-ID grouped 
 - [x] **SHOP-09**: User can pay by BACS bank transfer with order held until payment confirmed
 - [x] **SHOP-10**: User can pay by card via Stripe (with SCA compliance)
 - [x] **SHOP-11**: User can select from multiple saved delivery addresses per account
-- [ ] **SHOP-12**: User receives an order confirmation email with order reference and line item summary
+- [x] **SHOP-12**: User receives an order confirmation email with order reference and line item summary
 
 ### Account & Order History
 
 - [x] **SHOP-13**: User can create an account and log in (email/password via Better Auth)
-- [ ] **SHOP-14**: User can view order history with status, tracking, and batch/cert references per line item
-- [ ] **SHOP-15**: User can re-order a previous order with one click
+- [x] **SHOP-14**: User can view order history with status, tracking, and batch/cert references per line item
+- [x] **SHOP-15**: User can re-order a previous order with one click
 - [x] **SHOP-16**: User can download invoices as PDF from their account portal
 
 ### v2 Deferred (not in scope for v1)
@@ -61,7 +61,7 @@ All v1 requirements are specific and testable. Each has a unique REQ-ID grouped 
 ### Digital Cert Pack
 
 - [x] **TRACE-09**: System auto-generates a cert pack PDF on dispatch containing all 3.1 certs for every line item in the order
-- [ ] **TRACE-10**: Cert pack is emailed to the customer with the dispatch notification
+- [x] **TRACE-10**: Cert pack is emailed to the customer with the dispatch notification
 - [x] **TRACE-11**: Cert pack PDF includes: Torke batch ID, supplier batch ID, manufacturer name, heat number, chemical composition, and mechanical properties per EN 10204 3.1
 
 ### Customer Cert Portal

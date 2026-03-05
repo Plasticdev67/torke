@@ -7,7 +7,7 @@ See: .planning/PROJECT.md (updated 2026-03-04)
 
 ## Current Phase
 Phase 2: E-Commerce Order Flow + WMS
-Status: In Progress
+Status: Complete
 Current Plan: 8 of 8
 
 ## Progress
@@ -17,7 +17,7 @@ Plan 02-02 (Stock Dashboard + Adjustments): COMPLETE
 Plan 02-03 (Order Management): COMPLETE
 Plan 02-04 (Fulfillment - Pick/Pack/Dispatch): COMPLETE
 Plan 02-05 (Cert Pack + Invoice Generation): COMPLETE
-Plan 02-06 (Email Notifications + Order History): PENDING
+Plan 02-06 (Email Notifications + Order History): COMPLETE
 Plan 02-07 (Checkout + Payments): COMPLETE
 
 ## Completed Phases
@@ -72,6 +72,10 @@ Phase 1: Foundation + Catalogue + Traceability Core (4/4 plans)
 - Dispatch Zod validation uses .refine() for conditional required fields (tracking/consignment)
 - Pick list uses A4 print stylesheet with picklist-container class visibility pattern
 - Cert pack generation logged as placeholder console.log for Plan 05 to implement
+- Fire-and-forget email pattern: email calls use .catch(console.error) so order mutations never fail due to email
+- Cert pack attached to dispatch email if <10MB, presigned R2 URL if larger (7 day expiry)
+- Reorder fetches current product prices, not historical order prices
+- Account summary excludes draft and cancelled orders from spending totals
 
 ## Performance Metrics
 
@@ -88,7 +92,8 @@ Phase 1: Foundation + Catalogue + Traceability Core (4/4 plans)
 | 02 | 05 | 7min | 2 | 7 |
 | 02 | 07 | 9min | 2 | 17 |
 | 02 | 04 | 7min | 2 | 11 |
+| 02 | 06 | 9min | 2 | 15 |
 
 ## Last Session
-- **Stopped at:** Completed 02-04-PLAN.md — Fulfillment - Pick/Pack/Dispatch
-- **Timestamp:** 2026-03-04T23:51:39Z
+- **Stopped at:** Completed 02-06-PLAN.md — Email Notifications + Order History (Phase 2 Complete)
+- **Timestamp:** 2026-03-05T00:03:30Z
