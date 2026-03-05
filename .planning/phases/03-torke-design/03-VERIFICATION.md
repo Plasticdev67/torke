@@ -22,7 +22,7 @@ human_verification:
     why_human: "End-to-end pipeline from design to order requires manual verification"
 ---
 
-# Phase 3: Torke Design Verification Report
+# Phase 3: Torke TRACE Verification Report
 
 **Phase Goal:** Deliver the browser-based EN 1992-4 anchor calculation tool with 3D visualisation, PDF reports, and the design-to-order pipeline that connects calculations to the shop.
 **Verified:** 2026-03-05
@@ -141,7 +141,7 @@ human_verification:
 | DESIGN-16 | Plan 06 | Calculation reference linked to resulting order | SATISFIED | `calcReference` flows: design store → cart item → order router input → `order-service.ts` L207 → orderLines DB column |
 | DESIGN-17 | Plan 02 | User can perform calculations without logging in | SATISFIED | `/design` page has no auth guard; `calculateAnchorDesign` runs client-side unconditionally |
 | DESIGN-18 | Plan 05, 06 | User must create account to save or export | SATISFIED | All calculations router procedures use `protectedProcedure`; ActionBar gates behind `AuthGateModal` |
-| DESIGN-19 | Plan 06 | Torke Design uses same product database as e-commerce | SATISFIED | `ProductRecommendations.tsx` queries `trpc.products.list` — the identical products tRPC router used by e-commerce |
+| DESIGN-19 | Plan 06 | Torke TRACE uses same product database as e-commerce | SATISFIED | `ProductRecommendations.tsx` queries `trpc.products.list` — the identical products tRPC router used by e-commerce |
 
 **All 19 Phase 3 requirements (DESIGN-01 through DESIGN-19) are SATISFIED.**
 

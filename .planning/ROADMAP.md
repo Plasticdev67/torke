@@ -63,7 +63,7 @@ Plans:
 
 ---
 
-## Phase 3: Torke Design
+## Phase 3: Torke TRACE
 
 **Goal:** Deliver the browser-based EN 1992-4 anchor calculation tool with 3D visualisation, PDF reports, and the design-to-order pipeline that connects calculations to the shop.
 
@@ -100,7 +100,7 @@ Plans:
 
 ## Phase 4: Portals + Marketing + Polish
 
-**Goal:** Complete the traceability surface with customer and end-client portals, launch content/SEO, and activate Torke Design as a lead generation funnel.
+**Goal:** Complete the traceability surface with customer and end-client portals, launch content/SEO, and activate Torke TRACE as a lead generation funnel.
 
 **Plans:** 6/6 plans complete
 
@@ -116,16 +116,16 @@ Plans:
 - TRACE-12, TRACE-13, TRACE-14 (customer cert portal)
 - TRACE-15, TRACE-16, TRACE-17 (end-client verification portal, QR-to-cert on product)
 - MKTG-01, MKTG-02, MKTG-03, MKTG-04 (blog, schema markup, resource library, glossary)
-- MKTG-05, MKTG-06, MKTG-07 (Torke Design lead gen funnel)
+- MKTG-05, MKTG-06, MKTG-07 (Torke TRACE lead gen funnel)
 
 **Success Criteria:**
 1. A contractor can search their certs by order number, batch ID, or product code and download cert packs from the customer portal
 2. A contractor can generate a read-only verification link for their end-client; the end-client can view project fixings, batch numbers, and 3.1 certs without logging in
 3. A site inspector can scan a QR code on a product box and see batch details and the linked 3.1 cert on their phone
 4. The technical blog is live with SEO-optimised content and product pages include structured data markup
-5. An engineer who uses Torke Design and creates an account is visible in the same system as e-commerce customers (single account, single funnel)
+5. An engineer who uses Torke TRACE and creates an account is visible in the same system as e-commerce customers (single account, single funnel)
 
-**Dependencies:** Phase 2 (orders and dispatch must exist for cert portals), Phase 3 (Torke Design must exist for lead gen funnel)
+**Dependencies:** Phase 2 (orders and dispatch must exist for cert portals), Phase 3 (Torke TRACE must exist for lead gen funnel)
 
 ---
 

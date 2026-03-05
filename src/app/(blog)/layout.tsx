@@ -79,7 +79,7 @@ export default function BlogLayout({
                 Products
               </Link>
               <Link href="/design" className="hover:text-white transition-colors">
-                Design Tool
+                TRACE
               </Link>
               <Link href="/blog" className="hover:text-white transition-colors">
                 Blog

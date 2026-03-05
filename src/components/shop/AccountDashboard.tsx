@@ -80,11 +80,11 @@ export function AccountDashboard() {
         />
       </div>
 
-      {/* Torke Design section */}
+      {/* Torke TRACE section */}
       <div>
         <h3 className="mb-3 text-lg font-semibold text-zinc-100">
           <Ruler className="mr-2 inline-block h-5 w-5 text-[#C41E3A]" />
-          Torke Design
+          Torke TRACE
         </h3>
         {calculations && calculations.length > 0 ? (
           <div className="space-y-3">
@@ -95,14 +95,14 @@ export function AccountDashboard() {
                     {calculations.length} saved calculation{calculations.length !== 1 ? "s" : ""}
                   </p>
                   <p className="mt-0.5 text-xs text-zinc-500">
-                    Anchor design calculations from the Torke Design tool
+                    Anchor design calculations from the Torke TRACE tool
                   </p>
                 </div>
                 <Link
                   href="/design"
                   className="rounded-md bg-[#C41E3A]/10 px-3 py-1.5 text-xs font-medium text-[#C41E3A] transition-colors hover:bg-[#C41E3A]/20"
                 >
-                  Open Design Tool
+                  Open TRACE
                 </Link>
               </div>
             </div>
@@ -139,7 +139,7 @@ export function AccountDashboard() {
               href="/design"
               className="mt-2 inline-block text-xs font-medium text-[#C41E3A] hover:underline"
             >
-              Try the Torke Design tool
+              Try the Torke TRACE tool
             </Link>
           </div>
         )}

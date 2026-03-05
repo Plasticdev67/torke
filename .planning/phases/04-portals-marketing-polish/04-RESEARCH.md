@@ -35,7 +35,7 @@ No new major dependencies are required. The MDX pipeline uses `@next/mdx` (offic
 - Full structured data: Product, Article, FAQ, Breadcrumb, Organization, and HowTo schemas across the site
 - Document rebranding: PDF template system with Torke branding (header, footer, colours, logo) for consistent docs
 - Keep current gating (calculate freely, gate save + PDF export) PLUS add soft non-blocking prompts
-- Capture email + name + company at signup from Torke Design
+- Capture email + name + company at signup from Torke TRACE
 - Welcome flow for design-to-shop transition
 - Single account system already unified via Better Auth
 - Basic admin lead list: simple page showing recent signups from design tool
@@ -74,9 +74,9 @@ No new major dependencies are required. The MDX pipeline uses `@next/mdx` (offic
 | MKTG-02 | Product pages include structured data (schema markup) | schema-dts types + JSON-LD script tags in product pages, layout, blog posts |
 | MKTG-03 | Resource library with downloadable datasheets, ETAs, DoPs per product | R2-hosted PDFs linked from product detail pages; new `/resources` listing page |
 | MKTG-04 | Technical glossary section targeting informational search queries | JSON data file with terms; `/glossary` page with search/filter; FAQ schema markup |
-| MKTG-05 | Torke Design accessible without login | Already implemented (DESIGN-17) -- verify no regressions |
+| MKTG-05 | Torke TRACE accessible without login | Already implemented (DESIGN-17) -- verify no regressions |
 | MKTG-06 | Saving/exporting requires free account creation capturing lead data | Already implemented (DESIGN-18) -- verify company field captured at registration |
-| MKTG-07 | Account creation from Torke Design feeds into e-commerce account system | Already implemented via Better Auth single account system -- verify unified experience |
+| MKTG-07 | Account creation from Torke TRACE feeds into e-commerce account system | Already implemented via Better Auth single account system -- verify unified experience |
 </phase_requirements>
 
 ## Standard Stack
@@ -522,7 +522,7 @@ export default async function OrderVerificationPage({ params }: PageProps) {
 | MKTG-02 | JSON-LD output matches schema.org spec | unit | `npx vitest run src/__tests__/seo/schema-markup.test.ts -x` | Wave 0 |
 | MKTG-03 | Resource library lists products with download links | manual-only | Manual: visit /resources, verify downloads | N/A |
 | MKTG-04 | Glossary search filters terms correctly | unit | `npx vitest run src/__tests__/blog/glossary.test.ts -x` | Wave 0 |
-| MKTG-05 | Torke Design accessible without login | manual-only | Manual: visit /design in incognito | N/A |
+| MKTG-05 | Torke TRACE accessible without login | manual-only | Manual: visit /design in incognito | N/A |
 | MKTG-06 | Registration captures email, name, company | unit | `npx vitest run src/__tests__/leads/lead-capture.test.ts -x` | Wave 0 |
 | MKTG-07 | Design account works in shop | manual-only | Manual: register via design, visit shop | N/A |
 

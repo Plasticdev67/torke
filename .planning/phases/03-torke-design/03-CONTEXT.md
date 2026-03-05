@@ -1,4 +1,4 @@
-# Phase 3: Torke Design - Context
+# Phase 3: Torke TRACE - Context
 
 **Gathered:** 2026-03-05
 **Status:** Ready for planning
@@ -89,7 +89,7 @@ Browser-based EN 1992-4 anchor calculation tool with 3D WebGL visualisation, PDF
 ### Established Patterns
 - tRPC for all API calls (src/server/trpc/) — new calculation routers should follow this pattern
 - Drizzle ORM for database (new calculations table needed for saved calcs)
-- Dark theme (#0A0A0A background) with red accents (#C41E3A) — Torke Design UI must match
+- Dark theme (#0A0A0A background) with red accents (#C41E3A) — Torke TRACE UI must match
 - react-hook-form for form inputs (used in AddressForm, CheckoutWizard)
 - Fire-and-forget async pattern for non-blocking operations (email, cert pack generation)
 

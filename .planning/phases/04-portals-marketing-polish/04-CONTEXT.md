@@ -6,7 +6,7 @@
 <domain>
 ## Phase Boundary
 
-Complete the traceability surface with customer and end-client portals, launch content/SEO, activate Torke Design as a lead generation funnel, and rebrand existing Proventure documents. This phase does NOT add new e-commerce features, new calculation capabilities, or new WMS workflows — it surfaces existing data to new audiences and adds marketing content.
+Complete the traceability surface with customer and end-client portals, launch content/SEO, activate Torke TRACE as a lead generation funnel, and rebrand existing Proventure documents. This phase does NOT add new e-commerce features, new calculation capabilities, or new WMS workflows — it surfaces existing data to new audiences and adds marketing content.
 
 </domain>
 
@@ -39,7 +39,7 @@ Complete the traceability surface with customer and end-client portals, launch c
 
 ### Lead Gen Funnel & Account Capture
 - Keep current gating (calculate freely, gate save + PDF export) PLUS add soft non-blocking prompts — after multiple calculations, nudge "save your work" / show account benefits
-- Capture email + name + company at signup from Torke Design — company name helps qualify leads without excessive friction
+- Capture email + name + company at signup from Torke TRACE — company name helps qualify leads without excessive friction
 - Welcome flow for design-to-shop transition: when a design-only user first visits the shop, brief onboarding ("You can order the fixings you just designed")
 - Single account system already unified via Better Auth — no merge needed, just surface both calculations and orders in the account dashboard
 - Basic admin lead list: simple page showing recent signups from design tool (name, email, company, date, calculation count) — enough to validate the funnel

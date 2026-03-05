@@ -71,7 +71,7 @@ Establish the data model, product catalogue (browse/filter/search/PDP), goods-in
 ### Integration Points
 - Research recommends: Next.js 15 App Router, Drizzle ORM, PostgreSQL, Meilisearch, Better Auth
 - Phase 2 will build ordering/checkout on top of this catalogue and batch model
-- Phase 3 (Torke Design) will reference the same product database (DESIGN-19)
+- Phase 3 (Torke TRACE) will reference the same product database (DESIGN-19)
 - Phase 4 portals will surface the batch/cert data captured here
 
 </code_context>

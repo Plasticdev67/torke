@@ -39,7 +39,7 @@
 - Middleware handles geo-routing, auth checks, and A/B testing at the edge.
 - React 19's `use()` hook and improved Suspense make data-fetching patterns cleaner.
 
-**Why NOT a separate SPA for Torke Design:**
+**Why NOT a separate SPA for Torke TRACE:**
 The calculation tool and the shop MUST live on the same Next.js app. This is architecturally important — the entire conversion funnel depends on zero friction between "I just designed this anchor plate" and "Add to cart." Separate apps mean separate auth, separate deployments, and a jarring UX transition. Use Next.js route groups: `(shop)` for e-commerce, `(design)` for the calc tool, `(wms)` for warehouse (can be behind auth).
 
 ### Tailwind CSS 4
@@ -82,7 +82,7 @@ The calculation tool and the shop MUST live on the same Next.js app. This is arc
 - **Trigger.dev 3.x** for background processing: PDF cert pack generation, email dispatch, batch allocation on order, search index updates. Trigger.dev is purpose-built for Next.js, runs on your own infra or their cloud, and handles retries/scheduling. Alternative: **Inngest** (similar model, slightly more mature).
 - Do NOT use BullMQ + Redis for this — it requires running your own worker process and Redis instance, which is unnecessary complexity at this stage.
 
-### Calculation Engine (Torke Design)
+### Calculation Engine (Torke TRACE)
 
 The Eurocode anchor calculations should run server-side (API route or tRPC procedure), NOT client-side:
 - Calculation logic is IP — don't ship it to the browser.
@@ -162,7 +162,7 @@ certifications
 - **three-stdlib** — additional geometries if needed.
 
 **Performance notes:**
-- The Torke Design 3D scene is simple geometry (boxes, cylinders, arrows). This is NOT a game engine workload. Performance will be excellent even on low-end devices.
+- The Torke TRACE 3D scene is simple geometry (boxes, cylinders, arrows). This is NOT a game engine workload. Performance will be excellent even on low-end devices.
 - Use `<Canvas frameloop="demand">` to only re-render when inputs change, saving battery on tablets (engineers on-site often use iPads).
 
 ---
@@ -178,7 +178,7 @@ certifications
 - Supports images (Torke logo, cert scan embeds), tables (calculation results), headers/footers, page numbers.
 
 **Template structure:**
-- `CalculationReport` — Torke Design output: inputs, 3D screenshot, results table, pass/fail summary, engineer details, project info. Torke-branded header/footer.
+- `CalculationReport` — Torke TRACE output: inputs, 3D screenshot, results table, pass/fail summary, engineer details, project info. Torke-branded header/footer.
 - `CertPack` — order dispatch document: order summary, per-line-item batch numbers, embedded or linked 3.1 cert PDFs, QR codes linking to online verification.
 - `QuoteDocument` — formal quotation with terms, product list, pricing, validity period.
 - `DispatchNote` — packing list with batch references.
@@ -305,7 +305,7 @@ certifications
 **Integration pattern:**
 - New customer signup → create HubSpot Contact + Company.
 - Order placed → create HubSpot Deal, log activity.
-- Torke Design calculation saved → log as engagement (lead scoring: engineers who calculate are high-intent leads).
+- Torke TRACE calculation saved → log as engagement (lead scoring: engineers who calculate are high-intent leads).
 - Reorder automation: if Customer X typically orders M12 throughbolts every 6 weeks and it's been 7 weeks, trigger a "Time to reorder?" email.
 
 ---
@@ -318,7 +318,7 @@ certifications
 - Open-source, self-hosted — no per-MAU pricing that scales painfully (Clerk charges $0.02/MAU after 10k).
 - Stores users in YOUR PostgreSQL database — not a third-party system. Critical for a platform where user accounts are tightly coupled to orders, batches, and certs.
 - Supports email/password, magic link, OAuth (Google for convenience), and organization/team structures (a contracting firm has multiple users under one account).
-- Role-based access out of the box: `customer`, `account_manager`, `warehouse_staff`, `admin`, `engineer` (for Torke Design saved projects).
+- Role-based access out of the box: `customer`, `account_manager`, `warehouse_staff`, `admin`, `engineer` (for Torke TRACE saved projects).
 - Session management with JWTs or database sessions.
 - Two-factor authentication — important for admin and warehouse roles.
 

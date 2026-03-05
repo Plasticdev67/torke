@@ -27,9 +27,9 @@ export default function LeadsPage() {
   return (
     <div className="space-y-6">
       <div>
-        <h1 className="text-2xl font-bold text-foreground">Design Tool Leads</h1>
+        <h1 className="text-2xl font-bold text-foreground">TRACE Leads</h1>
         <p className="mt-1 text-sm text-muted-foreground">
-          Users who signed up via the Torke Design tool and saved calculations.
+          Users who signed up via Torke TRACE and saved calculations.
         </p>
       </div>
 

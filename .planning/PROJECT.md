@@ -2,7 +2,7 @@
 
 ## What This Is
 
-Torke is a UK premium fixings brand and digital platform competing with Hilti. It combines an e-commerce store for construction fixings (chemical anchors, mechanical anchors, general fixings) with **Torke Design**, a free browser-based structural calculation tool for engineers and specifiers. The platform's killer differentiator is full mill-to-site batch traceability with EN 10204 3.1 certification on every product — something no UK supplier outside Hilti currently offers. The business targets main contractors and M&E contractors, positioning at premium quality below Hilti pricing, with vetted global suppliers who provide mandatory 3.1 certs.
+Torke is a UK premium fixings brand and digital platform competing with Hilti. It combines an e-commerce store for construction fixings (chemical anchors, mechanical anchors, general fixings) with **Torke TRACE**, a free browser-based structural calculation tool for engineers and specifiers. The platform's killer differentiator is full mill-to-site batch traceability with EN 10204 3.1 certification on every product — something no UK supplier outside Hilti currently offers. The business targets main contractors and M&E contractors, positioning at premium quality below Hilti pricing, with vetted global suppliers who provide mandatory 3.1 certs.
 
 ## Core Value
 
@@ -33,7 +33,7 @@ Every fixing sold through Torke can be traced from the steel mill to the install
 - [ ] Customer portal: contractor can look up certs against their orders
 - [ ] End-client portal: clients of the contractor can verify certs for fixings installed on their project
 
-**Torke Design (Calculation Software)**
+**Torke TRACE (Calculation Software)**
 - [ ] Browser-based anchor design tool (Eurocode-compliant)
 - [ ] Input: tension, shear, moment, edge distance, embedment depth, concrete class, corrosion environment
 - [ ] 3D anchor plate visualisation
@@ -53,7 +53,7 @@ Every fixing sold through Torke can be traced from the steel mill to the install
 
 **Marketing & Lead Generation**
 - [ ] Content/SEO: technical blog, installation guides, specification guides
-- [ ] Torke Design as lead gen funnel (use tool → create account → purchase)
+- [ ] Torke TRACE as lead gen funnel (use tool → create account → purchase)
 - [ ] Email/CRM: automated campaigns, project follow-ups, reorder prompts
 - [ ] CPD/training: accredited training content for engineers and contractors
 
@@ -61,7 +61,7 @@ Every fixing sold through Torke can be traced from the steel mill to the install
 
 - Own manufacturing — Torke is a brand and platform, not a manufacturer (for now)
 - Channel systems / strut — not in initial product range, may add later
-- Desktop application for Torke Design — web-first only
+- Desktop application for Torke TRACE — web-first only
 - Full warehouse automation (AutoStore/robotic) — start with WMS + scanning, scale hardware later
 - Fire/seismic calculation modules — research needed, defer to v2
 - Supply chain management system — use existing supplier processes, Torke manages from goods-in onward
@@ -74,9 +74,9 @@ Every fixing sold through Torke can be traced from the steel mill to the install
 
 **Competitive Positioning:** Premium but below Hilti pricing. The brand identity (red/black palette, bold angular logo, professional packaging with QR codes and load class markings) is designed to feel as premium and trustworthy as Hilti while being distinctly Torke.
 
-**Torke Design Strategy:** The free calculation tool serves dual purpose — it's a genuine engineering tool that competes with Hilti PROFIS, and it's a lead generation funnel. Engineers who use the tool to specify fixings are already on the platform and one click from ordering. This mirrors the Hilti playbook of owning the specification stage.
+**Torke TRACE Strategy:** The free calculation tool serves dual purpose — it's a genuine engineering tool that competes with Hilti PROFIS, and it's a lead generation funnel. Engineers who use the tool to specify fixings are already on the platform and one click from ordering. This mirrors the Hilti playbook of owning the specification stage.
 
-**Brand Assets:** Logo, van livery, packaging design (structural anchors box, chemical resin bottle), site signage, and Torke Design UI mockup are already designed. Red/black/dark grey colour palette. "Torke Infrastructure Partners" as sub-brand.
+**Brand Assets:** Logo, van livery, packaging design (structural anchors box, chemical resin bottle), site signage, and Torke TRACE UI mockup are already designed. Red/black/dark grey colour palette. "Torke Infrastructure Partners" as sub-brand.
 
 **Domain:** proventure.co.uk (note: brand is Torke, domain is Proventure — clarify whether this needs alignment)
 
@@ -87,7 +87,7 @@ Every fixing sold through Torke can be traced from the steel mill to the install
 - **Budget**: Pre-seed bootstrapped — must be capital-efficient, prioritise software over hardware
 - **Tech Stack**: Custom-built e-commerce (not Shopify) — traceability features are too deeply integrated for a bolt-on approach
 - **Regulatory**: EN 10204 3.1 certification chain must be legally defensible — this is a safety-critical product
-- **Engineering Standards**: Torke Design calculations must comply with Eurocodes (BS EN 1992 for concrete, ETA guidelines for anchors)
+- **Engineering Standards**: Torke TRACE calculations must comply with Eurocodes (BS EN 1992 for concrete, ETA guidelines for anchors)
 - **Domain**: proventure.co.uk — may need brand/domain alignment strategy
 
 ## Key Decisions
@@ -95,7 +95,7 @@ Every fixing sold through Torke can be traced from the steel mill to the install
 | Decision | Rationale | Outcome |
 |----------|-----------|---------|
 | Custom e-commerce over Shopify | Traceability is too core to bolt onto a generic platform — batch tracking, cert chains, and WMS integration need to be first-class | — Pending |
-| Web-based Torke Design (not desktop) | Engineers should land on the same site where purchasing happens — no install friction, better lead gen funnel | — Pending |
+| Web-based Torke TRACE (not desktop) | Engineers should land on the same site where purchasing happens — no install friction, better lead gen funnel | — Pending |
 | WMS + scanning at launch (not full automation) | Traceability comes from the software not the hardware — keeps capex low while delivering the core value prop | — Pending |
 | FIFO with batch tracking (not batch-segregated storage) | More space-efficient, scales better — software handles the complexity of tracking which batch goes to which order | — Pending |
 | Vetted global suppliers with mandatory 3.1 | Not limiting to EU-only — best supplier wins, but 3.1 certification is non-negotiable | — Pending |

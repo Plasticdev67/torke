@@ -79,7 +79,7 @@ export function MobileNav({ open, onOpenChange }: MobileNavProps) {
             onClick={() => onOpenChange(false)}
             className="flex items-center px-6 py-3.5 text-[#B3B3B3] hover:text-white hover:bg-[#1A1A1A] transition-premium"
           >
-            Design Tool
+            TRACE
           </Link>
           <Link
             href="/blog"

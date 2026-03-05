@@ -59,9 +59,9 @@ Features that set Torke apart from competitors and create switching costs.
 - Order history shows batch numbers per line item with linked certificates
 - *This is the killer feature. Hilti has traceability but does not surface it this seamlessly in the e-commerce flow. Fischer, Rawlplug, and others do not offer mill-to-site traceability at all.*
 
-**Torke Design Integration**
-- "Design this fixing" button on product pages launches Torke Design with product pre-loaded
-- Torke Design calculation output includes "Add to basket" or "Request quote" for the specified product
+**Torke TRACE Integration**
+- "Design this fixing" button on product pages launches Torke TRACE with product pre-loaded
+- Torke TRACE calculation output includes "Add to basket" or "Request quote" for the specified product
 - Specifier's calculation reference linked to the order (engineer can verify what was ordered matches what was designed)
 - *No competitor connects their design tool to their shop this tightly. Hilti PROFIS is a separate application.*
 
@@ -146,12 +146,12 @@ The minimum viable traceability system that delivers on Torke's core promise.
 - Customer portal shows remaining shelf life for chemical products in their orders
 
 **Regulatory Compliance Pack**
-- One-click export of all documentation required for building control submission: DoPs, ETAs, 3.1 certs, calculation reports (from Torke Design), installation method statements
+- One-click export of all documentation required for building control submission: DoPs, ETAs, 3.1 certs, calculation reports (from Torke TRACE), installation method statements
 - Pre-formatted for common submission requirements (Building Regulations Part A, CDM compliance packs)
 
 ---
 
-## Calculation Software Features (Torke Design)
+## Calculation Software Features (Torke TRACE)
 
 ### Table Stakes (what PROFIS does)
 
@@ -216,12 +216,12 @@ Hilti PROFIS Engineering is the industry standard. Its modules include:
 
 **Browser-First, No Install**
 - PROFIS core is still a Windows desktop application. The web version exists but is less capable.
-- Torke Design is web-native from day one. Works on Mac, Chromebook, iPad, any browser. No download, no IT department approval needed.
+- Torke TRACE is web-native from day one. Works on Mac, Chromebook, iPad, any browser. No download, no IT department approval needed.
 - *This alone removes a major friction point. Many specifiers at smaller firms cannot install PROFIS due to IT restrictions.*
 
 **No Vendor Lock-In**
 - PROFIS only designs Hilti products. Fischer tools only design Fischer products.
-- Torke Design should design against generic ETA-approved anchor types (any M12 bonded anchor with ETA-xx/xxxx approval data) while prominently featuring Torke products.
+- Torke TRACE should design against generic ETA-approved anchor types (any M12 bonded anchor with ETA-xx/xxxx approval data) while prominently featuring Torke products.
 - Allow engineers to input custom anchor data from any ETA, making it genuinely useful even if they do not buy from Torke.
 - *This builds trust and adoption. Engineers will use the tool because it is better, not because they are locked in. The commercial conversion happens because Torke products are one click away.*
 
@@ -247,7 +247,7 @@ Hilti PROFIS Engineering is the industry standard. Its modules include:
 - Show the Eurocode clause references inline next to each result (not buried in an appendix)
 - "Explain this check" expandable sections that teach the engineer what the software is doing
 - Open calculation methodology document published on the Torke website
-- *PROFIS is a black box. Many engineers distrust it because they cannot see the working. Torke Design should be the opposite.*
+- *PROFIS is a black box. Many engineers distrust it because they cannot see the working. Torke TRACE should be the opposite.*
 
 **Multi-Product Comparison**
 - Design the same connection with multiple anchor options (Torke product A vs Torke product B vs generic ETA anchor)
@@ -336,7 +336,7 @@ The minimum WMS functionality needed to deliver batch-tracked traceability from 
 - SEO-optimised product pages with technical content (not just marketing copy)
 - Technical blog: installation guides, Eurocode explainers, product comparison articles, specification guidance
 - Case studies: real UK projects where Torke fixings were used, with photos and contractor testimonials
-- Video content: installation videos, product demonstrations, Torke Design tutorials
+- Video content: installation videos, product demonstrations, Torke TRACE tutorials
 - Resource library: downloadable technical datasheets, ETAs, DoPs, installation instructions
 
 **Search & Discovery**
@@ -357,7 +357,7 @@ The minimum WMS functionality needed to deliver batch-tracked traceability from 
 
 ### Differentiators
 
-**Torke Design as Lead Generation**
+**Torke TRACE as Lead Generation**
 - Free, no-login-required calculations drive organic traffic from engineers searching for anchor design tools
 - Calculation output is gated behind account creation (free account, but captures the lead)
 - Once an engineer has an account and saved calculations, they are in the funnel for purchasing
@@ -374,7 +374,7 @@ The minimum WMS functionality needed to deliver batch-tracked traceability from 
 **Specification Support Service**
 - Free specification support: engineers can email/call Torke's technical team for help specifying fixings for their project
 - Torke produces a written specification recommendation (product, embedment, installation method) that the engineer can include in their project spec
-- This recommendation links to Torke Design calculations and Torke product codes
+- This recommendation links to Torke TRACE calculations and Torke product codes
 - *Lindapter and Hilti both offer this. It is a proven way to win specification at the design stage, which locks in the product for the construction stage.*
 
 **Content Marketing Focused on Traceability**
@@ -413,7 +413,7 @@ Features that must be built in a specific order because later features depend on
    |             |
    |             +-- 9. Cert Chain Visualisation
    |
-   +-- 10. Torke Design (Anchor Calculation Engine)
+   +-- 10. Torke TRACE (Anchor Calculation Engine)
           |
           +-- 11. Design-to-Order Integration
           |
@@ -426,7 +426,7 @@ Features that must be built in a specific order because later features depend on
 1. Product Catalogue + Account Management + Quoting/Ordering (the shop)
 2. WMS Core with Batch Tracking (the traceability engine)
 3. Cert Capture + Cert Delivery (the traceability output)
-4. Torke Design v1 - Anchor Calculation (the lead gen tool)
+4. Torke TRACE v1 - Anchor Calculation (the lead gen tool)
 
 **Can be deferred to v2:**
 - End-client verification portal
@@ -441,8 +441,8 @@ Features that must be built in a specific order because later features depend on
 **Key integration points:**
 - WMS batch allocation must feed into order history (customer sees batch per line item)
 - Dispatch event in WMS triggers cert pack generation and email
-- Torke Design product database must be the same as the e-commerce product catalogue (single source of truth)
-- CRM must receive events from: new account creation, first quote, first order, Torke Design calculation saved (to trigger appropriate nurture sequences)
+- Torke TRACE product database must be the same as the e-commerce product catalogue (single source of truth)
+- CRM must receive events from: new account creation, first quote, first order, Torke TRACE calculation saved (to trigger appropriate nurture sequences)
 
 ---
 

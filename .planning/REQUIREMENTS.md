@@ -83,7 +83,7 @@ All v1 requirements are specific and testable. Each has a unique REQ-ID grouped 
 
 ---
 
-## DESIGN — Torke Design (Calculation Software)
+## DESIGN — Torke TRACE (Calculation Software)
 
 ### Calculation Engine
 
@@ -117,7 +117,7 @@ All v1 requirements are specific and testable. Each has a unique REQ-ID grouped 
 
 - [x] **DESIGN-17**: User can perform calculations without logging in (free, no login required)
 - [x] **DESIGN-18**: User must create a free account to save calculations or export PDF reports
-- [x] **DESIGN-19**: Torke Design uses the same product database as the e-commerce catalogue (single source of truth)
+- [x] **DESIGN-19**: Torke TRACE uses the same product database as the e-commerce catalogue (single source of truth)
 
 ### v2 Deferred (not in scope for v1)
 
@@ -168,11 +168,11 @@ All v1 requirements are specific and testable. Each has a unique REQ-ID grouped 
 - [x] **MKTG-03**: Platform includes a resource library with downloadable technical datasheets, ETAs, and DoPs per product
 - [x] **MKTG-04**: Platform includes a technical glossary section targeting informational search queries
 
-### Torke Design as Lead Gen
+### Torke TRACE as Lead Gen
 
-- [x] **MKTG-05**: Torke Design is accessible without login to maximise organic traffic from engineers searching for anchor design tools
+- [x] **MKTG-05**: Torke TRACE is accessible without login to maximise organic traffic from engineers searching for anchor design tools
 - [x] **MKTG-06**: Saving or exporting a calculation requires free account creation, capturing the lead (email, name, company)
-- [x] **MKTG-07**: Account creation from Torke Design feeds into the e-commerce account system (single account across design and shop)
+- [x] **MKTG-07**: Account creation from Torke TRACE feeds into the e-commerce account system (single account across design and shop)
 
 ### Document Rebranding
 
@@ -193,7 +193,7 @@ All v1 requirements are specific and testable. Each has a unique REQ-ID grouped 
 
 - Own manufacturing (Torke is a brand and platform, not a manufacturer)
 - Channel systems / strut (not in initial product range)
-- Desktop application for Torke Design (web-first only)
+- Desktop application for Torke TRACE (web-first only)
 - Full warehouse automation (AutoStore, robotic picking)
 - Fire/seismic calculation modules
 - Supply chain management system (Torke manages from goods-in onward)
@@ -213,7 +213,7 @@ Every v1 requirement is mapped to exactly one roadmap phase.
 |-------|---------|
 | **Phase 1:** Foundation + Catalogue + Traceability Core | SHOP-01, SHOP-02, SHOP-03, SHOP-04, SHOP-05, SHOP-13, TRACE-01, TRACE-02, TRACE-03, TRACE-04, TRACE-05, TRACE-06, TRACE-08, TRACE-18, TRACE-19, WMS-01, WMS-05, WMS-06, WMS-07 |
 | **Phase 2:** E-Commerce + Order Flow + WMS | SHOP-06, SHOP-07, SHOP-08, SHOP-09, SHOP-10, SHOP-11, SHOP-12, SHOP-14, SHOP-15, SHOP-16, TRACE-07, TRACE-09, TRACE-10, TRACE-11, WMS-02, WMS-03, WMS-04, WMS-08, WMS-09, WMS-10 |
-| **Phase 3:** Torke Design | DESIGN-01, DESIGN-02, DESIGN-03, DESIGN-04, DESIGN-05, DESIGN-06, DESIGN-07, DESIGN-08, DESIGN-09, DESIGN-10, DESIGN-11, DESIGN-12, DESIGN-13, DESIGN-14, DESIGN-15, DESIGN-16, DESIGN-17, DESIGN-18, DESIGN-19 |
+| **Phase 3:** Torke TRACE | DESIGN-01, DESIGN-02, DESIGN-03, DESIGN-04, DESIGN-05, DESIGN-06, DESIGN-07, DESIGN-08, DESIGN-09, DESIGN-10, DESIGN-11, DESIGN-12, DESIGN-13, DESIGN-14, DESIGN-15, DESIGN-16, DESIGN-17, DESIGN-18, DESIGN-19 |
 | **Phase 4:** Portals + Marketing + Polish | TRACE-12, TRACE-13, TRACE-14, TRACE-15, TRACE-16, TRACE-17, MKTG-01, MKTG-02, MKTG-03, MKTG-04, MKTG-05, MKTG-06, MKTG-07 |
 
 **Totals:** Phase 1 = 19 reqs | Phase 2 = 20 reqs | Phase 3 = 19 reqs | Phase 4 = 13 reqs | **v1 total = 71 requirements**

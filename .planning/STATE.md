@@ -51,7 +51,7 @@ Plan 02-08 (Gap Closure - Traceability Wiring): COMPLETE
 ## Completed Phases
 Phase 1: Foundation + Catalogue + Traceability Core (4/4 plans)
 Phase 2: E-Commerce Order Flow + WMS (8/8 plans)
-Phase 3: Torke Design (6/6 plans)
+Phase 3: Torke TRACE (6/6 plans)
 
 ## Decisions
 - pricePence nullable on products: products without prices show "Contact for pricing" and cannot be ordered

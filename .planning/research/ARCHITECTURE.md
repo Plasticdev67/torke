@@ -32,7 +32,7 @@ A system like Torke decomposes into **seven core domains**, each with distinct r
 
 **How traceability systems work:** In steel/construction, EN 10204 3.1 certificates are issued by the manufacturer with third-party validation. The traceability chain is: raw material (mill cert) → manufacturer (3.1 cert with material properties, chemical composition, mechanical test results) → distributor (Torke) → end user. Pharmaceutical track-and-trace (EU FMD, US DSCSA) provides the closest architectural parallel — each unit has a unique identifier, and the system records every custody transfer. The key architectural pattern is an **append-only event log** per batch: received → stored at location → allocated to order → picked → dispatched → delivered. This creates an auditable chain.
 
-### 4. Torke Design (Calculation Engine)
+### 4. Torke TRACE (Calculation Engine)
 - Browser-based Eurocode-compliant anchor design calculations
 - Computation engine for tension, shear, combined loading, edge/spacing effects
 - 3D visualisation of anchor plate configurations
@@ -89,7 +89,7 @@ Supplier ships goods     ──→     Goods-In Process
                          │              │              │
                          ▼              ▼              ▼
                     Customer browses    Engineer uses    Account manager
-                    catalogue + quotes  Torke Design     creates quote
+                    catalogue + quotes  Torke TRACE     creates quote
                          │              │              │
                          │              ▼              │
                          │         Calculation done    │
@@ -254,7 +254,7 @@ verification_tokens
 
 ---
 
-## Torke Design Integration
+## Torke TRACE Integration
 
 ### How Engineering Calculation Tools Are Architected
 
@@ -282,7 +282,7 @@ Tools like Hilti PROFIS, Simpson CFS, and Rawlplug RAWL-CALC follow a common pat
 - Results display with colour-coded pass/fail per failure mode
 - Report generation (PDF with all inputs, outputs, code references)
 
-### Torke Design Architecture
+### Torke TRACE Architecture
 
 ```
 ┌─────────────────────────────────────────────────────┐
@@ -521,7 +521,7 @@ POST /internal/traceability/events
 }
 ```
 
-**Torke Design → Product Catalogue:**
+**Torke TRACE → Product Catalogue:**
 ```
 POST /api/v1/products/match
 {
@@ -612,7 +612,7 @@ Response:
 | WMS | Traceability | Async event (queue) | Traceability events are fire-and-forget from WMS perspective |
 | WMS | Order Mgmt | Async event (queue) | Status updates (allocated, picked, dispatched) |
 | Traceability | Object Storage | Sync | Cert document retrieval |
-| Torke Design | Product Catalogue | Sync REST | Product matching needs instant response |
+| Torke TRACE | Product Catalogue | Sync REST | Product matching needs instant response |
 | Cert Verify | Traceability | Sync REST | QR scan lookup needs instant response |
 | Dispatch event | Cert Pack Generator | Async event | PDF generation can be slightly delayed |
 
@@ -706,7 +706,7 @@ The build order is driven by **dependency chains** and **value delivery**. Each 
 
 **Deliverable:** Customer receives cert pack on dispatch. QR codes on products link to full cert chain. Customer portal shows order history with certs.
 
-### Phase 6: Torke Design MVP (Weeks 21-28)
+### Phase 6: Torke TRACE MVP (Weeks 21-28)
 **Build:**
 - Calculation engine (Eurocode EN 1992-4 formulas for post-installed anchors)
 - Input UI (loads, geometry, concrete, environment)
@@ -716,7 +716,7 @@ The build order is driven by **dependency chains** and **value delivery**. Each 
 - PDF report generation
 - "Add to Quote" integration with order flow
 
-**Why sixth:** Torke Design is a powerful differentiator but it is not on the critical path for selling fixings. The e-commerce + traceability platform can operate and generate revenue without the calc tool. Building the calc tool after the commerce platform means the "Add to Quote" integration has a real target to connect to.
+**Why sixth:** Torke TRACE is a powerful differentiator but it is not on the critical path for selling fixings. The e-commerce + traceability platform can operate and generate revenue without the calc tool. Building the calc tool after the commerce platform means the "Add to Quote" integration has a real target to connect to.
 
 **Deliverable:** Engineer can design an anchor, see matching Torke products, and add to a quote — all in the browser.
 
@@ -769,7 +769,7 @@ price_list_items
 This allows overlapping price lists (default + customer-specific), quantity breaks, and time-bound pricing.
 
 **5. Calculation results are immutable snapshots.**
-When a Torke Design calculation is saved, it stores a complete snapshot of all inputs and outputs — not references to live product data. This ensures that a calculation report remains valid even if product data changes later. Stored as a JSONB document:
+When a Torke TRACE calculation is saved, it stores a complete snapshot of all inputs and outputs — not references to live product data. This ensures that a calculation report remains valid even if product data changes later. Stored as a JSONB document:
 ```
 calculations
   id, user_id (nullable), project_name, created_at,

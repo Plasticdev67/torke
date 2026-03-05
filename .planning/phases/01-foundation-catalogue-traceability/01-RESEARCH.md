@@ -642,7 +642,7 @@ async function requireWarehouseAccess() {
 
 ## 5. React Three Fiber — Phase 3 Only
 
-React Three Fiber (R3F) is NOT needed in Phase 1. It is used exclusively for the 3D anchor plate visualisation in Torke Design (DESIGN-08, DESIGN-09, DESIGN-10), which is Phase 3.
+React Three Fiber (R3F) is NOT needed in Phase 1. It is used exclusively for the 3D anchor plate visualisation in Torke TRACE (DESIGN-08, DESIGN-09, DESIGN-10), which is Phase 3.
 
 **Do not install** `three`, `@react-three/fiber`, `@react-three/drei`, or any 3D-related packages in Phase 1. This avoids unnecessary bundle size and dependency complexity.
 

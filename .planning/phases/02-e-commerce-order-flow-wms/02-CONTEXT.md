@@ -8,7 +8,7 @@
 
 Enable customers to buy products and Torke to fulfil orders with full batch traceability through the order lifecycle. Covers: basket, checkout (card + credit + BACS), order history, reorder, invoices, FIFO batch allocation at pick, pick lists, dispatch workflows (parcel + pallet), auto-generated cert pack PDFs on dispatch, and stock management dashboard with adjustments.
 
-Does NOT include: customer cert portal (Phase 4), end-client verification portal (Phase 4), marketing/SEO (Phase 4), Torke Design (Phase 3).
+Does NOT include: customer cert portal (Phase 4), end-client verification portal (Phase 4), marketing/SEO (Phase 4), Torke TRACE (Phase 3).
 
 </domain>
 

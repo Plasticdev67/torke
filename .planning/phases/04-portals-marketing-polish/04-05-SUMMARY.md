@@ -66,7 +66,7 @@ completed: 2026-03-05
 ## Accomplishments
 - SoftPrompt component appears as non-blocking banner after 3+ anonymous calculations with 24h dismiss cooldown
 - Company name field added to AuthGateModal signup flow (design tool auth gate) with profile creation
-- Unified account dashboard shows Torke Design section with calculation count and gentle order prompt
+- Unified account dashboard shows Torke TRACE section with calculation count and gentle order prompt
 - Admin lead list page at /leads with stat cards (total, weekly, monthly, converted), date/status filters, and paginated table
 - leadsRouter registered in main router with list and stats warehouse procedures
 
@@ -81,7 +81,7 @@ Each task was committed atomically:
 - `src/components/design/SoftPrompt.tsx` - Non-blocking banner prompt with localStorage tracking and 24h dismiss cooldown
 - `src/components/design/AuthGateModal.tsx` - Added company name field to signup form with profile creation API call
 - `src/app/(design)/design/page.tsx` - Wired SoftPrompt rendering and calc count incrementing for anonymous users
-- `src/components/shop/AccountDashboard.tsx` - Added Torke Design section with calc count and order prompt
+- `src/components/shop/AccountDashboard.tsx` - Added Torke TRACE section with calc count and order prompt
 - `src/server/trpc/routers/leads.ts` - Lead list and stats tRPC procedures with raw SQL cross-table joins
 - `src/server/trpc/router.ts` - Registered leadsRouter
 - `src/app/(wms)/leads/page.tsx` - Admin lead list page with stat cards, filters, and paginated table

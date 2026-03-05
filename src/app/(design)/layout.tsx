@@ -3,11 +3,11 @@ import { Header } from "@/components/layout/Header";
 
 export const metadata: Metadata = {
   title: {
-    template: "%s | Torke Design",
-    default: "Torke Design | EN 1992-4 Anchor Calculator",
+    template: "%s | Torke TRACE",
+    default: "Torke TRACE | EN 1992-4 Anchor Calculator",
   },
   description:
-    "Free browser-based EN 1992-4 anchor design tool. Calculate failure modes, view 3D models, and export engineering reports.",
+    "Free browser-based EN 1992-4 anchor calculation tool. Calculate failure modes, view 3D models, and export engineering reports.",
 };
 
 export default function DesignLayout({

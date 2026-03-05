@@ -10,7 +10,7 @@ Sources: industry knowledge of B2B construction platforms, EN 10204 certificatio
 
 ### BP-1: Trying to launch everything at once
 
-**The pitfall:** Building e-commerce + WMS + Torke Design + traceability as a single big-bang release. This is the most common killer of ambitious B2B platforms. The integration complexity between these four systems is multiplicative, not additive.
+**The pitfall:** Building e-commerce + WMS + Torke TRACE + traceability as a single big-bang release. This is the most common killer of ambitious B2B platforms. The integration complexity between these four systems is multiplicative, not additive.
 
 **Warning signs:**
 - No single module is usable standalone after 6+ months of development
@@ -21,7 +21,7 @@ Sources: industry knowledge of B2B construction platforms, EN 10204 certificatio
 **Prevention strategy:**
 - Ship e-commerce with manual traceability first (cert PDFs uploaded by staff, not auto-generated)
 - WMS can start as spreadsheet + barcode scanner with software replacing it in Phase 2
-- Torke Design can launch independently as a lead-gen tool before the shop is live
+- Torke TRACE can launch independently as a lead-gen tool before the shop is live
 - Each module must be usable with manual fallbacks for the others
 
 **Phase:** Phase 0 (Architecture) — the sequencing decision must be made before any code is written.
@@ -62,7 +62,7 @@ Sources: industry knowledge of B2B construction platforms, EN 10204 certificatio
 **Prevention strategy:**
 - Lead with traceability and the digital platform as the differentiator, not price
 - Price premium-but-fair, not cheap — the brand design already supports this
-- Build switching costs through the platform (order history, cert archives, Torke Design projects)
+- Build switching costs through the platform (order history, cert archives, Torke TRACE projects)
 - Target contractors who are currently failing compliance audits and need traceability — they will pay for it
 - Develop the CPD/training angle to build engineer loyalty before purchasing decisions
 
@@ -72,17 +72,17 @@ Sources: industry knowledge of B2B construction platforms, EN 10204 certificatio
 
 ### BP-4: The "too many personas" trap
 
-**The pitfall:** Torke serves site managers (ordering), engineers (specifying via Torke Design), procurement teams (commercial), warehouse staff (WMS), and end-clients (cert verification). Building for all these users simultaneously leads to a platform that is mediocre for everyone and excellent for no one.
+**The pitfall:** Torke serves site managers (ordering), engineers (specifying via Torke TRACE), procurement teams (commercial), warehouse staff (WMS), and end-clients (cert verification). Building for all these users simultaneously leads to a platform that is mediocre for everyone and excellent for no one.
 
 **Warning signs:**
 - UI/UX compromises that make the platform confusing for its primary users
 - Feature requests pulling in contradictory directions
 - No clear answer to "who is the most important user?"
-- Engineers find Torke Design too basic; buyers find the shop too complex
+- Engineers find Torke TRACE too basic; buyers find the shop too complex
 
 **Prevention strategy:**
 - Define a primary persona per phase: Phase 1 = the contractor buyer, Phase 2 = the specifying engineer
-- Build Torke Design as a genuinely separate tool that happens to share authentication and product data
+- Build Torke TRACE as a genuinely separate tool that happens to share authentication and product data
 - Keep the WMS interface completely separate from customer-facing UI
 - Each persona gets a distinct entry point and navigation flow
 
@@ -105,7 +105,7 @@ Sources: industry knowledge of B2B construction platforms, EN 10204 certificatio
 - Email/PDF ordering should be supported and tracked in the system
 - Phone orders entered by staff should flow through the same system as self-serve orders
 - Gradual digital migration: start by making cert access digital-only (pull them to the platform)
-- Use Torke Design as the digital hook — engineers are more digitally native than site buyers
+- Use Torke TRACE as the digital hook — engineers are more digitally native than site buyers
 
 **Phase:** Phase 1-2 — design for hybrid from the start, measure digital adoption honestly.
 
@@ -178,13 +178,13 @@ Sources: industry knowledge of B2B construction platforms, EN 10204 certificatio
 
 ### TP-4: Integration complexity between modules
 
-**The pitfall:** E-commerce, WMS, traceability, and Torke Design are four distinct systems that must work together seamlessly. The integration points are where bugs, data inconsistencies, and performance problems concentrate.
+**The pitfall:** E-commerce, WMS, traceability, and Torke TRACE are four distinct systems that must work together seamlessly. The integration points are where bugs, data inconsistencies, and performance problems concentrate.
 
 **Warning signs:**
 - Order status is different in the e-commerce system vs the WMS
 - Stock levels are out of sync between the shop and the warehouse
 - Batch allocations made during picking don't flow back to the cert generation system
-- Torke Design product recommendations don't match what's actually in stock
+- Torke TRACE product recommendations don't match what's actually in stock
 
 **Prevention strategy:**
 - Define a single source of truth for each data domain: orders (e-commerce), stock/batches (WMS), certs (traceability), products (shared catalogue)
@@ -299,14 +299,14 @@ Sources: industry knowledge of B2B construction platforms, EN 10204 certificatio
 **Warning signs:**
 - Selling products in GB with only CE marking after the transition period ends (dates keep shifting — currently extended to 2027 but verify)
 - Product datasheets reference only CE/ETA without considering UKCA/UKTA requirements
-- Torke Design references ETAs for products that may not be legally valid in the UK market
+- Torke TRACE references ETAs for products that may not be legally valid in the UK market
 - No monitoring of OPSS (Office for Product Safety and Standards) guidance on construction products
 
 **Prevention strategy:**
 - Track the CE/UKCA transition timeline actively — it has changed multiple times
 - Ensure supplier agreements include obligations to obtain UKCA marking or UKTAs when required
 - Include marking status (CE, UKCA, both) in product catalogue data
-- Design Torke Design to reference the correct assessment (ETA vs UKTA) based on the jurisdiction
+- Design Torke TRACE to reference the correct assessment (ETA vs UKTA) based on the jurisdiction
 - Build a regulatory calendar for key compliance dates
 
 **Phase:** Phase 1 (Product catalogue) — marking status must be tracked from launch.
@@ -338,13 +338,13 @@ Sources: industry knowledge of B2B construction platforms, EN 10204 certificatio
 
 ### CL-1: Professional indemnity for calculation outputs
 
-**The pitfall:** Torke Design produces engineering calculation outputs that engineers and contractors rely on for structural decisions. If a calculation error leads to a structural failure, the question of who is liable — Torke (the software provider), the engineer (who used the tool), or the contractor (who installed based on the output) — becomes a serious legal matter. Most calculation software providers (including Hilti with PROFIS) use extensive disclaimers, but disclaimers have limits.
+**The pitfall:** Torke TRACE produces engineering calculation outputs that engineers and contractors rely on for structural decisions. If a calculation error leads to a structural failure, the question of who is liable — Torke (the software provider), the engineer (who used the tool), or the contractor (who installed based on the output) — becomes a serious legal matter. Most calculation software providers (including Hilti with PROFIS) use extensive disclaimers, but disclaimers have limits.
 
 **Warning signs:**
-- No legal review of the Torke Design terms of use and liability disclaimers
+- No legal review of the Torke TRACE terms of use and liability disclaimers
 - Calculations produce outputs without clear statements about their limitations and assumptions
 - No version control on calculation methods — if an error is found, you can't identify which outputs are affected
-- Engineers are using Torke Design as the sole basis for design decisions without independent checking
+- Engineers are using Torke TRACE as the sole basis for design decisions without independent checking
 - No professional indemnity insurance covering the calculation software
 
 **Prevention strategy:**
@@ -382,13 +382,13 @@ Sources: industry knowledge of B2B construction platforms, EN 10204 certificatio
 - When a bug is found, generate a list of all affected calculations and notify users who saved/exported them
 - Clearly state the scope of each calculation: "This tool covers single anchors and anchor groups in tension and shear in uncracked concrete per EN 1992-4. It does NOT cover: seismic loading, fire conditions, fatigue loading, post-installed rebar connections."
 
-**Phase:** Phase 1 (Torke Design development) — independent verification before public release.
+**Phase:** Phase 1 (Torke TRACE development) — independent verification before public release.
 
 ---
 
 ### CL-3: Conflict of interest: calculation tool recommends products to buy
 
-**The pitfall:** Torke Design is both an engineering tool and a sales funnel. If the calculation tool recommends Torke products (which is the business model), there is a perceived — and potentially actual — conflict of interest. If the tool steers users toward more expensive products, or only shows Torke products when a competitor product would be more appropriate, it undermines both engineering integrity and regulatory standing.
+**The pitfall:** Torke TRACE is both an engineering tool and a sales funnel. If the calculation tool recommends Torke products (which is the business model), there is a perceived — and potentially actual — conflict of interest. If the tool steers users toward more expensive products, or only shows Torke products when a competitor product would be more appropriate, it undermines both engineering integrity and regulatory standing.
 
 **Warning signs:**
 - Engineers complain that results feel like "advertisements" rather than engineering outputs
@@ -397,23 +397,23 @@ Sources: industry knowledge of B2B construction platforms, EN 10204 certificatio
 - The tool recommends oversized/premium products when a standard product would pass
 
 **Prevention strategy:**
-- Design Torke Design to perform generic Eurocode calculations first, then suggest compatible Torke products as an optional step
+- Design Torke TRACE to perform generic Eurocode calculations first, then suggest compatible Torke products as an optional step
 - Allow engineers to input any anchor properties (not just Torke catalogue items) for the calculation
 - Clearly separate the "engineering calculation" section from the "product recommendation" section
 - Never suppress a passing result to upsell — if the cheapest Torke product passes, show it first
 - Consider publishing the calculation methodology openly — transparency builds trust
 - Get feedback from practising structural engineers during development, not just after launch
 
-**Phase:** Phase 1 (Torke Design UX) — the boundary between engineering and sales must be designed deliberately.
+**Phase:** Phase 1 (Torke TRACE UX) — the boundary between engineering and sales must be designed deliberately.
 
 ---
 
 ### CL-4: Calculation report as a quasi-legal document
 
-**The pitfall:** The PDF calculation report exported from Torke Design becomes part of the building's permanent record. It may be submitted to building control, included in structural engineer certifications, and referenced in the golden thread. If the report format is ambiguous, incomplete, or inconsistent with how engineers expect to see calculations presented, it will either not be used (killing the value proposition) or cause problems in approvals.
+**The pitfall:** The PDF calculation report exported from Torke TRACE becomes part of the building's permanent record. It may be submitted to building control, included in structural engineer certifications, and referenced in the golden thread. If the report format is ambiguous, incomplete, or inconsistent with how engineers expect to see calculations presented, it will either not be used (killing the value proposition) or cause problems in approvals.
 
 **Warning signs:**
-- Building control officers reject or query Torke Design reports
+- Building control officers reject or query Torke TRACE reports
 - Structural engineers reformat the output into their own templates rather than using the Torke report
 - Reports don't include essential information (partial factors used, load combinations, reference standards, software version)
 - Old reports can't be reproduced because the software has been updated
@@ -425,7 +425,7 @@ Sources: industry knowledge of B2B construction platforms, EN 10204 certificatio
 - Consult with structural engineers and building control officers on report format before finalising
 - Reports must be reproducible: given the same inputs and software version, the same output must be generated
 
-**Phase:** Phase 1 (Torke Design) — report format must be right at launch; changing it later breaks archive consistency.
+**Phase:** Phase 1 (Torke TRACE) — report format must be right at launch; changing it later breaks archive consistency.
 
 ---
 
@@ -661,7 +661,7 @@ Sources: industry knowledge of B2B construction platforms, EN 10204 certificatio
 |---|---------|-------------|------------|
 | 1 | Not settling the data model for batches/certs before coding | Expensive rework when edge cases emerge | Spend 2-3 weeks on data modelling with real supplier delivery notes and certs as test data |
 | 2 | Choosing microservices for a small team | Development speed drops 3-5x, deployment complexity explodes | Start with a modular monolith; split only when there's a proven need |
-| 3 | Not engaging a structural engineer for Torke Design | Calculation errors that are expensive to find and fix later | Budget for independent engineering review from the start |
+| 3 | Not engaging a structural engineer for Torke TRACE | Calculation errors that are expensive to find and fix later | Budget for independent engineering review from the start |
 | 4 | Skipping legal review of calculation software liability | Exposure to professional liability claims without insurance or adequate disclaimers | Get specialist legal advice before the first public calculation |
 | 5 | Not defining the goods-in workflow in detail | WMS build goes in the wrong direction | Map the goods-in workflow on paper with a warehouse person before coding |
 | 6 | Underestimating the e-commerce basics | 6 months spent on checkout, payments, and email before building the differentiating features | Use existing infrastructure (Stripe, headless commerce frameworks) for the basics |
@@ -674,14 +674,14 @@ Sources: industry knowledge of B2B construction platforms, EN 10204 certificatio
 | 2 | Not testing with real contractors | Platform doesn't match how contractors actually buy | Recruit 3-5 beta contractors; watch them use it; fix what confuses them |
 | 3 | Forcing digital adoption on acquired customers | Customer churn in the first 6 months | Maintain existing ordering channels; make digital an option, not a mandate |
 | 4 | Going live without product liability insurance | One incident could end the business | Insurance in place before first sale |
-| 5 | Launching Torke Design without independent calculation verification | Engineering errors that damage brand trust and create liability | No public release until a CEng has verified every calculation method |
+| 5 | Launching Torke TRACE without independent calculation verification | Engineering errors that damage brand trust and create liability | No public release until a CEng has verified every calculation method |
 | 6 | No fallback for system downtime | Can't fulfil orders if the platform goes down | Phone/email ordering process documented; manual cert pack generation possible |
 
 ### Phase 2: Growth and Scaling
 
 | # | Mistake | Consequence | Prevention |
 |---|---------|-------------|------------|
-| 1 | Adding product categories without updating the calculation engine | Torke Design doesn't cover the products being sold | Align product roadmap with Torke Design development |
+| 1 | Adding product categories without updating the calculation engine | Torke TRACE doesn't cover the products being sold | Align product roadmap with Torke TRACE development |
 | 2 | Scaling the warehouse without scaling the goods-in process | Traceability becomes the bottleneck | Invest in goods-in efficiency (better scanning, pre-booking, auto cert matching) before scaling volume |
 | 3 | Expanding to new customer segments without adapting the platform | Self-builders, small contractors, and main contractors have very different needs | Build separate user journeys or decide not to serve certain segments |
 | 4 | Neglecting the cert archive as it grows | Storage costs surprise, access slows down, search becomes painful | Implement archive tiering and efficient search early; budget for ongoing storage |
@@ -694,7 +694,7 @@ Sources: industry knowledge of B2B construction platforms, EN 10204 certificatio
 |---|---------|-------------|------------|
 | 1 | Building a second acquisition on the assumption the first integration was easy | Every acquisition is different; the second may have worse data, different products, incompatible processes | Treat each acquisition as a new integration project with its own timeline and budget |
 | 2 | Assuming the platform is "done" and reducing development investment | Competitors catch up, customers churn, regulations change | Maintain a product development team and roadmap even when the platform feels mature |
-| 3 | Losing the engineering integrity of Torke Design under commercial pressure | Sales team pushing for faster/easier calculations that skip safety checks | Keep engineering verification independent from commercial decisions; the CEng reviewer should have veto power |
+| 3 | Losing the engineering integrity of Torke TRACE under commercial pressure | Sales team pushing for faster/easier calculations that skip safety checks | Keep engineering verification independent from commercial decisions; the CEng reviewer should have veto power |
 | 4 | Not preparing for internationalisation when expanding beyond UK | Date formats, units, standards (Eurocodes vs. other standards), languages, tax regimes | If international expansion is planned, build i18n capability early but don't prematurely optimise for it |
 
 ---

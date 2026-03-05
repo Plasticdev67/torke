@@ -105,7 +105,7 @@ export function Header() {
                 asChild
                 className="text-white/80 hover:text-white hover:bg-white/10 transition-premium"
               >
-                <Link href="/design">Design</Link>
+                <Link href="/design">TRACE</Link>
               </Button>
               <Button
                 variant="ghost"

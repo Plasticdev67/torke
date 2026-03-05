@@ -101,7 +101,7 @@ export default function SavedCalculationsPage() {
             className="mb-2 flex items-center gap-1 text-xs text-[#666] transition-colors hover:text-[#C41E3A]"
           >
             <ArrowLeft className="h-3 w-3" />
-            Back to Design Tool
+            Back to TRACE
           </button>
           <h1 className="text-xl font-bold text-white">Saved Calculations</h1>
           <p className="text-sm text-[#666]">

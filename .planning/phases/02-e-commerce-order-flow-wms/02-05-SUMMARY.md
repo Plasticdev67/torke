@@ -124,6 +124,10 @@ None - pdf-lib has zero native dependencies. Bank details use placeholder values
 - Download endpoints ready for customer order history UI (Plan 06)
 - Bank details env vars need production values before BACS go-live
 
+## Self-Check: PASSED
+
+All 7 created/modified files verified on disk. Both task commits (10b11d1, 03e065b) confirmed in git log. 9/9 tests passing.
+
 ---
 *Phase: 02-e-commerce-order-flow-wms*
 *Completed: 2026-03-04*

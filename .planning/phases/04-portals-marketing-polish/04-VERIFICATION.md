@@ -39,7 +39,7 @@ human_verification:
 
 # Phase 4: Portals + Marketing + Polish — Verification Report
 
-**Phase Goal:** Complete the traceability surface with customer and end-client portals, launch content/SEO, and activate Torke Design as a lead generation funnel.
+**Phase Goal:** Complete the traceability surface with customer and end-client portals, launch content/SEO, and activate Torke TRACE as a lead generation funnel.
 **Verified:** 2026-03-05T10:29:06Z
 **Status:** passed
 **Re-verification:** No — initial verification
@@ -64,7 +64,7 @@ human_verification:
 | 10 | Product pages and blog include JSON-LD structured data | VERIFIED | products/[slug]/page.tsx imports productSchema + breadcrumbSchema + JsonLd; blog/[slug]/page.tsx imports articleSchema + breadcrumbSchema; layout.tsx imports organizationSchema; glossary/page.tsx imports faqSchema |
 | 11 | User can browse a resource library with downloadable datasheets | VERIFIED | /resources/page.tsx queries products with datasheetUrl; grouped by category; product detail pages show "Technical Documents" section with download link and "View all technical resources" link |
 | 12 | User can search a technical glossary with FAQ structured data | VERIFIED | glossary.json (194 lines, 31 terms) imported in glossary/page.tsx; faqSchema renders FAQ JSON-LD; GlossarySearch client component present |
-| 13 | Torke Design activates as lead generation funnel | VERIFIED | Design page: no auth guard, calculations run freely; SoftPrompt + incrementCalcCount wired (line 10, 63, 171); AuthGateModal has companyName field (line 27, 61, 66, 148); AccountDashboard shows Torke Design section with calculation count and order prompt (line 83-142); leadsRouter registered; /wms/leads admin page wired via trpc.leads.list + trpc.leads.stats |
+| 13 | Torke TRACE activates as lead generation funnel | VERIFIED | Design page: no auth guard, calculations run freely; SoftPrompt + incrementCalcCount wired (line 10, 63, 171); AuthGateModal has companyName field (line 27, 61, 66, 148); AccountDashboard shows Torke TRACE section with calculation count and order prompt (line 83-142); leadsRouter registered; /wms/leads admin page wired via trpc.leads.list + trpc.leads.stats |
 
 **Score:** 13/13 truths verified
 
@@ -145,9 +145,9 @@ human_verification:
 | MKTG-02 | 04-03 | Product pages include structured data (schema markup) for Google rich results | SATISFIED | productSchema + articleSchema + organizationSchema + breadcrumbSchema + faqSchema all implemented and wired to pages |
 | MKTG-03 | 04-04 | Resource library with downloadable datasheets, ETAs, and DoPs per product | SATISFIED | /resources/page.tsx queries products with datasheetUrl; product detail pages link to downloads and /resources |
 | MKTG-04 | 04-04 | Technical glossary targeting informational search queries | SATISFIED | 31-term glossary.json; GlossarySearch; FAQ JSON-LD on /glossary page |
-| MKTG-05 | 04-05 | Torke Design accessible without login | SATISFIED | design/page.tsx: no auth guard; calculations run in useEffect regardless of auth; isAuthenticated only gates incrementCalcCount and save/export |
+| MKTG-05 | 04-05 | Torke TRACE accessible without login | SATISFIED | design/page.tsx: no auth guard; calculations run in useEffect regardless of auth; isAuthenticated only gates incrementCalcCount and save/export |
 | MKTG-06 | 04-05 | Saving/exporting calculation requires free account creation, capturing lead | SATISFIED | AuthGateModal has companyName field; incrementCalcCount increments localStorage counter; SoftPrompt appears after 3 calculations for anonymous users |
-| MKTG-07 | 04-05 | Account creation from Torke Design feeds into e-commerce account system | SATISFIED | AuthGateModal uses same Better Auth registration; AccountDashboard shows unified Torke Design section with calculation count and order prompt; single account system |
+| MKTG-07 | 04-05 | Account creation from Torke TRACE feeds into e-commerce account system | SATISFIED | AuthGateModal uses same Better Auth registration; AccountDashboard shows unified Torke TRACE section with calculation count and order prompt; single account system |
 
 **Orphaned requirements check:** REQUIREMENTS.md Phase 4 lists TRACE-12 through TRACE-17 and MKTG-01 through MKTG-07 (13 total). Plans 04-00 through 04-05 collectively claim all 13. No orphaned requirements.
 

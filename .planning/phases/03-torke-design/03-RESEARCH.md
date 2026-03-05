@@ -1,4 +1,4 @@
-# Phase 3: Torke Design - Research
+# Phase 3: Torke TRACE - Research
 
 **Researched:** 2026-03-05
 **Domain:** EN 1992-4 anchor calculation engine, 3D WebGL visualisation, PDF engineering reports, design-to-order pipeline
@@ -582,7 +582,7 @@ Complete mapping of failure modes to EN 1992-4 clauses (verified via IDEA StatiC
 | Old Approach | Current Approach | When Changed | Impact |
 |--------------|------------------|--------------|--------|
 | CEN/TS 1992-4 (5 parts) | EN 1992-4:2018 (single document) | 2018 | Consolidated standard, simplified clause numbering |
-| Desktop-only tools (PROFIS) | Browser-based WebGL tools | 2020+ | Torke Design targets this modern approach |
+| Desktop-only tools (PROFIS) | Browser-based WebGL tools | 2020+ | Torke TRACE targets this modern approach |
 | Server-rendered 3D | Client-side R3F with React 19 | 2024-2025 | @react-three/fiber v9 supports React 19 |
 
 **Deprecated/outdated:**

@@ -46,7 +46,7 @@ See [STACK.md](STACK.md) for full rationale and confidence levels.
 - Barcode/QR scanning for goods-in, pick, pack, dispatch (browser-based PWA — no native app)
 - Quarantine workflow for unverified or cert-missing stock
 
-**Torke Design:**
+**Torke TRACE:**
 - Browser-based EN 1992-4 anchor calculations (tension, shear, combined, edge/spacing effects)
 - Seven failure mode checks matching PROFIS scope (steel failure, concrete cone, pull-out, splitting, pryout, edge failure, interaction)
 - 3D visualisation of anchor plate and bolt group
@@ -65,13 +65,13 @@ See [FEATURES.md](FEATURES.md) for the full dependency tree and MVP critical pat
 
 **3. End-client verification portal.** Contractor generates a read-only link for their end-client (building owner, structural engineer, building control). No login required. Directly addresses post-Grenfell accountability obligations and makes the contractor look professional. No UK fixings brand offers this.
 
-**4. Torke Design integrated with the shop.** "Design this fixing" from a product page pre-loads the calc tool. Calculation output has "Add to quote" for the matched product. Calculation reference is linked to the order and cert pack. PROFIS outputs a PDF; ordering happens elsewhere, weeks later, through a distributor with no link to the calculation. Torke closes the full loop: Design > Specify > Order > Receive > Install > Trace.
+**4. Torke TRACE integrated with the shop.** "Design this fixing" from a product page pre-loads the calc tool. Calculation output has "Add to quote" for the matched product. Calculation reference is linked to the order and cert pack. PROFIS outputs a PDF; ordering happens elsewhere, weeks later, through a distributor with no link to the calculation. Torke closes the full loop: Design > Specify > Order > Receive > Install > Trace.
 
-**5. Browser-first calc tool with no vendor lock-in.** PROFIS is still primarily a Windows desktop app requiring IT approval to install. Torke Design works in any browser, on any device, day one. Importantly, it accepts generic ETA data — not just Torke products — so engineers adopt it on its merits. Commercial conversion happens because Torke products are one click away, not because the engineer is trapped.
+**5. Browser-first calc tool with no vendor lock-in.** PROFIS is still primarily a Windows desktop app requiring IT approval to install. Torke TRACE works in any browser, on any device, day one. Importantly, it accepts generic ETA data — not just Torke products — so engineers adopt it on its merits. Commercial conversion happens because Torke products are one click away, not because the engineer is trapped.
 
-**6. Transparent methodology.** Eurocode clause references shown inline. "Explain this check" expandable sections. Published calculation methodology document. PROFIS is a black box; Torke Design is the opposite. This matters to engineers who need to understand and stand behind their designs.
+**6. Transparent methodology.** Eurocode clause references shown inline. "Explain this check" expandable sections. Published calculation methodology document. PROFIS is a black box; Torke TRACE is the opposite. This matters to engineers who need to understand and stand behind their designs.
 
-See [FEATURES.md](FEATURES.md) for the full differentiator list across e-commerce, traceability, Torke Design, WMS, and marketing.
+See [FEATURES.md](FEATURES.md) for the full differentiator list across e-commerce, traceability, Torke TRACE, WMS, and marketing.
 
 ---
 
@@ -97,7 +97,7 @@ Cross-domain communication uses an **in-process event bus** (not external queues
 
 The traceability chain is an **append-only event log**: every batch state transition (received, put away, allocated, picked, dispatched) is a timestamped, actor-recorded event. Records are never modified. Cert documents are stored immutably in R2. QR tokens are opaque UUIDs (not batch numbers) to prevent enumeration.
 
-The Torke Design calculation engine (`@torke/calc-engine`) runs **client-side for instant feedback** and is **re-run server-side for report generation** to validate integrity. The engine is a pure TypeScript library with no framework dependencies — callable from both the API and future testing tooling. Calculation IP never ships in the browser-visible source.
+The Torke TRACE calculation engine (`@torke/calc-engine`) runs **client-side for instant feedback** and is **re-run server-side for report generation** to validate integrity. The engine is a pure TypeScript library with no framework dependencies — callable from both the API and future testing tooling. Calculation IP never ships in the browser-visible source.
 
 See [ARCHITECTURE.md](ARCHITECTURE.md) for the full data flow diagram, data model, API designs, and phased build order.
 
@@ -111,7 +111,7 @@ See [ARCHITECTURE.md](ARCHITECTURE.md) for the full data flow diagram, data mode
 
 **The goods-in process is the foundation of everything (TC-1).** If goods-in is slow, error-prone, or bypassable, the entire traceability promise collapses. Design the workflow for speed under time pressure. Enforce it in software — stock must not become pickable without completing goods-in. Test with actual warehouse staff, not at a desk.
 
-**Get independent structural engineering verification before releasing Torke Design (CL-1, CL-2).** A CEng must independently verify every calculation method against published Eurocode worked examples and PROFIS outputs before public release. Version all calculation methods; maintain an audit trail of every input/output and the software version that produced it. Professional indemnity insurance must cover the calculation software.
+**Get independent structural engineering verification before releasing Torke TRACE (CL-1, CL-2).** A CEng must independently verify every calculation method against published Eurocode worked examples and PROFIS outputs before public release. Version all calculation methods; maintain an audit trail of every input/output and the software version that produced it. Professional indemnity insurance must cover the calculation software.
 
 **QR URL scheme must be permanent from day one (TP-3).** The URL `/t/{token}` (or equivalent) must resolve for decades. A breaking change to the URL structure makes every printed label in the field useless. Design this as a versioned, permanent API endpoint before printing a single label.
 
@@ -127,9 +127,9 @@ See [PITFALLS.md](PITFALLS.md) for the full set of 20+ pitfalls with warning sig
 
 **EN 10204 Type 3.1** — the non-negotiable baseline. Every product sold by Torke must have a 3.1 cert issued by the manufacturer's authorised representative and confirmed by an independent inspection body. The cert must clearly reference the specific heat/batch delivered. Certs must be stored immutably and accessible for the building lifetime (plan for 50-100 years).
 
-**EN 1992-4** — the Eurocode for post-installed fasteners in concrete. Torke Design calculations must implement all required failure mode checks for the in-scope anchor types. Any scope limitation (e.g. no seismic, no fire) must be clearly stated on every report. An independent CEng review of the calculation methods is not optional.
+**EN 1992-4** — the Eurocode for post-installed fasteners in concrete. Torke TRACE calculations must implement all required failure mode checks for the in-scope anchor types. Any scope limitation (e.g. no seismic, no fire) must be clearly stated on every report. An independent CEng review of the calculation methods is not optional.
 
-**ETA / UKTA marking** — post-Brexit UK operates a dual CE/UKCA regime for construction products. The transition period has been extended multiple times (currently to 2027, but verify actively). Product catalogue data must track marking status per SKU. Torke Design must reference the correct assessment (ETA vs UKTA) by jurisdiction. Monitor OPSS guidance continuously.
+**ETA / UKTA marking** — post-Brexit UK operates a dual CE/UKCA regime for construction products. The transition period has been extended multiple times (currently to 2027, but verify actively). Product catalogue data must track marking status per SKU. Torke TRACE must reference the correct assessment (ETA vs UKTA) by jurisdiction. Monitor OPSS guidance continuously.
 
 **Building Safety Act 2022 / Golden Thread** — do not claim "Building Safety Act compliant." Instead describe what the platform does: full batch traceability with EN 10204 3.1 certification, cert pack on dispatch, QR verification, end-client portal. The secondary legislation and enforcement guidance are still evolving. Subscribe to BSI, NHBC, and HSE regulatory updates. Build the traceability system to capture more data than currently required — easier to ignore fields than to add them retroactively.
 
@@ -150,10 +150,10 @@ Driven by feature dependencies and the principle that each phase delivers someth
 | 3: Order Flow + Batch Allocation | Weeks 9-12 | Customer creates quote, converts to order; FIFO batch allocation; pick lists generated |
 | 4: WMS Operations | Weeks 13-16 | Full warehouse flow: goods-in > pick > pack > dispatch; scanner-confirmed |
 | 5: Cert Pack + Verification | Weeks 17-20 | Customer receives cert pack on dispatch; QR codes link to cert chain; customer portal live |
-| 6: Torke Design MVP | Weeks 21-28 | Engineer designs anchor, sees matching Torke products, adds to quote |
+| 6: Torke TRACE MVP | Weeks 21-28 | Engineer designs anchor, sees matching Torke products, adds to quote |
 | 7: Polish + Scale | Weeks 29+ | End-client portal, CMS/content, email automation, advanced pricing, analytics |
 
-Torke Design is built after the commerce and traceability platform because: (a) the shop can generate revenue without it, and (b) the "Add to Quote" integration in phase 6 needs a real order flow to connect to.
+Torke TRACE is built after the commerce and traceability platform because: (a) the shop can generate revenue without it, and (b) the "Add to Quote" integration in phase 6 needs a real order flow to connect to.
 
 The calculation engine (`@torke/calc-engine`) should be developed in parallel from week 1 as a standalone library with a comprehensive regression test suite, ready to integrate into the UI in phase 6.
 
