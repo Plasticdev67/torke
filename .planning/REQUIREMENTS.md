@@ -165,7 +165,7 @@ All v1 requirements are specific and testable. Each has a unique REQ-ID grouped 
 
 - [x] **MKTG-01**: Platform includes a CMS-driven technical blog with SEO-optimised articles (installation guides, Eurocode explainers, specification guidance)
 - [x] **MKTG-02**: Product pages include structured data (schema markup) for Google rich results
-- [ ] **MKTG-03**: Platform includes a resource library with downloadable technical datasheets, ETAs, and DoPs per product
+- [x] **MKTG-03**: Platform includes a resource library with downloadable technical datasheets, ETAs, and DoPs per product
 - [x] **MKTG-04**: Platform includes a technical glossary section targeting informational search queries
 
 ### Torke Design as Lead Gen

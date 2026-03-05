@@ -141,6 +141,10 @@ Phase 3: Torke Design (6/6 plans)
 - Client-side category filter sufficient for small post count
 - mdx-components.tsx required at root for @next/mdx App Router integration
 - JSON-LD structured data via schema-dts typed helpers + generic JsonLd component
+- ResourceFilter as client component for category/search filtering with server-fetched product data
+- Glossary terms imported via relative path from content/glossary.json (outside src/)
+- FAQ schema maps each glossary term to "What is [term]?" question format for featured snippets
+- PDF template extracted header/footer pattern from certpack-service into reusable utility
 - [Phase 04]: Share token QR codes generated inline via qrcode library (same as batch QR service)
 - [Phase 04]: Order verification /v/[token] uses light theme with red header; mobile-responsive cards for on-site viewing
 - [Phase 04]: Fire-and-forget lastAccessedAt update on share token access to avoid blocking render
@@ -172,7 +176,8 @@ Phase 3: Torke Design (6/6 plans)
 | 04 | 01 | 6min | 2 | 14 |
 | 04 | 03 | 6min | 2 | 17 |
 | Phase 04 P02 | 5min | 2 tasks | 5 files |
+| 04 | 04 | 5min | 2 | 8 |
 
 ## Last Session
-- **Stopped at:** Completed 04-02-PLAN.md
-- **Timestamp:** 2026-03-05T10:13:54Z
+- **Stopped at:** Completed 04-04-PLAN.md
+- **Timestamp:** 2026-03-05T10:22:12Z
