@@ -3,6 +3,8 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowLeft } from "lucide-react";
 import { getAllPosts, getPostBySlug } from "@/lib/mdx";
+import { JsonLd } from "@/components/seo/JsonLd";
+import { articleSchema, breadcrumbSchema } from "@/lib/schema-markup";
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -62,6 +64,13 @@ export default async function BlogPostPage({ params }: PageProps) {
 
   return (
     <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 py-12">
+      <JsonLd data={articleSchema({ title: post.title, description: post.description, date: post.date, slug: post.slug })} />
+      <JsonLd data={breadcrumbSchema([
+        { name: "Home", url: "/" },
+        { name: "Blog", url: "/blog" },
+        { name: post.title, url: `/blog/${post.slug}` },
+      ])} />
+
       {/* Breadcrumb */}
       <nav className="mb-8">
         <ol className="flex items-center gap-2 text-sm">

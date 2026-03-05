@@ -12,6 +12,8 @@ import { Button } from "@/components/ui/button";
 import { ProductImages } from "@/components/products/ProductImages";
 import { ProductSpecs } from "@/components/products/ProductSpecs";
 import { ProductCard } from "@/components/products/ProductCard";
+import { JsonLd } from "@/components/seo/JsonLd";
+import { productSchema, breadcrumbSchema } from "@/lib/schema-markup";
 
 export const dynamic = "force-dynamic";
 
@@ -85,8 +87,28 @@ export default async function ProductDetailPage({ params }: PageProps) {
   const categorySlug = parentCategory?.slug || product.category?.slug || "";
   const categoryName = parentCategory?.name || product.category?.name || "";
 
+  const breadcrumbItems = [
+    { name: "Home", url: "/" },
+    { name: "Products", url: "/products" },
+    ...(categoryName
+      ? [{ name: categoryName, url: `/products?category=${categorySlug}` }]
+      : []),
+    { name: product.name, url: `/products/${product.slug}` },
+  ];
+
   return (
     <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-8">
+      <JsonLd
+        data={productSchema({
+          name: product.name,
+          sku: product.sku,
+          description: product.description,
+          images: product.images as string[] | null,
+          pricePence: product.pricePence,
+        })}
+      />
+      <JsonLd data={breadcrumbSchema(breadcrumbItems)} />
+
       {/* Breadcrumb */}
       <nav className="mb-8">
         <ol className="flex items-center gap-2 text-sm flex-wrap">
