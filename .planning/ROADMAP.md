@@ -74,8 +74,8 @@ Plans:
 - [x] 03-02-PLAN.md — Schema extensions, design store, and input panel UI
 - [x] 03-03-PLAN.md — 3D WebGL visualisation with React Three Fiber
 - [x] 03-04-PLAN.md — Results panel with utilisation bars and action bar
-- [ ] 03-05-PLAN.md — PDF report generation and calculations tRPC router
-- [ ] 03-06-PLAN.md — Design-to-order pipeline and auth gating
+- [x] 03-05-PLAN.md — PDF report generation and calculations tRPC router
+- [x] 03-06-PLAN.md — Design-to-order pipeline and auth gating
 
 **Requirements:**
 - DESIGN-01, DESIGN-02, DESIGN-03, DESIGN-04, DESIGN-05 (calculation engine, all failure modes)
@@ -101,6 +101,15 @@ Plans:
 ## Phase 4: Portals + Marketing + Polish
 
 **Goal:** Complete the traceability surface with customer and end-client portals, launch content/SEO, and activate Torke Design as a lead generation funnel.
+
+**Plans:** 5 plans
+
+Plans:
+- [ ] 04-01-PLAN.md — Customer cert portal: search, download, bulk ZIP
+- [ ] 04-02-PLAN.md — End-client verification portal: share links, /v/[token] page, QR check
+- [ ] 04-03-PLAN.md — MDX blog infrastructure, 3 launch articles, JSON-LD schema markup
+- [ ] 04-04-PLAN.md — Resource library, technical glossary, PDF template system
+- [ ] 04-05-PLAN.md — Lead gen funnel polish: soft prompts, company capture, admin lead list
 
 **Requirements:**
 - TRACE-12, TRACE-13, TRACE-14 (customer cert portal)
@@ -138,4 +147,4 @@ Features explicitly deferred from v1. Prioritisation to be determined after laun
 
 ---
 
-*Last updated: 2026-03-05 — Phase 3 plans created (6 plans, 3 waves)*
+*Last updated: 2026-03-05 — Phase 4 plans created (5 plans, 3 waves)*
