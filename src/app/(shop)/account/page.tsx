@@ -23,6 +23,7 @@ export default function AccountPage() {
         </TabLink>
         <TabLink href="/account/orders">Orders</TabLink>
         <TabLink href="/account/addresses">Addresses</TabLink>
+        <TabLink href="/account/certifications">Certifications</TabLink>
       </div>
 
       <AccountDashboard />
