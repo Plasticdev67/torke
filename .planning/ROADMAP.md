@@ -102,9 +102,10 @@ Plans:
 
 **Goal:** Complete the traceability surface with customer and end-client portals, launch content/SEO, and activate Torke Design as a lead generation funnel.
 
-**Plans:** 5 plans
+**Plans:** 6 plans
 
 Plans:
+- [ ] 04-00-PLAN.md — Wave 0: test stubs for certs, verification, blog, SEO, and leads
 - [ ] 04-01-PLAN.md — Customer cert portal: search, download, bulk ZIP
 - [ ] 04-02-PLAN.md — End-client verification portal: share links, /v/[token] page, QR check
 - [ ] 04-03-PLAN.md — MDX blog infrastructure, 3 launch articles, JSON-LD schema markup
@@ -147,4 +148,4 @@ Features explicitly deferred from v1. Prioritisation to be determined after laun
 
 ---
 
-*Last updated: 2026-03-05 — Phase 4 plans created (5 plans, 3 waves)*
+*Last updated: 2026-03-05 — Phase 4 plans revised (6 plans, 4 waves: 0-3)*
