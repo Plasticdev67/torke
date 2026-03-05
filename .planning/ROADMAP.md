@@ -67,7 +67,7 @@ Plans:
 
 **Goal:** Deliver the browser-based EN 1992-4 anchor calculation tool with 3D visualisation, PDF reports, and the design-to-order pipeline that connects calculations to the shop.
 
-**Plans:** 6 plans
+**Plans:** 2/6 plans executed
 
 Plans:
 - [ ] 03-01-PLAN.md — EN 1992-4 calculation engine (TDD): types, failure modes, groups, regression tests

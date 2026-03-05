@@ -2,15 +2,15 @@
 gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
-current_plan: 1 of 6
+current_plan: 2 of 6
 status: in-progress
-stopped_at: Completed 03-01-PLAN.md
-last_updated: "2026-03-05T08:09:38.455Z"
+stopped_at: Completed 03-02-PLAN.md
+last_updated: "2026-03-05T08:11:00.000Z"
 progress:
   total_phases: 4
   completed_phases: 2
   total_plans: 19
-  completed_plans: 14
+  completed_plans: 15
 ---
 
 # Project State
@@ -23,9 +23,10 @@ See: .planning/PROJECT.md (updated 2026-03-04)
 ## Current Phase
 Phase 3: Torke Design
 Status: In Progress (6 plans, 4 waves)
-Current Plan: 1 of 6
+Current Plan: 2 of 6
 
 ## Progress
+Plan 03-02 (Design Input Surface): COMPLETE
 Plan 03-01 (EN 1992-4 Calc Engine): COMPLETE
 Plan 02-00 (Test Infrastructure): COMPLETE
 Plan 02-01 (Schema + Cart + Allocation): COMPLETE
@@ -102,6 +103,9 @@ Phase 2: E-Commerce Order Flow + WMS (8/8 plans)
 - Combined interaction checks both steel (exponent 2) and concrete (exponent 1.5) separately
 - Governing mode determined across all 7 modes + combined (can be Combined Interaction)
 - Project info fields (projectName, engineerName, etc.) added to DesignInputs for PDF reports
+- Cart items with different calcReference treated as separate line items (not merged)
+- 5 design presets: Single M12, Single M16, 4-Bolt M12, 4-Bolt M20, Blank Slate
+- CollapsibleSection + FieldGroup reusable components for design tool UI pattern
 
 ## Performance Metrics
 
@@ -121,7 +125,8 @@ Phase 2: E-Commerce Order Flow + WMS (8/8 plans)
 | 02 | 06 | 9min | 2 | 15 |
 | 02 | 08 | 4min | 2 | 2 |
 | 03 | 01 | 8min | 2 | 19 |
+| 03 | 02 | 10min | 2 | 18 |
 
 ## Last Session
-- **Stopped at:** Completed 03-01-PLAN.md
-- **Timestamp:** 2026-03-05T08:09:00Z
+- **Stopped at:** Completed 03-02-PLAN.md
+- **Timestamp:** 2026-03-05T08:11:00Z

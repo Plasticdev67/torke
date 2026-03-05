@@ -115,7 +115,7 @@ All v1 requirements are specific and testable. Each has a unique REQ-ID grouped 
 
 ### Access & Accounts
 
-- [ ] **DESIGN-17**: User can perform calculations without logging in (free, no login required)
+- [x] **DESIGN-17**: User can perform calculations without logging in (free, no login required)
 - [ ] **DESIGN-18**: User must create a free account to save calculations or export PDF reports
 - [ ] **DESIGN-19**: Torke Design uses the same product database as the e-commerce catalogue (single source of truth)
 
