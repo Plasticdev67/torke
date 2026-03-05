@@ -11,6 +11,10 @@ import {
   transitionOrder,
   allocateOrderStock,
 } from "@/server/services/order-service";
+import {
+  sendOrderConfirmation,
+  sendDispatchNotification,
+} from "@/server/services/email-service";
 import { eq, and, sql, desc, asc, inArray } from "drizzle-orm";
 import { TRPCError } from "@trpc/server";
 
@@ -157,6 +161,9 @@ export const ordersRouter = router({
 
         return order;
       });
+
+      // Fire-and-forget: send order confirmation email
+      sendOrderConfirmation(result.order.id).catch(console.error);
 
       return {
         orderId: result.order.id,
@@ -602,7 +609,7 @@ export const ordersRouter = router({
         )
     )
     .mutation(async ({ ctx, input }) => {
-      return await ctx.db.transaction(async (tx) => {
+      const result = await ctx.db.transaction(async (tx) => {
         await transitionOrder(tx, input.orderId, "dispatched", {
           trackingNumber: input.trackingNumber,
           consignmentNumber: input.consignmentNumber,
@@ -639,6 +646,11 @@ export const ordersRouter = router({
           status: "dispatched" as const,
         };
       });
+
+      // Fire-and-forget: send dispatch notification email
+      sendDispatchNotification(input.orderId).catch(console.error);
+
+      return result;
     }),
 
   /** Mark order as delivered (dispatched -> delivered) */
