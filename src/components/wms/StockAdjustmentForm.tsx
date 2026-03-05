@@ -22,11 +22,11 @@ const adjustmentSchema = z.object({
   productId: z.string().uuid("Select a product"),
   batchId: z.string().uuid("Select a batch"),
   quantityChange: z
-    .number({ invalid_type_error: "Enter a number" })
+    .number({ error: "Enter a number" })
     .int("Must be a whole number")
     .refine((v) => v !== 0, "Quantity change must be non-zero"),
   reason: z.enum(["damage", "returns", "cycle_count_variance", "other"], {
-    required_error: "Select a reason",
+    error: "Select a reason",
   }),
   notes: z.string().optional(),
 });

@@ -35,7 +35,7 @@ Where A_s is the stressed cross-section of the rod and f_uk is the characteristi
 
 **Shear:** V_Rk,s = 0.5 x A_s x f_uk (for anchors without a sleeve)
 
-The partial safety factor for steel failure is gamma_Ms = 1.2 for ductile steel (f_uk/f_yk <= 1.25) or gamma_Ms = 1.5 for brittle steel.
+The partial safety factor for steel failure is gamma_Ms = 1.2 for ductile steel (f_uk/f_yk ≤ 1.25) or gamma_Ms = 1.5 for brittle steel.
 
 ## Step 3: Concrete Cone Breakout (Tension)
 
@@ -49,7 +49,7 @@ N_Rk,c (group) = N_Rk,c^0 x (A_c,N / A_c,N^0) x psi_s,N x psi_re,N x psi_ec,N
 
 Each psi factor accounts for a specific geometric or loading condition:
 - **psi_s,N:** Edge distance effect (reduces capacity when c < 1.5 x h_ef)
-- **psi_re,N:** Shell spalling effect (1.0 for anchors with h_ef >= 100mm in reinforced concrete)
+- **psi_re,N:** Shell spalling effect (1.0 for anchors with h_ef ≥ 100mm in reinforced concrete)
 - **psi_ec,N:** Load eccentricity within a group
 
 The partial safety factor gamma_Mc = 1.5 for concrete failure modes.
@@ -70,7 +70,7 @@ Pryout failure occurs when a short, stiff anchor is loaded in shear. Instead of 
 
 **V_Rk,cp = k_cp x N_Rk,c**
 
-Where k_cp = 1.0 for h_ef < 60mm and k_cp = 2.0 for h_ef >= 60mm.
+Where k_cp = 1.0 for h_ef < 60mm and k_cp = 2.0 for h_ef ≥ 60mm.
 
 This mode governs for short anchors far from edges.
 
@@ -88,9 +88,9 @@ Edge failure is critical for anchors in parapets, thin walls, and near slab edge
 
 Splitting failure occurs when the expansion forces from the anchor installation (or loading) cause a crack to propagate through the concrete member. This is checked by ensuring:
 
-- Member thickness h >= h_min (from ETA)
-- Edge distance c >= c_cr,sp (from ETA)
-- Spacing s >= s_cr,sp (from ETA)
+- Member thickness h ≥ h_min (from ETA)
+- Edge distance c ≥ c_cr,sp (from ETA)
+- Spacing s ≥ s_cr,sp (from ETA)
 
 If the geometric conditions are met and the member is reinforced, splitting is typically not governing.
 
@@ -98,7 +98,7 @@ If the geometric conditions are met and the member is reinforced, splitting is t
 
 Most real-world anchor connections experience simultaneous tension and shear. EN 1992-4 uses an interaction equation:
 
-**(N_Ed / N_Rd)^alpha + (V_Ed / V_Rd)^alpha <= 1.0**
+**(N_Ed / N_Rd)^alpha + (V_Ed / V_Rd)^alpha ≤ 1.0**
 
 The exponent alpha depends on the failure mode:
 - **Steel failure:** alpha = 2.0 (elliptical interaction)

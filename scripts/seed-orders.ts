@@ -87,16 +87,20 @@ async function ensureCustomerUser(): Promise<string> {
 }
 
 async function ensureWarehouseUser(): Promise<string> {
+  // receivedBy on batches is a uuid column, so we need the profile id (uuid), not the userId (text)
   const existing = await db
-    .select({ userId: userProfiles.userId })
+    .select({ id: userProfiles.id })
     .from(userProfiles)
     .where(eq(userProfiles.role, "warehouse"))
     .limit(1);
 
   if (existing.length > 0) {
-    return existing[0]!.userId;
+    return existing[0]!.id;
   }
-  return "user_warehouse";
+  // Fallback: create a placeholder UUID
+  const fallback = crypto.randomUUID();
+  console.log(`  WARNING: No warehouse user found, using generated UUID: ${fallback}`);
+  return fallback;
 }
 
 async function seedSuppliers() {

@@ -14,7 +14,7 @@ import { DispatchNotificationEmail } from "@/emails/dispatch-notification";
 // Resend Client
 // --------------------------------------------------------------------------
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+const resend = new Resend(process.env.RESEND_API_KEY || "re_placeholder");
 
 const FROM_EMAIL =
   process.env.RESEND_FROM_EMAIL ?? "Torke <orders@torke.co.uk>";

@@ -58,8 +58,6 @@ export function ProductCatalogueClient({
     },
     {
       staleTime: 30000,
-      // Only use DB if Meilisearch fails
-      enabled: searchResult.isError || !searchResult.data,
     }
   );
 
@@ -101,7 +99,7 @@ export function ProductCatalogueClient({
     ? searchResult.data.totalHits
     : dbResult.data?.total ?? 0;
 
-  const isLoading = searchResult.isLoading && dbResult.isLoading;
+  const isLoading = dbResult.isLoading;
 
   return (
     <div>

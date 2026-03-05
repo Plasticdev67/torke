@@ -9,9 +9,11 @@ import { eq } from "drizzle-orm";
 // Stripe Webhook Handler
 // --------------------------------------------------------------------------
 
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY || "", {
-  apiVersion: "2025-01-27.acacia" as Stripe.LatestApiVersion,
-});
+function getStripe() {
+  return new Stripe(process.env.STRIPE_SECRET_KEY || "sk_test_placeholder", {
+    apiVersion: "2025-01-27.acacia" as Stripe.LatestApiVersion,
+  });
+}
 
 export async function POST(req: NextRequest) {
   // CRITICAL: Use req.text() for raw body (not req.json())
@@ -28,7 +30,7 @@ export async function POST(req: NextRequest) {
   let event: Stripe.Event;
 
   try {
-    event = stripe.webhooks.constructEvent(
+    event = getStripe().webhooks.constructEvent(
       body,
       sig,
       process.env.STRIPE_WEBHOOK_SECRET || ""
