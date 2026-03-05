@@ -33,13 +33,22 @@ export default function CheckoutSuccessPage() {
   const searchParams = useSearchParams();
   const orderRef = searchParams.get("order");
 
-  // We need to find the order by orderNumber — use list and filter
-  const { data: userOrders, isLoading } = trpc.orders.list.useQuery({
+  // Step 1: Find order by orderNumber from list
+  const { data: userOrders, isLoading: isListLoading } = trpc.orders.list.useQuery({
     limit: 50,
     offset: 0,
   });
 
-  const order = userOrders?.find((o) => o.orderNumber === orderRef);
+  const matchedOrder = userOrders?.find((o) => o.orderNumber === orderRef);
+
+  // Step 2: Fetch full detail with allocations
+  const { data: orderDetail, isLoading: isDetailLoading } = trpc.orders.myOrderDetail.useQuery(
+    { orderId: matchedOrder?.id ?? "" },
+    { enabled: !!matchedOrder?.id }
+  );
+
+  const isLoading = isListLoading || (!!matchedOrder && isDetailLoading);
+  const order = orderDetail ?? matchedOrder;
 
   if (isLoading) {
     return (
@@ -140,6 +149,7 @@ export default function CheckoutSuccessPage() {
               <thead>
                 <tr className="border-b border-zinc-800 text-left text-xs uppercase tracking-wider text-zinc-500">
                   <th className="pb-2">Product</th>
+                  <th className="pb-2">Torke Batch ID</th>
                   <th className="pb-2 text-center">Qty</th>
                   <th className="pb-2 text-right">Unit Price</th>
                   <th className="pb-2 text-right">Total</th>
@@ -153,6 +163,15 @@ export default function CheckoutSuccessPage() {
                   >
                     <td className="py-2 text-zinc-200">
                       {line.product?.name ?? "Unknown Product"}
+                    </td>
+                    <td className="py-2 text-zinc-400">
+                      {"allocations" in line && Array.isArray(line.allocations) && line.allocations.length > 0 ? (
+                        <span className="font-mono text-xs">
+                          {line.allocations.map((a: { torkeBatchId: string }) => a.torkeBatchId).join(", ")}
+                        </span>
+                      ) : (
+                        <span className="text-zinc-600 italic text-xs">Pending allocation</span>
+                      )}
                     </td>
                     <td className="py-2 text-center text-zinc-400">
                       {line.quantity}
