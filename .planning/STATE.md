@@ -2,15 +2,15 @@
 gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
-current_plan: 6 of 6 (COMPLETE)
+current_plan: 1 of 6
 status: executing
-stopped_at: Phase 4 context gathered
-last_updated: "2026-03-05T09:11:54.557Z"
+stopped_at: Completed 04-00-PLAN.md
+last_updated: "2026-03-05T10:09:22.782Z"
 progress:
   total_phases: 4
   completed_phases: 3
-  total_plans: 19
-  completed_plans: 19
+  total_plans: 25
+  completed_plans: 20
 ---
 
 # Project State
@@ -18,14 +18,15 @@ progress:
 ## Project Reference
 See: .planning/PROJECT.md (updated 2026-03-04)
 **Core value:** Full mill-to-site batch traceability with verifiable 3.1 certification
-**Current focus:** Phase 3 — Torke Design
+**Current focus:** Phase 4 — Portals, Marketing & Polish
 
 ## Current Phase
-Phase 3: Torke Design
-Status: In Progress (6 plans, 4 waves)
-Current Plan: 6 of 6 (COMPLETE)
+Phase 4: Portals, Marketing & Polish
+Status: In Progress (6 plans, 3 waves)
+Current Plan: 1 of 6
 
 ## Progress
+Plan 04-00 (Test Infrastructure): COMPLETE
 Plan 03-06 (Design-to-Order Pipeline + Auth Gate): COMPLETE
 Plan 03-05 (PDF Report + Calculations Router): COMPLETE
 Plan 03-04 (Results Display + Action Bar): COMPLETE
@@ -127,6 +128,7 @@ Phase 3: Torke Design (6/6 plans)
 - Auth gate uses overlay modal (not redirect) to preserve localStorage-persisted design state
 - Draft calcReference uses DESIGN-DRAFT-{timestamp} when calculation not yet saved
 - Product diameter filter uses M-prefix format (M12, M16) matching product database
+- Phase 4 test stubs follow Phase 2 precedent: explicit vitest imports for IDE support
 
 ## Performance Metrics
 
@@ -151,7 +153,8 @@ Phase 3: Torke Design (6/6 plans)
 | 03 | 04 | 3min | 2 | 6 |
 | 03 | 05 | 6min | 2 | 4 |
 | 03 | 06 | 5min | 2 | 7 |
+| 04 | 00 | 1min | 1 | 9 |
 
 ## Last Session
-- **Stopped at:** Phase 4 context gathered
-- **Timestamp:** 2026-03-05T08:35:00Z
+- **Stopped at:** Completed 04-00-PLAN.md
+- **Timestamp:** 2026-03-05T10:08:41Z

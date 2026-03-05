@@ -66,14 +66,14 @@ All v1 requirements are specific and testable. Each has a unique REQ-ID grouped 
 
 ### Customer Cert Portal
 
-- [ ] **TRACE-12**: Contractor can search their certs by order number, Torke batch ID, product code, or date range
-- [ ] **TRACE-13**: Contractor can download individual cert PDFs or a bundled cert pack per order
-- [ ] **TRACE-14**: Order history page shows batch allocation per line item with linked cert downloads
+- [x] **TRACE-12**: Contractor can search their certs by order number, Torke batch ID, product code, or date range
+- [x] **TRACE-13**: Contractor can download individual cert PDFs or a bundled cert pack per order
+- [x] **TRACE-14**: Order history page shows batch allocation per line item with linked cert downloads
 
 ### End-Client Verification Portal
 
-- [ ] **TRACE-15**: Contractor can generate a unique read-only verification link for their end-client (building owner, structural engineer, building control)
-- [ ] **TRACE-16**: End-client can view project name, list of fixings supplied, batch numbers, and linked 3.1 certs via the verification link without logging in
+- [x] **TRACE-15**: Contractor can generate a unique read-only verification link for their end-client (building owner, structural engineer, building control)
+- [x] **TRACE-16**: End-client can view project name, list of fixings supplied, batch numbers, and linked 3.1 certs via the verification link without logging in
 - [ ] **TRACE-17**: QR code on physical product label resolves to a public verification page showing product details, batch ID, 3.1 cert, and goods-in date
 
 ### Permanent URL Scheme
@@ -163,15 +163,15 @@ All v1 requirements are specific and testable. Each has a unique REQ-ID grouped 
 
 ### Content & SEO
 
-- [ ] **MKTG-01**: Platform includes a CMS-driven technical blog with SEO-optimised articles (installation guides, Eurocode explainers, specification guidance)
-- [ ] **MKTG-02**: Product pages include structured data (schema markup) for Google rich results
+- [x] **MKTG-01**: Platform includes a CMS-driven technical blog with SEO-optimised articles (installation guides, Eurocode explainers, specification guidance)
+- [x] **MKTG-02**: Product pages include structured data (schema markup) for Google rich results
 - [ ] **MKTG-03**: Platform includes a resource library with downloadable technical datasheets, ETAs, and DoPs per product
-- [ ] **MKTG-04**: Platform includes a technical glossary section targeting informational search queries
+- [x] **MKTG-04**: Platform includes a technical glossary section targeting informational search queries
 
 ### Torke Design as Lead Gen
 
 - [ ] **MKTG-05**: Torke Design is accessible without login to maximise organic traffic from engineers searching for anchor design tools
-- [ ] **MKTG-06**: Saving or exporting a calculation requires free account creation, capturing the lead (email, name, company)
+- [x] **MKTG-06**: Saving or exporting a calculation requires free account creation, capturing the lead (email, name, company)
 - [ ] **MKTG-07**: Account creation from Torke Design feeds into the e-commerce account system (single account across design and shop)
 
 ### Document Rebranding
