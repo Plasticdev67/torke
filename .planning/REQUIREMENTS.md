@@ -97,9 +97,9 @@ All v1 requirements are specific and testable. Each has a unique REQ-ID grouped 
 
 ### 3D Visualisation
 
-- [ ] **DESIGN-08**: User can see a 3D interactive WebGL visualisation of the anchor plate and bolt group (React Three Fiber)
-- [ ] **DESIGN-09**: 3D model updates in real time as the user changes input parameters (diameter, spacing, edge distance, plate size)
-- [ ] **DESIGN-10**: User can rotate, zoom, and pan the 3D model
+- [x] **DESIGN-08**: User can see a 3D interactive WebGL visualisation of the anchor plate and bolt group (React Three Fiber)
+- [x] **DESIGN-09**: 3D model updates in real time as the user changes input parameters (diameter, spacing, edge distance, plate size)
+- [x] **DESIGN-10**: User can rotate, zoom, and pan the 3D model
 
 ### PDF Reports
 

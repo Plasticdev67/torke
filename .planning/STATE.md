@@ -108,6 +108,11 @@ Phase 2: E-Commerce Order Flow + WMS (8/8 plans)
 - Cart items with different calcReference treated as separate line items (not merged)
 - 5 design presets: Single M12, Single M16, 4-Bolt M12, 4-Bolt M20, Blank Slate
 - CollapsibleSection + FieldGroup reusable components for design tool UI pattern
+- mm-to-metres conversion (/ 1000) as standard R3F scene unit scale
+- React.memo + granular Zustand selectors on all 3D components to avoid R3F re-render storms
+- Dynamic import with ssr:false for AnchorScene (R3F requires browser WebGL APIs)
+- Mobile screens get fallback message instead of 3D scene (WebGL performance + screen space)
+- FailureCone uses CCD method 1.5*hef radius for cone breakout geometry
 - Debounced recalculation (300ms) wired directly in design page useEffect
 - Multiple failure mode bars can be expanded simultaneously via Set<number> state
 - Action bar buttons are stubs pending auth gate integration in Plan 06
@@ -131,6 +136,7 @@ Phase 2: E-Commerce Order Flow + WMS (8/8 plans)
 | 02 | 08 | 4min | 2 | 2 |
 | 03 | 01 | 8min | 2 | 19 |
 | 03 | 02 | 10min | 2 | 18 |
+| 03 | 03 | 4min | 2 | 9 |
 | 03 | 04 | 3min | 2 | 6 |
 
 ## Last Session
