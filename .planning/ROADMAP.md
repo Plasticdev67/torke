@@ -43,7 +43,7 @@ Plans:
 - [x] 02-05-PLAN.md — PDF generation (cert packs, invoices, and BACS proforma)
 - [x] 02-06-PLAN.md — Customer portal and transactional emails
 - [x] 02-07-PLAN.md — Checkout wizard UI and payment integration
-- [ ] 02-08-PLAN.md — Gap closure: dispatch-to-certpack wiring + success page batch allocations
+- [x] 02-08-PLAN.md — Gap closure: dispatch-to-certpack wiring + success page batch allocations
 
 **Requirements:**
 - SHOP-06, SHOP-07, SHOP-08, SHOP-09, SHOP-10, SHOP-11, SHOP-12 (basket, checkout, payment)
@@ -66,6 +66,16 @@ Plans:
 ## Phase 3: Torke Design
 
 **Goal:** Deliver the browser-based EN 1992-4 anchor calculation tool with 3D visualisation, PDF reports, and the design-to-order pipeline that connects calculations to the shop.
+
+**Plans:** 6 plans
+
+Plans:
+- [ ] 03-01-PLAN.md — EN 1992-4 calculation engine (TDD): types, failure modes, groups, regression tests
+- [ ] 03-02-PLAN.md — Schema extensions, design store, and input panel UI
+- [ ] 03-03-PLAN.md — 3D WebGL visualisation with React Three Fiber
+- [ ] 03-04-PLAN.md — Results panel with utilisation bars and action bar
+- [ ] 03-05-PLAN.md — PDF report generation and calculations tRPC router
+- [ ] 03-06-PLAN.md — Design-to-order pipeline and auth gating
 
 **Requirements:**
 - DESIGN-01, DESIGN-02, DESIGN-03, DESIGN-04, DESIGN-05 (calculation engine, all failure modes)
@@ -128,4 +138,4 @@ Features explicitly deferred from v1. Prioritisation to be determined after laun
 
 ---
 
-*Last updated: 2026-03-05 — Phase 2 gap closure plan added (02-08)*
+*Last updated: 2026-03-05 — Phase 3 plans created (6 plans, 3 waves)*
