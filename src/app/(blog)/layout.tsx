@@ -15,6 +15,8 @@ const navLinks = [
   { href: "/products", label: "Products" },
   { href: "/design", label: "Design" },
   { href: "/blog", label: "Blog" },
+  { href: "/resources", label: "Resources" },
+  { href: "/glossary", label: "Glossary" },
 ];
 
 export default function BlogLayout({

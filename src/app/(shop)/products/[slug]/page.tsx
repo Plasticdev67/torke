@@ -316,6 +316,48 @@ export default async function ProductDetailPage({ params }: PageProps) {
         </div>
       </div>
 
+      {/* Technical Documents */}
+      {product.datasheetUrl && (
+        <div className="mb-16">
+          <h2 className="text-lg font-bold text-white mb-4">
+            <span className="inline-block w-1 h-5 bg-[#C41E3A] mr-3 align-middle" />
+            Technical Documents
+          </h2>
+          <div className="bg-[#1A1A1A] border border-[#333] rounded-lg p-5">
+            <div className="flex items-center justify-between">
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 bg-[#C41E3A]/10 rounded flex items-center justify-center">
+                  <FileText className="h-5 w-5 text-[#C41E3A]" />
+                </div>
+                <div>
+                  <p className="text-sm font-medium text-white">
+                    Product Datasheet
+                  </p>
+                  <p className="text-xs text-[#666]">PDF document</p>
+                </div>
+              </div>
+              <a
+                href={product.datasheetUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                download
+                className="inline-flex items-center gap-1.5 bg-[#C41E3A] hover:bg-[#D6354F] text-white px-4 py-2 rounded text-sm font-medium transition-colors"
+              >
+                <FileText className="h-4 w-4" />
+                Download
+              </a>
+            </div>
+          </div>
+          <Link
+            href="/resources"
+            className="inline-flex items-center gap-1 text-sm text-[#C41E3A] hover:text-[#D6354F] mt-3 transition-colors"
+          >
+            View all technical resources
+            <span aria-hidden="true">&rarr;</span>
+          </Link>
+        </div>
+      )}
+
       {/* Technical Specifications */}
       <div className="mb-16">
         <ProductSpecs
