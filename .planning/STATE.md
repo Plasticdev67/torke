@@ -135,6 +135,11 @@ Phase 3: Torke Design (6/6 plans)
 - Tab navigation added consistently to all account pages (dashboard, orders, addresses, certifications)
 - Cert search queries through orders -> orderLines -> allocations -> batches -> products with conditional ILIKE filters
 - Bulk ZIP uses Promise.allSettled for resilient parallel R2 fetches with partial success
+- Blog content files in /content/blog/ outside app dir, loaded via gray-matter + dynamic import
+- Blog route group (blog) uses separate layout from shop for simpler content-focused nav
+- Client-side category filter sufficient for small post count
+- mdx-components.tsx required at root for @next/mdx App Router integration
+- JSON-LD structured data via schema-dts typed helpers + generic JsonLd component
 
 ## Performance Metrics
 
@@ -161,7 +166,8 @@ Phase 3: Torke Design (6/6 plans)
 | 03 | 06 | 5min | 2 | 7 |
 | 04 | 00 | 1min | 1 | 9 |
 | 04 | 01 | 6min | 2 | 14 |
+| 04 | 03 | 6min | 2 | 17 |
 
 ## Last Session
-- **Stopped at:** Completed 04-01-PLAN.md
-- **Timestamp:** 2026-03-05T10:14:12Z
+- **Stopped at:** Completed 04-03-PLAN.md
+- **Timestamp:** 2026-03-05T10:13:54Z
