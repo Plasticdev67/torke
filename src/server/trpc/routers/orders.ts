@@ -16,6 +16,7 @@ import {
   sendOrderConfirmation,
   sendDispatchNotification,
 } from "@/server/services/email-service";
+import { generateCertPack } from "@/server/services/certpack-service";
 import { eq, and, sql, desc, asc, inArray } from "drizzle-orm";
 import { TRPCError } from "@trpc/server";
 
@@ -636,20 +637,17 @@ export const ordersRouter = router({
             );
         }
 
-        // Trigger cert pack generation (placeholder for Plan 05)
-        console.log(
-          "[CERTPACK] Dispatch triggered cert pack generation for order",
-          input.orderId
-        );
-
         return {
           orderId: input.orderId,
           status: "dispatched" as const,
         };
       });
 
-      // Fire-and-forget: send dispatch notification email
-      sendDispatchNotification(input.orderId).catch(console.error);
+      // Generate cert pack first (sets order.certPackKey), then send dispatch email
+      // which will attach the cert pack if available
+      generateCertPack(ctx.db, input.orderId)
+        .then(() => sendDispatchNotification(input.orderId))
+        .catch(console.error);
 
       return result;
     }),
