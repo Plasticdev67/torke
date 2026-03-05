@@ -56,7 +56,9 @@ describe("calculateAnchorDesign - Full Pipeline", () => {
     const result = calculateAnchorDesign(SINGLE_M12);
     expect(result.governingMode).toBeTruthy();
     expect(result.governingUtilisation).toBeGreaterThan(0);
-    const governingMode = result.failureModes.find(
+    // Governing mode can be any failure mode or combined interaction
+    const allModes = [...result.failureModes, result.combinedInteraction];
+    const governingMode = allModes.find(
       (m) => m.name === result.governingMode
     );
     expect(governingMode).toBeDefined();
