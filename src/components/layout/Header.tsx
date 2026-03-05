@@ -18,6 +18,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { MobileNav } from "./MobileNav";
 import { SearchBar } from "@/components/products/SearchBar";
+import { TorkeLogo } from "@/components/brand/TorkeLogo";
 
 const categories = [
   {
@@ -42,25 +43,13 @@ export function Header() {
 
   return (
     <header className="sticky top-0 z-50">
-      {/* Red brand bar */}
-      <div className="bg-[#C41E3A] relative overflow-hidden">
-        {/* Diagonal accent slash */}
-        <div className="absolute right-0 top-0 h-full w-32 bg-[#A8182F] transform skew-x-[-12deg] translate-x-12" />
-        <div className="absolute right-24 top-0 h-full w-4 bg-[#B31C34] transform skew-x-[-12deg] translate-x-12" />
+      {/* Red brand bar — clean, bold, packaging-matched */}
+      <div className="bg-[#C41E3A]">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="flex h-14 items-center justify-between gap-4 relative z-10">
+          <div className="flex h-14 items-center justify-between gap-4">
             {/* Logo */}
-            <Link href="/" className="flex items-center gap-2.5 shrink-0">
-              <div className="flex items-center">
-                <div className="relative w-9 h-9 bg-white/15 border border-white/25 flex items-center justify-center" style={{ clipPath: 'polygon(0 0, 100% 0, 100% 85%, 85% 100%, 0 100%)' }}>
-                  <span className="text-white font-black text-xl leading-none tracking-tighter">
-                    T
-                  </span>
-                </div>
-                <span className="ml-2.5 text-white font-bold text-lg tracking-[0.15em] hidden sm:block">
-                  TORKE<sup className="text-[8px] ml-0.5 align-super opacity-70">&reg;</sup>
-                </span>
-              </div>
+            <Link href="/" className="shrink-0">
+              <TorkeLogo size="md" variant="light" />
             </Link>
 
             {/* Desktop Navigation */}
@@ -185,6 +174,9 @@ export function Header() {
           </div>
         </div>
       </div>
+
+      {/* Thin accent line below header */}
+      <div className="h-[2px] bg-gradient-to-r from-[#A8182F] via-[#C41E3A] to-[#A8182F]" />
 
       {/* Mobile Nav */}
       <MobileNav open={mobileNavOpen} onOpenChange={setMobileNavOpen} />

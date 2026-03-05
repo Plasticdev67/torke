@@ -14,6 +14,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import { TorkeLogoStacked } from "@/components/brand/TorkeLogo";
 
 export default function LoginPage() {
   const router = useRouter();
@@ -48,14 +49,9 @@ export default function LoginPage() {
   }
 
   return (
-    <div className="flex min-h-screen flex-col items-center justify-center px-4">
-      <div className="mb-10 text-center">
-        <h1 className="text-4xl font-bold tracking-tight">
-          <span className="text-primary">T</span>ORKE
-        </h1>
-        <p className="mt-1 text-sm text-muted-foreground">
-          Construction Fixings
-        </p>
+    <div className="flex min-h-screen flex-col items-center justify-center px-4 bg-[#0A0A0A]">
+      <div className="mb-10">
+        <TorkeLogoStacked size="lg" variant="red" />
       </div>
 
       <Card className="w-full max-w-md border-border bg-card">
