@@ -19,6 +19,7 @@ Plan 02-04 (Fulfillment - Pick/Pack/Dispatch): COMPLETE
 Plan 02-05 (Cert Pack + Invoice Generation): COMPLETE
 Plan 02-06 (Email Notifications + Order History): COMPLETE
 Plan 02-07 (Checkout + Payments): COMPLETE
+Plan 02-08 (Gap Closure - Traceability Wiring): COMPLETE
 
 ## Completed Phases
 Phase 1: Foundation + Catalogue + Traceability Core (4/4 plans)
@@ -71,11 +72,13 @@ Phase 1: Foundation + Catalogue + Traceability Core (4/4 plans)
 - Separate API route for Stripe session creation after order creation
 - Dispatch Zod validation uses .refine() for conditional required fields (tracking/consignment)
 - Pick list uses A4 print stylesheet with picklist-container class visibility pattern
-- Cert pack generation logged as placeholder console.log for Plan 05 to implement
+- Cert pack generation wired into dispatch mutation via fire-and-forget promise chain (replaced console.log placeholder)
 - Fire-and-forget email pattern: email calls use .catch(console.error) so order mutations never fail due to email
 - Cert pack attached to dispatch email if <10MB, presigned R2 URL if larger (7 day expiry)
 - Reorder fetches current product prices, not historical order prices
 - Account summary excludes draft and cancelled orders from spending totals
+- generateCertPack chained before sendDispatchNotification via .then() so email can attach cert pack PDF
+- Checkout success page uses myOrderDetail query for batch allocation data with 'in' operator type guard
 
 ## Performance Metrics
 
@@ -93,7 +96,8 @@ Phase 1: Foundation + Catalogue + Traceability Core (4/4 plans)
 | 02 | 07 | 9min | 2 | 17 |
 | 02 | 04 | 7min | 2 | 11 |
 | 02 | 06 | 9min | 2 | 15 |
+| 02 | 08 | 4min | 2 | 2 |
 
 ## Last Session
-- **Stopped at:** Completed 02-06-PLAN.md — Email Notifications + Order History (Phase 2 Complete)
-- **Timestamp:** 2026-03-05T00:03:30Z
+- **Stopped at:** Completed 02-08-PLAN.md — Gap Closure (Traceability Wiring) — Phase 2 fully complete
+- **Timestamp:** 2026-03-05T00:39:00Z

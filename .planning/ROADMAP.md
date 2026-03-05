@@ -32,7 +32,7 @@ Coarse-grained roadmap: 4 phases, dependency-ordered. Each phase delivers observ
 
 **Goal:** Enable customers to buy products and Torke to fulfil orders with full batch traceability through the order lifecycle.
 
-**Plans:** 9 plans (8 complete + 1 gap closure)
+**Plans:** 9/9 plans complete
 
 Plans:
 - [x] 02-00-PLAN.md — Wave 0: vitest test infrastructure and test stubs
