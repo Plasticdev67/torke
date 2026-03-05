@@ -75,6 +75,20 @@ export function MobileNav({ open, onOpenChange }: MobileNavProps) {
           <div className="h-px bg-[#222] my-2 mx-6" />
 
           <Link
+            href="/design"
+            onClick={() => onOpenChange(false)}
+            className="flex items-center px-6 py-3.5 text-[#B3B3B3] hover:text-white hover:bg-[#1A1A1A] transition-premium"
+          >
+            Design Tool
+          </Link>
+          <Link
+            href="/blog"
+            onClick={() => onOpenChange(false)}
+            className="flex items-center px-6 py-3.5 text-[#B3B3B3] hover:text-white hover:bg-[#1A1A1A] transition-premium"
+          >
+            Blog
+          </Link>
+          <Link
             href="/about"
             onClick={() => onOpenChange(false)}
             className="flex items-center px-6 py-3.5 text-[#B3B3B3] hover:text-white hover:bg-[#1A1A1A] transition-premium"

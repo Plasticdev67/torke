@@ -116,6 +116,20 @@ export function Header() {
                 asChild
                 className="text-white/80 hover:text-white hover:bg-white/10 transition-premium"
               >
+                <Link href="/design">Design</Link>
+              </Button>
+              <Button
+                variant="ghost"
+                asChild
+                className="text-white/80 hover:text-white hover:bg-white/10 transition-premium"
+              >
+                <Link href="/blog">Blog</Link>
+              </Button>
+              <Button
+                variant="ghost"
+                asChild
+                className="text-white/80 hover:text-white hover:bg-white/10 transition-premium"
+              >
                 <Link href="/about">About</Link>
               </Button>
               <Button

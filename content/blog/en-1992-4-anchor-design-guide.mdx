@@ -1,0 +1,124 @@
+---
+title: "EN 1992-4: A Practical Guide to Anchor Design in Concrete"
+description: "An overview of the EN 1992-4 design process for post-installed anchors, covering failure modes, safety factors, and combined loading."
+date: "2026-02-20"
+category: "eurocode-explainer"
+author: "Torke Engineering"
+tags: ["EN-1992-4", "eurocode", "anchor-design", "failure-modes", "safety-factors"]
+---
+
+## Introduction
+
+EN 1992-4 is the European standard for the design of fastenings in concrete. It replaced the previous ETAG 001 Annex C design method and is now the mandatory design basis for post-installed anchors across Europe and the UK (via BS EN 1992-4).
+
+This guide walks through the design process from load determination to final verification, covering each failure mode and the combined interaction check.
+
+## Step 1: Determine Design Actions
+
+The starting point is the characteristic actions on the anchor or anchor group. These are derived from the supported structure's design:
+
+- **Tension (N_Ed):** Direct pull-out loads from suspended equipment, cladding wind loads, or seismic uplift.
+- **Shear (V_Ed):** Lateral loads from brackets, handrails, or seismic base shear.
+- **Combined tension and shear:** Most real installations experience both simultaneously.
+
+Actions must be factored using the partial safety factors from EN 1990. For permanent and variable actions:
+- Gamma_G = 1.35 (permanent, unfavourable)
+- Gamma_Q = 1.50 (variable, unfavourable)
+
+## Step 2: Steel Failure
+
+Steel failure is a ductile failure mode -- the anchor rod itself yields and fractures. This is generally the preferred governing mode because it is predictable and provides warning before failure.
+
+**Tension:** N_Rk,s = A_s x f_uk
+
+Where A_s is the stressed cross-section of the rod and f_uk is the characteristic ultimate tensile strength.
+
+**Shear:** V_Rk,s = 0.5 x A_s x f_uk (for anchors without a sleeve)
+
+The partial safety factor for steel failure is gamma_Ms = 1.2 for ductile steel (f_uk/f_yk <= 1.25) or gamma_Ms = 1.5 for brittle steel.
+
+## Step 3: Concrete Cone Breakout (Tension)
+
+This is the most common failure mode for anchors in tension. A cone of concrete is pulled out, with the cone's size governed by the embedment depth h_ef.
+
+**Single anchor:** N_Rk,c = k_1 x sqrt(f_ck) x h_ef^1.5
+
+**Group of anchors:** The capacity is modified by the ratio of actual to reference projected areas, plus correction factors for edge distance, eccentricity, shell spalling, and cracking:
+
+N_Rk,c (group) = N_Rk,c^0 x (A_c,N / A_c,N^0) x psi_s,N x psi_re,N x psi_ec,N
+
+Each psi factor accounts for a specific geometric or loading condition:
+- **psi_s,N:** Edge distance effect (reduces capacity when c < 1.5 x h_ef)
+- **psi_re,N:** Shell spalling effect (1.0 for anchors with h_ef >= 100mm in reinforced concrete)
+- **psi_ec,N:** Load eccentricity within a group
+
+The partial safety factor gamma_Mc = 1.5 for concrete failure modes.
+
+## Step 4: Pull-Out Failure
+
+Pull-out is specific to the anchor mechanism. For expansion anchors, it represents the anchor slipping through the drilled hole without engaging the concrete. For bonded anchors, it is the bond failing along the anchor/adhesive and adhesive/concrete interfaces.
+
+For bonded anchors: N_Rk,p = tau_Rk x pi x d x h_ef
+
+Where tau_Rk is the characteristic bond strength from the ETA, d is the rod diameter, and h_ef is the embedment depth.
+
+Pull-out resistance for mechanical expansion anchors is typically governed by the ETA test data rather than a calculation formula.
+
+## Step 5: Concrete Pryout (Shear)
+
+Pryout failure occurs when a short, stiff anchor is loaded in shear. Instead of the concrete failing at the edge, the anchor pries out a cone of concrete on the opposite side to the applied shear.
+
+**V_Rk,cp = k_cp x N_Rk,c**
+
+Where k_cp = 1.0 for h_ef < 60mm and k_cp = 2.0 for h_ef >= 60mm.
+
+This mode governs for short anchors far from edges.
+
+## Step 6: Concrete Edge Failure (Shear)
+
+When an anchor is loaded in shear towards a free edge, the concrete can break out in a half-cone from the edge. The resistance depends on the edge distance c_1 (in the direction of the shear load).
+
+**V_Rk,c = k_9 x d^alpha x sqrt(l_f) x sqrt(f_ck) x c_1^1.5**
+
+This is modified by group effects, member thickness, load eccentricity, and cracking, analogous to the tension cone factors.
+
+Edge failure is critical for anchors in parapets, thin walls, and near slab edges.
+
+## Step 7: Splitting
+
+Splitting failure occurs when the expansion forces from the anchor installation (or loading) cause a crack to propagate through the concrete member. This is checked by ensuring:
+
+- Member thickness h >= h_min (from ETA)
+- Edge distance c >= c_cr,sp (from ETA)
+- Spacing s >= s_cr,sp (from ETA)
+
+If the geometric conditions are met and the member is reinforced, splitting is typically not governing.
+
+## Step 8: Combined Tension and Shear
+
+Most real-world anchor connections experience simultaneous tension and shear. EN 1992-4 uses an interaction equation:
+
+**(N_Ed / N_Rd)^alpha + (V_Ed / V_Rd)^alpha <= 1.0**
+
+The exponent alpha depends on the failure mode:
+- **Steel failure:** alpha = 2.0 (elliptical interaction)
+- **Concrete failure modes:** alpha = 1.5 (more conservative)
+
+The check is performed for each governing combination of tension and shear failure modes. The most critical pairing governs the design.
+
+## Partial Safety Factors Summary
+
+| Failure Mode | gamma_M |
+|---|---|
+| Steel (ductile) | 1.2 |
+| Steel (brittle) | 1.5 |
+| Concrete cone | 1.5 |
+| Pull-out (bonded) | 1.5 |
+| Pryout | 1.5 |
+| Edge breakout | 1.5 |
+
+## Using the Torke Design Tool
+
+Torke's [EN 1992-4 Design Tool](/design) automates this entire process. Input your anchor product, geometry, concrete properties, and loading -- the tool calculates all seven failure modes, applies the correct partial safety factors, checks the combined interaction, and identifies the governing failure mode.
+
+All calculations follow EN 1992-4:2018 and reference the relevant ETA parameters for Torke anchor products.
