@@ -38,30 +38,43 @@ created: 2026-03-05
 
 | Task ID | Plan | Wave | Requirement | Test Type | Automated Command | File Exists | Status |
 |---------|------|------|-------------|-----------|-------------------|-------------|--------|
-| 03-00-01 | 00 | 0 | DESIGN-01 | unit | `npx vitest run src/__tests__/design/` | ❌ W0 | ⬜ pending |
-| 03-01-01 | 01 | 1 | DESIGN-01,02,03 | unit | `npx vitest run src/__tests__/design/calc-engine.test.ts` | ❌ W0 | ⬜ pending |
-| 03-01-02 | 01 | 1 | DESIGN-04,05 | unit | `npx vitest run src/__tests__/design/failure-modes.test.ts` | ❌ W0 | ⬜ pending |
-| 03-01-03 | 01 | 1 | DESIGN-06 | unit | `npx vitest run src/__tests__/design/calc-validation.test.ts` | ❌ W0 | ⬜ pending |
-| 03-02-01 | 02 | 2 | DESIGN-08,09,10 | manual | Visual inspection of 3D scene | N/A | ⬜ pending |
-| 03-03-01 | 03 | 2 | DESIGN-02 | integration | `npx vitest run src/__tests__/design/input-form.test.ts` | ❌ W0 | ⬜ pending |
-| 03-04-01 | 04 | 3 | DESIGN-11,12,13 | unit | `npx vitest run src/__tests__/design/calc-report.test.ts` | ❌ W0 | ⬜ pending |
-| 03-05-01 | 05 | 3 | DESIGN-14,15,16 | integration | `npx vitest run src/__tests__/design/design-to-order.test.ts` | ❌ W0 | ⬜ pending |
-| 03-06-01 | 06 | 4 | DESIGN-17,18,19 | integration | `npx vitest run src/__tests__/design/access-gating.test.ts` | ❌ W0 | ⬜ pending |
+| 03-01-01 | 01 | 1 | DESIGN-01,02,03 | unit | `npx vitest run src/__tests__/calc-engine/calc-engine.test.ts` | No (created in Plan 01 Task 1) | pending |
+| 03-01-02 | 01 | 1 | DESIGN-04,05,06,07 | unit | `npx vitest run src/__tests__/calc-engine/failure-modes.test.ts` | No (created in Plan 01 Task 1) | pending |
+| 03-02-01 | 02 | 1 | DESIGN-02,17 | type-check | `npx tsc --noEmit 2>&1 \| head -20` | N/A | pending |
+| 03-02-02 | 02 | 1 | DESIGN-02 | type-check | `npx tsc --noEmit 2>&1 \| head -20` | N/A | pending |
+| 03-03-01 | 03 | 2 | DESIGN-08,09,10 | type-check | `npx tsc --noEmit 2>&1 \| head -20` | N/A | pending |
+| 03-03-02 | 03 | 2 | DESIGN-08,10 | manual | Visual inspection of 3D scene | N/A | pending |
+| 03-04-01 | 04 | 2 | DESIGN-04 | type-check | `npx tsc --noEmit 2>&1 \| head -20` | N/A | pending |
+| 03-04-02 | 04 | 2 | DESIGN-04 | type-check | `npx tsc --noEmit 2>&1 \| head -20` | N/A | pending |
+| 03-05-01 | 05 | 3 | DESIGN-06,11,12,13 | unit | `npx vitest run src/__tests__/calc-report/calc-report.test.ts` | No (created in Plan 05 Task 1) | pending |
+| 03-05-02 | 05 | 3 | DESIGN-18 | type-check | `npx tsc --noEmit 2>&1 \| head -20` | N/A | pending |
+| 03-06-01 | 06 | 4 | DESIGN-14,15,16,19 | type-check | `npx tsc --noEmit 2>&1 \| head -20` | N/A | pending |
+| 03-06-02 | 06 | 4 | DESIGN-17,18 | type-check | `npx tsc --noEmit 2>&1 \| head -20` | N/A | pending |
 
-*Status: ⬜ pending · ✅ green · ❌ red · ⚠️ flaky*
+*Status: pending / green / red / flaky*
+
+---
+
+## Wave-Level Build Verification
+
+| Wave | Plans | Build Command | When |
+|------|-------|---------------|------|
+| 1 | 01, 02 | `npx next build 2>&1 \| tail -10` | After all Wave 1 plans complete |
+| 2 | 03, 04 | `npx next build 2>&1 \| tail -10` | After all Wave 2 plans complete |
+| 3 | 05 | `npx next build 2>&1 \| tail -10` | After Wave 3 plans complete |
+| 4 | 06 | `npx next build 2>&1 \| tail -10` | After Wave 4 plans complete |
 
 ---
 
 ## Wave 0 Requirements
 
-- [ ] `src/__tests__/design/calc-engine.test.ts` — stubs for DESIGN-01,02,03 (failure mode calculations)
-- [ ] `src/__tests__/design/failure-modes.test.ts` — stubs for DESIGN-04,05 (utilisation ratios, anchor groups)
-- [ ] `src/__tests__/design/calc-validation.test.ts` — stubs for DESIGN-06 (client/server parity)
-- [ ] `src/__tests__/design/input-form.test.ts` — stubs for DESIGN-02 (input parameter validation)
-- [ ] `src/__tests__/design/calc-report.test.ts` — stubs for DESIGN-11,12,13 (PDF report generation)
-- [ ] `src/__tests__/design/design-to-order.test.ts` — stubs for DESIGN-14,15,16 (product matching, cart integration)
-- [ ] `src/__tests__/design/access-gating.test.ts` — stubs for DESIGN-17,18,19 (free access, gated export)
-- [ ] `src/__tests__/design/regression/` — directory for PROFIS validation fixtures
+- [ ] `src/__tests__/calc-engine/calc-engine.test.ts` -- stubs for calc engine pipeline (created by Plan 01 Task 1)
+- [ ] `src/__tests__/calc-engine/failure-modes.test.ts` -- stubs for failure mode calculations (created by Plan 01 Task 1)
+- [ ] `src/__tests__/calc-engine/groups.test.ts` -- stubs for group geometry (created by Plan 01 Task 1)
+- [ ] `src/__tests__/calc-engine/deterministic.test.ts` -- stubs for determinism check (created by Plan 01 Task 1)
+- [ ] `src/__tests__/calc-report/calc-report.test.ts` -- stubs for PDF report generation (created by Plan 05 Task 1)
+
+*Note: Plan 01 is a TDD plan that creates its own test scaffolds in Task 1. Plan 05 Task 1 is TDD and creates its test file. No separate Wave 0 plan is needed.*
 
 *Existing vitest infrastructure from Phase 2 covers framework setup.*
 
