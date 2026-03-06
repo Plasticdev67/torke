@@ -33,9 +33,9 @@ export const AnchorBolt = React.memo(function AnchorBolt({
       <mesh position={[0, -embedH / 2, 0]}>
         <cylinderGeometry args={[radius, radius, embedH, 16]} />
         <meshStandardMaterial
-          color="#999999"
-          metalness={0.8}
-          roughness={0.3}
+          color="#AABBCC"
+          metalness={0.85}
+          roughness={0.2}
         />
       </mesh>
 
@@ -43,9 +43,9 @@ export const AnchorBolt = React.memo(function AnchorBolt({
       <mesh position={[0, plateT + washerHeight / 2, 0]}>
         <cylinderGeometry args={[washerRadius, washerRadius, washerHeight, 16]} />
         <meshStandardMaterial
-          color="#777777"
-          metalness={0.8}
-          roughness={0.2}
+          color="#99AABB"
+          metalness={0.9}
+          roughness={0.15}
         />
       </mesh>
 
@@ -53,9 +53,9 @@ export const AnchorBolt = React.memo(function AnchorBolt({
       <mesh position={[0, plateT + washerHeight + threadHeight / 2, 0]}>
         <cylinderGeometry args={[radius * 0.9, radius * 0.9, threadHeight, 16]} />
         <meshStandardMaterial
-          color="#888888"
-          metalness={0.8}
-          roughness={0.4}
+          color="#A0B0C0"
+          metalness={0.85}
+          roughness={0.25}
         />
       </mesh>
     </group>

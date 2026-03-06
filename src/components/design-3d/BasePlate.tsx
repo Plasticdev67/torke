@@ -18,9 +18,9 @@ export const BasePlate = React.memo(function BasePlate() {
     <mesh position={[0, t / 2, 0]}>
       <boxGeometry args={[w, t, d]} />
       <meshStandardMaterial
-        color="#555555"
-        metalness={0.7}
-        roughness={0.3}
+        color="#9AAABB"
+        metalness={0.85}
+        roughness={0.15}
       />
     </mesh>
   );
