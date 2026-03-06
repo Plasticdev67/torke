@@ -539,7 +539,7 @@ export default async function HomePage() {
                 description: "Heavy-duty pure epoxy for maximum load capacity in cracked and non-cracked concrete. ETA Option 1.",
                 image: "/site/tr-500-product.png",
                 accent: "bg-[#C41E3A]",
-                slug: "pro-v500-v4-resin-anchor",
+                slug: "tr-500",
               },
               {
                 name: "TR-200",
@@ -547,7 +547,7 @@ export default async function HomePage() {
                 description: "Fast-curing vinylester hybrid for high throughput installations. Excellent in diamond-cored holes.",
                 image: "/site/tr-200-product.png",
                 accent: "bg-[#666]",
-                slug: "pro-v200-v4-resin",
+                slug: "tr-200",
               },
               {
                 name: "TR-PLUS",
@@ -555,7 +555,7 @@ export default async function HomePage() {
                 description: "Cost-effective polyester resin for non-structural and light-duty anchoring applications.",
                 image: "/site/tr-plus-product.png",
                 accent: "bg-[#444]",
-                slug: "pro-v-plus-resin",
+                slug: "tr-plus",
               },
             ].map((product, i) => (
               <ScrollReveal key={product.name} delay={i * 120}>
