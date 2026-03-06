@@ -99,12 +99,41 @@ export const DimensionAnnotations = React.memo(function DimensionAnnotations({
     offset: [0.02, 0, 0],
   });
 
-  // Edge distance c1 (from bolt to concrete edge, along x+)
-  const minC = Math.min(edgeDistances.c1, edgeDistances.c2) / 1000;
+  // Edge distances c1–c4 (from bolt group to each concrete edge)
+  const c1m = edgeDistances.c1 / 1000;
+  const c2m = edgeDistances.c2 / 1000;
+  const c3m = edgeDistances.c3 / 1000;
+  const c4m = edgeDistances.c4 / 1000;
+
+  // c1: +X direction (right edge)
+  lines.push({
+    start: [pw / 2, 0.015, 0],
+    end: [pw / 2 + c1m, 0.015, 0],
+    label: `c₁ = ${edgeDistances.c1} mm`,
+    offset: [0, 0.01, 0],
+  });
+
+  // c2: -X direction (left edge)
+  lines.push({
+    start: [-pw / 2, 0.015, 0],
+    end: [-pw / 2 - c2m, 0.015, 0],
+    label: `c₂ = ${edgeDistances.c2} mm`,
+    offset: [0, 0.01, 0],
+  });
+
+  // c3: +Z direction (front edge)
   lines.push({
     start: [0, 0.015, pd / 2],
-    end: [0, 0.015, pd / 2 + minC],
-    label: `c = ${Math.min(edgeDistances.c1, edgeDistances.c2)} mm`,
+    end: [0, 0.015, pd / 2 + c3m],
+    label: `c₃ = ${edgeDistances.c3} mm`,
+    offset: [0, 0.01, 0],
+  });
+
+  // c4: -Z direction (back edge)
+  lines.push({
+    start: [0, 0.015, -pd / 2],
+    end: [0, 0.015, -pd / 2 - c4m],
+    label: `c₄ = ${edgeDistances.c4} mm`,
     offset: [0, 0.01, 0],
   });
 
