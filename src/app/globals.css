@@ -247,3 +247,29 @@
     rgba(196, 30, 58, 0.02) 41px
   );
 }
+
+/* Hero entrance animation */
+@keyframes heroEntrance {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero-entrance {
+  animation: heroEntrance 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  opacity: 0;
+}
+
+/* Hide scrollbar for trust strip */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
