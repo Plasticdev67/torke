@@ -43,6 +43,9 @@ next-env.d.ts
 
 # scraped assets (binary files, not for git)
 /data/assets/
+/public/assets/
 
 # script output
 /dist/scripts/
+
+.vercel

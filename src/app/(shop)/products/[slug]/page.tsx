@@ -14,6 +14,7 @@ import { ProductSpecs } from "@/components/products/ProductSpecs";
 import { ProductCard } from "@/components/products/ProductCard";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { productSchema, breadcrumbSchema } from "@/lib/schema-markup";
+import { assetUrl } from "@/lib/utils";
 
 export const dynamic = "force-dynamic";
 
@@ -44,7 +45,7 @@ export async function generateMetadata({
         product.description?.slice(0, 160) ||
         `${product.name} - Professional construction fixings.`,
       images: product.images?.[0]
-        ? [`/${product.images[0].replace(/\\/g, "/")}`]
+        ? [`/${product.images[0].replace(/\\/g, "/").replace(/^data\//, "")}`]
         : [],
     },
   };
@@ -272,7 +273,7 @@ export default async function ProductDetailPage({ params }: PageProps) {
                 className="w-full border-[#333] bg-transparent text-white hover:bg-[#1A1A1A] font-semibold h-12"
               >
                 <a
-                  href={product.datasheetUrl}
+                  href={assetUrl(product.datasheetUrl)}
                   target="_blank"
                   rel="noopener noreferrer"
                   download
@@ -368,7 +369,7 @@ export default async function ProductDetailPage({ params }: PageProps) {
           finish={product.finish}
           etaReference={product.etaReference}
           loadClass={product.loadClass}
-          datasheetUrl={product.datasheetUrl}
+          datasheetUrl={product.datasheetUrl ? assetUrl(product.datasheetUrl) : null}
         />
       </div>
 

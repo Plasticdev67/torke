@@ -31,7 +31,7 @@ export function productSchema(product: {
       "@type": "Organization",
       name: "Torke",
     },
-    image: product.images?.map((img) => `${SITE_URL}/${img.replace(/\\/g, "/")}`) ?? [],
+    image: product.images?.map((img) => `${SITE_URL}/${img.replace(/\\/g, "/").replace(/^data\//, "")}`) ?? [],
     ...(product.pricePence != null
       ? {
           offers: {

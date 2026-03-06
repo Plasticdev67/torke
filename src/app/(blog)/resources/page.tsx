@@ -6,6 +6,7 @@ import { products, categories } from "@/server/db/schema/products";
 import { eq, isNotNull, and } from "drizzle-orm";
 import { Badge } from "@/components/ui/badge";
 import { ResourceFilter } from "./ResourceFilter";
+import { assetUrl } from "@/lib/utils";
 
 export const dynamic = "force-dynamic";
 
@@ -79,7 +80,7 @@ export default async function ResourcesPage() {
     name: p.name,
     slug: p.slug,
     sku: p.sku,
-    datasheetUrl: p.datasheetUrl!,
+    datasheetUrl: assetUrl(p.datasheetUrl!),
     etaReference: p.etaReference,
     category: p.parentId
       ? parentCategories.get(p.parentId)?.slug ?? p.categorySlug

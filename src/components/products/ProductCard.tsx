@@ -23,7 +23,7 @@ export function ProductCard({
   images,
   category,
 }: ProductCardProps) {
-  const imageUrl = images?.[0] ? `/${images[0].replace(/\\/g, "/")}` : null;
+  const imageUrl = images?.[0] ? `/${images[0].replace(/\\/g, "/").replace(/^data\//, "")}` : null;
 
   return (
     <Link href={`/products/${slug}`} className="group block">

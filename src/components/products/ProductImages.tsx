@@ -14,7 +14,7 @@ export function ProductImages({ images, productName }: ProductImagesProps) {
 
   // Normalize backslashes to forward slashes and prepend /
   const normalizedImages = images.map((img) =>
-    "/" + img.replace(/\\/g, "/")
+    "/" + img.replace(/\\/g, "/").replace(/^data\//, "")
   );
 
   if (normalizedImages.length === 0) {
