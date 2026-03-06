@@ -35,7 +35,7 @@ export function ResultsPanel() {
   const totalChecks = allModes.length;
 
   return (
-    <div className="flex flex-1 flex-col overflow-y-auto px-3 py-3">
+    <div className="flex flex-1 flex-col px-3 py-3">
       {/* Scope limitations banner */}
       {results.scopeLimitations.length > 0 && (
         <div className="mb-3 rounded-lg border border-amber-800/50 bg-amber-950/30 px-3 py-2">

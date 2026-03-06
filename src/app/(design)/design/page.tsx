@@ -157,11 +157,11 @@ export default function DesignPage() {
         {/* Overall status (compact) */}
         <OverallStatus />
 
-        {/* Results panel (scrollable, flex-1) */}
-        <ResultsPanel />
-
-        {/* Product recommendations (below results) */}
-        <ProductRecommendations />
+        {/* Results + recommendations (scrollable together) */}
+        <div className="flex flex-1 flex-col overflow-y-auto">
+          <ResultsPanel />
+          <ProductRecommendations />
+        </div>
 
         {/* Sticky action bar */}
         <ActionBar />
