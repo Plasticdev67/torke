@@ -23,7 +23,7 @@ function DimensionLine({ start, end, label, offset = [0, 0, 0] }: DimensionLineP
     <group>
       <Line
         points={[start, end]}
-        color="#ffffff"
+        color="#333333"
         lineWidth={1}
         dashed
         dashSize={0.005}
@@ -35,7 +35,7 @@ function DimensionLine({ start, end, label, offset = [0, 0, 0] }: DimensionLineP
           [start[0], start[1] - 0.005, start[2]],
           [start[0], start[1] + 0.005, start[2]],
         ]}
-        color="#ffffff"
+        color="#333333"
         lineWidth={1.5}
       />
       <Line
@@ -43,20 +43,22 @@ function DimensionLine({ start, end, label, offset = [0, 0, 0] }: DimensionLineP
           [end[0], end[1] - 0.005, end[2]],
           [end[0], end[1] + 0.005, end[2]],
         ]}
-        color="#ffffff"
+        color="#333333"
         lineWidth={1.5}
       />
       <Html position={midpoint} center>
         <div
           style={{
-            background: "rgba(0,0,0,0.75)",
+            background: "rgba(51,51,51,0.9)",
             color: "#fff",
             fontSize: "10px",
+            fontFamily: "monospace",
             padding: "2px 6px",
-            borderRadius: "4px",
+            borderRadius: "3px",
             whiteSpace: "nowrap",
             pointerEvents: "none",
             userSelect: "none",
+            boxShadow: "0 1px 3px rgba(0,0,0,0.2)",
           }}
         >
           {label}

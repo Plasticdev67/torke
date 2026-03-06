@@ -21,10 +21,10 @@ const AnchorScene = dynamic(
   {
     ssr: false,
     loading: () => (
-      <div className="flex h-full items-center justify-center bg-[#1A1A1A]">
+      <div className="flex h-full items-center justify-center bg-[#E8E4E0]">
         <div className="text-center">
-          <div className="mx-auto mb-3 h-8 w-8 animate-spin rounded-full border-2 border-[#333] border-t-[#C41E3A]" />
-          <p className="text-xs text-[#666]">Loading 3D scene...</p>
+          <div className="mx-auto mb-3 h-8 w-8 animate-spin rounded-full border-2 border-[#C0B8B0] border-t-[#C41E3A]" />
+          <p className="text-xs text-[#888]">Loading 3D scene...</p>
         </div>
       </div>
     ),
@@ -84,10 +84,10 @@ export default function DesignPage() {
       {/* Right panel: 3D Visualisation + Results */}
       <div className="flex flex-1 flex-col overflow-hidden">
         {/* 3D Visualisation -- hidden on mobile, shown on lg+ */}
-        <div className="hidden lg:flex h-[50%] shrink-0 flex-col border-b border-[#222]">
+        <div className="hidden lg:flex h-[50%] shrink-0 flex-col border-b border-[#333]">
           {/* Cone / dimension toggle controls */}
-          <div className="flex items-center gap-3 border-b border-[#222] bg-[#111] px-3 py-1.5 text-xs">
-            <label className="flex items-center gap-1.5 text-[#888] hover:text-white cursor-pointer">
+          <div className="flex items-center gap-3 border-b border-[#D0C8C0] bg-[#E8E4E0] px-3 py-1.5 text-xs">
+            <label className="flex items-center gap-1.5 text-[#666] hover:text-[#333] cursor-pointer">
               <input
                 type="checkbox"
                 checked={showDimensions}
@@ -96,8 +96,8 @@ export default function DesignPage() {
               />
               Dimensions
             </label>
-            <span className="text-[#333]">|</span>
-            <label className="flex items-center gap-1.5 text-[#888] hover:text-white cursor-pointer">
+            <span className="text-[#C0B8B0]">|</span>
+            <label className="flex items-center gap-1.5 text-[#666] hover:text-[#333] cursor-pointer">
               <input
                 type="checkbox"
                 checked={showCones.coneBreakout}
@@ -108,7 +108,7 @@ export default function DesignPage() {
               />
               Cone Breakout
             </label>
-            <label className="flex items-center gap-1.5 text-[#888] hover:text-white cursor-pointer">
+            <label className="flex items-center gap-1.5 text-[#666] hover:text-[#333] cursor-pointer">
               <input
                 type="checkbox"
                 checked={showCones.edgeBreakout}
@@ -119,7 +119,7 @@ export default function DesignPage() {
               />
               Edge Breakout
             </label>
-            <label className="flex items-center gap-1.5 text-[#888] hover:text-white cursor-pointer">
+            <label className="flex items-center gap-1.5 text-[#666] hover:text-[#333] cursor-pointer">
               <input
                 type="checkbox"
                 checked={showCones.pryout}
@@ -143,12 +143,12 @@ export default function DesignPage() {
         </div>
 
         {/* Mobile fallback: hidden on lg+ */}
-        <div className="flex lg:hidden items-center justify-center border-b border-[#222] bg-[#1A1A1A] py-6">
+        <div className="flex lg:hidden items-center justify-center border-b border-[#D0C8C0] bg-[#E8E4E0] py-6">
           <div className="text-center px-6">
             <div className="mb-2 text-sm font-medium text-[#666]">
               3D Visualisation
             </div>
-            <p className="text-xs text-[#444]">
+            <p className="text-xs text-[#888]">
               Rotate to landscape or use a larger screen to view the interactive 3D model
             </p>
           </div>

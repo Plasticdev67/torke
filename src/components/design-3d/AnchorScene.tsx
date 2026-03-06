@@ -35,10 +35,11 @@ function SceneContent({
 
   return (
     <>
-      {/* Lighting */}
-      <ambientLight intensity={0.4} />
-      <directionalLight position={[5, 5, 5]} intensity={0.8} />
-      <directionalLight position={[-3, 3, -3]} intensity={0.3} />
+      {/* Lighting — bright, engineering-drawing style */}
+      <ambientLight intensity={0.6} />
+      <directionalLight position={[5, 8, 5]} intensity={1.0} castShadow />
+      <directionalLight position={[-3, 4, -3]} intensity={0.4} />
+      <hemisphereLight args={["#D5CFC8", "#8A8580", 0.3]} />
 
       {/* Scene objects */}
       <ConcreteBlock />
@@ -83,10 +84,10 @@ function SceneContent({
 /** Loading skeleton for Suspense fallback */
 function SceneLoader() {
   return (
-    <div className="flex h-full items-center justify-center">
+    <div className="flex h-full items-center justify-center bg-[#E8E4E0]">
       <div className="text-center">
-        <div className="mx-auto mb-3 h-8 w-8 animate-spin rounded-full border-2 border-[#333] border-t-[#C41E3A]" />
-        <p className="text-xs text-[#666]">Loading 3D scene...</p>
+        <div className="mx-auto mb-3 h-8 w-8 animate-spin rounded-full border-2 border-[#C0B8B0] border-t-[#C41E3A]" />
+        <p className="text-xs text-[#888]">Loading 3D scene...</p>
       </div>
     </div>
   );
@@ -100,17 +101,19 @@ export function AnchorScene({
 }: AnchorSceneProps) {
   return (
     <Suspense fallback={<SceneLoader />}>
-      <Canvas
-        camera={{ position: [0.3, 0.3, 0.3], fov: 50 }}
-        style={{ background: "#1A1A1A" }}
-        gl={{ antialias: true, alpha: false }}
-      >
-        <SceneContent
-          showDimensions={showDimensions}
-          showCones={showCones}
-          failureModes={failureModes}
-        />
-      </Canvas>
+      <div className="relative w-full h-full" style={{ background: "linear-gradient(180deg, #E8E4E0 0%, #D5CFC8 100%)" }}>
+        <Canvas
+          camera={{ position: [0.3, 0.3, 0.3], fov: 50 }}
+          gl={{ antialias: true, alpha: true }}
+          style={{ background: "transparent" }}
+        >
+          <SceneContent
+            showDimensions={showDimensions}
+            showCones={showCones}
+            failureModes={failureModes}
+          />
+        </Canvas>
+      </div>
     </Suspense>
   );
 }
